@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Documentação do Global, o bot open-source do Fluxer: política de privacidade e como os seus dados são tratados.">
+  <meta name="theme-color" content="#0330ef">
+  <title>Documentação — Global</title>
+  <link rel="icon" type="image/png" href="assets/global.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <aside class="sidebar">
+    <a class="sidebar__logo" href="/" aria-label="Global — documentação">
+      <img class="wordmark" src="assets/wordmark.svg" alt="" width="1920" height="1157">
+    </a>
+
+    <nav class="sidebar__nav" aria-label="Documentação">
+      <a class="sidebar__link is-active" href="/" aria-current="page">
+        <svg class="icon" aria-hidden="true"><use href="#book"/></svg><span>Documentação</span>
+      </a>
+      <a class="sidebar__link" href="/privacidade">
+        <svg class="icon" aria-hidden="true"><use href="#shield"/></svg><span>Privacidade</span>
+      </a>
+      <hr class="sidebar__divider">
+      <a class="sidebar__link" href="https://globalbot.site" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" aria-hidden="true"><use href="#home"/></svg><span>Site do Global</span>
+      </a>
+      <a class="sidebar__link" href="https://github.com/Global-APP/global" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" aria-hidden="true"><use href="#github"/></svg><span>GitHub</span>
+      </a>
+    </nav>
+
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">
+      <svg class="icon icon--moon" aria-hidden="true"><use href="#moon"/></svg>
+      <svg class="icon icon--sun" aria-hidden="true"><use href="#sun"/></svg>
+    </button>
+  </aside>
+
+  <header class="topbar">
+    <a class="topbar__logo" href="/" aria-label="Global — documentação">
+      <img class="wordmark" src="assets/wordmark.svg" alt="" width="1920" height="1157">
+    </a>
+
+    <div class="topbar__actions">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">
+        <svg class="icon icon--moon" aria-hidden="true"><use href="#moon"/></svg>
+        <svg class="icon icon--sun" aria-hidden="true"><use href="#sun"/></svg>
+      </button>
+      <button class="theme-toggle" type="button" data-menu-open aria-label="Abrir menu">
+        <svg class="icon" aria-hidden="true"><use href="#burger"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="menu" id="menu" aria-label="Menu">
+    <button class="theme-toggle menu__close" type="button" data-menu-close aria-label="Fechar menu">
+      <svg class="icon" aria-hidden="true"><use href="#close"/></svg>
+    </button>
+
+    <nav class="menu__nav">
+      <a class="menu__link" href="/">Documentação</a>
+      <a class="menu__link" href="/privacidade">Privacidade</a>
+      <a class="menu__link" href="https://globalbot.site">Site do Global</a>
+    </nav>
+
+    <div class="menu__links">
+      <a class="btn btn--line" href="https://github.com/Global-APP/global" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>GitHub</a>
+    </div>
+  </dialog>
+
+  <main class="page">
+    <section class="docs-hero" id="inicio">
+      <span class="docs-hero__kicker">Documentação</span>
+      <h1 class="docs-hero__title">Tudo sobre o <em>Global</em>, às claras.</h1>
+      <p class="docs-hero__lead">Aqui ficam os documentos do bot: como os seus dados são tratados, o que é guardado e por quanto tempo. Tudo escrito em português e mantido junto com o código aberto do projeto.</p>
+      <div class="docs-hero__actions">
+        <a class="btn btn--fill" href="/privacidade">Política de Privacidade <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></a>
+        <a class="btn btn--line" href="https://globalbot.site">Voltar ao site <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></a>
+      </div>
+    </section>
+
+    <section class="section" id="documentos">
+      <div class="section-head reveal"><span class="section-head__num">01</span><h2>Documentos</h2></div>
+      <p class="section__intro reveal">O que você encontra por aqui e onde pedir ajuda.</p>
+
+      <div class="doc-grid">
+        <a class="doc-card reveal" href="/privacidade">
+          <span class="doc-card__icon"><svg class="icon" aria-hidden="true"><use href="#shield"/></svg></span>
+          <h3 class="doc-card__title">Política de Privacidade</h3>
+          <p class="doc-card__text">Quais dados o bot coleta, para que servem, por quanto tempo ficam guardados e como pedir a exclusão, conforme a LGPD.</p>
+          <span class="doc-card__meta">Ler agora <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a>
+
+        <a class="doc-card reveal" href="https://github.com/Global-APP/global" target="_blank" rel="noopener noreferrer">
+          <span class="doc-card__icon"><svg class="icon" aria-hidden="true"><use href="#github"/></svg></span>
+          <h3 class="doc-card__title">Código-fonte</h3>
+          <p class="doc-card__text">O bot é open-source. Veja o código, acompanhe as mudanças e confira por conta própria como tudo funciona.</p>
+          <span class="doc-card__meta">Abrir no GitHub <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a>
+
+        <a class="doc-card reveal" href="https://fluxer.gg/hDYAW1OU" target="_blank" rel="noopener noreferrer">
+          <span class="doc-card__icon"><svg class="icon" aria-hidden="true"><use href="#book"/></svg></span>
+          <h3 class="doc-card__title">Suporte</h3>
+          <p class="doc-card__text">Ficou com alguma dúvida? Entre no servidor de suporte no Fluxer e fale com a gente.</p>
+          <span class="doc-card__meta">Entrar no servidor <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="resumo">
+      <div class="section-head reveal"><span class="section-head__num">02</span><h2>Privacidade em resumo</h2></div>
+      <p class="section__intro reveal">Os prazos principais da política. Os detalhes completos estão na página de privacidade.</p>
+
+      <div class="facts">
+        <div class="fact reveal"><span class="fact__value">0</span><span class="fact__label">mensagens guardadas. O bot só retransmite o conteúdo.</span></div>
+        <div class="fact reveal"><span class="fact__value">7 dias</span><span class="fact__label">de vínculo entre a mensagem original e as cópias.</span></div>
+        <div class="fact reveal"><span class="fact__value">30 dias</span><span class="fact__label">de registros do bot, sem o texto das mensagens.</span></div>
+        <div class="fact reveal"><span class="fact__value">15 dias</span><span class="fact__label">para responder pedidos de acesso ou exclusão.</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="aberto">
+      <div class="section-head reveal"><span class="section-head__num">03</span><h2>Documentação aberta</h2></div>
+      <div class="open reveal">
+        <p>Os documentos ficam no repositório do bot, junto com o código. Cada mudança fica registrada no histórico do GitHub, então você pode ver o que foi alterado e quando.</p>
+        <div class="open__actions">
+          <a class="btn btn--fill" href="https://github.com/Global-APP/global/blob/main/PRIVACIDADE.md" target="_blank" rel="noopener noreferrer">Ver PRIVACIDADE.md <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a class="btn btn--line" href="https://github.com/Global-APP/global/commits/main/PRIVACIDADE.md" target="_blank" rel="noopener noreferrer">Histórico de mudanças <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__main">
+      <div class="footer__brand">
+        <a href="/" aria-label="Global — documentação">
+          <img class="wordmark" src="assets/wordmark.svg" alt="" width="1920" height="1157">
+        </a>
+        <p>Documentação do Global, o chat global do Fluxer.</p>
+        <a class="pill" href="https://github.com/Global-APP/global" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" aria-hidden="true"><use href="#github"/></svg>
+          <b>Open-source</b> no GitHub
+        </a>
+      </div>
+
+      <nav aria-label="Documentação">
+        <h3 class="footer__title">Documentação</h3>
+        <ul class="footer__list">
+          <li><a href="/">Início</a></li>
+          <li><a href="/privacidade">Política de Privacidade</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Links">
+        <h3 class="footer__title">Links</h3>
+        <ul class="footer__list">
+          <li><a href="https://globalbot.site">Site do Global</a></li>
+          <li><a href="https://fluxer.gg/hDYAW1OU" target="_blank" rel="noopener noreferrer">Servidor de suporte</a></li>
+          <li><a href="https://github.com/Global-APP/global/issues" target="_blank" rel="noopener noreferrer">Reportar um problema</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Global</span>
+      <span>Criado por xMqR · Apoiado financeiramente por Joao.</span>
+    </div>
+  </footer>
+
+  <svg aria-hidden="true" style="position: absolute; width: 0; height: 0">
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 11h12.2l-4.6-4.6L13 5l7 7-7 7-1.4-1.4 4.6-4.6H4z"/></symbol>
+    <symbol id="github" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+    <symbol id="book" viewBox="0 0 24 24"><path d="M5 3h12a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V4a1 1 0 011-1zm1 2v11.2A3 3 0 017 16h10V5zm1 13a1 1 0 000 2h10v-2z"/></symbol>
+    <symbol id="shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5.2-3.4 9.7-8 11-4.6-1.3-8-5.8-8-11V5zm0 2.1L6 6.4V11c0 4 2.4 7.4 6 8.8 3.6-1.4 6-4.8 6-8.8V6.4zm-1 10.3L8.3 11.7l1.4-1.4L11 11.6l3.3-3.3 1.4 1.4z"/></symbol>
+    <symbol id="home" viewBox="0 0 24 24"><path d="M12 3l9 8h-3v9h-5v-6h-2v6H6v-9H3z"/></symbol>
+    <symbol id="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></symbol>
+    <symbol id="sun" viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8 4 4 0 000-8zM11 1h2v3h-2zm0 19h2v3h-2zM1 11h3v2H1zm19 0h3v2h-3zM4.2 5.6l1.4-1.4 2.1 2.1-1.4 1.4zm12.1 12.1l1.4-1.4 2.1 2.1-1.4 1.4zM5.6 19.8l-1.4-1.4 2.1-2.1 1.4 1.4zM17.7 7.7l-1.4-1.4 2.1-2.1 1.4 1.4z"/></symbol>
+    <symbol id="burger" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></symbol>
+    <symbol id="close" viewBox="0 0 24 24"><path d="M5.6 4.2L12 10.6l6.4-6.4 1.4 1.4-6.4 6.4 6.4 6.4-1.4 1.4-6.4-6.4-6.4 6.4-1.4-1.4 6.4-6.4-6.4-6.4z"/></symbol>
+  </svg>
+
+  <script src="js/docs.js" defer></script>
+</body>
+</html>
