@@ -1,65 +1,110 @@
 <div align="center">
 
-<a href="https://globalbot.site"><img src="assets/global.png" alt="Global" width="120" height="120"></a>
+<a href="https://globalbot.site"><img src=".github/assets/global-icon.png" alt="Global" width="120" height="120"></a>
 
 # Global
 
-O chat global do [Fluxer](https://fluxer.app). Conecte o seu servidor a dezenas de comunidades, com código aberto.
+Um chat só para o Fluxer e o Discord.
 
 [![Site](https://img.shields.io/badge/site-globalbot.site-0330ef?style=flat-square&labelColor=0B0B0B)](https://globalbot.site)
-[![Bot](https://img.shields.io/badge/bot-Global--APP%2Fglobal-0330ef?style=flat-square&labelColor=0B0B0B&logo=github)](https://github.com/Global-APP/global)
-[![HTML CSS JS](https://img.shields.io/badge/HTML%20%C2%B7%20CSS%20%C2%B7%20JS-0330ef?style=flat-square&labelColor=0B0B0B)](#tecnologias)
-[![Vercel](https://img.shields.io/badge/hospedado%20na-Vercel-0330ef?style=flat-square&labelColor=0B0B0B&logo=vercel)](https://vercel.com)
-[![Licença](https://img.shields.io/badge/licen%C3%A7a-PolyForm%20Noncommercial-0330ef?style=flat-square&labelColor=0B0B0B)](https://polyformproject.org/licenses/noncommercial/1.0.0/)
+[![Fluxer](https://img.shields.io/badge/Fluxer-adicionar-0330ef?style=flat-square&labelColor=0B0B0B)](https://web.fluxer.app/oauth2/authorize?client_id=1562253521942745089&scope=bot&permissions=4503600164629568)
+[![Node.js](https://img.shields.io/badge/Node.js-20%2B-0330ef?style=flat-square&labelColor=0B0B0B&logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![MongoDB](https://img.shields.io/badge/MongoDB-0330ef?style=flat-square&labelColor=0B0B0B&logo=mongodb&logoColor=white)](https://www.mongodb.com)
+[![Licença](https://img.shields.io/badge/licen%C3%A7a-PolyForm%20Noncommercial-0330ef?style=flat-square&labelColor=0B0B0B)](LICENSE)
 
 <br>
 
-<a href="https://globalbot.site"><img src="assets/readme/chat.png" alt="Chat do Global" width="620"></a>
+<img src=".github/assets/readme/chat.png" alt="Mensagens do Fluxer e do Discord chegando no Global" width="640">
 
 </div>
 
-> [!NOTE]
-> A imagem acima é fícticia, somente para representar o fluxo do chat. Este repositório é o **site** do Global. O código do bot fica em [Global-APP/global](https://github.com/Global-APP/global).
+<br>
+
+> Este repositório é o bot. O site fica em [globaloficial/global_site](https://github.com/globaloficial/global_site).
 
 <br>
 
 <h2 align="center">Sobre</h2>
 
 <p align="center">
-O site apresenta o bot, mostra uma demonstração do chat em 3D, lista os servidores parceiros<br>
-e exibe as estatísticas em tempo real. É feito só com HTML, CSS e JavaScript,<br>
-sem framework e sem etapa de build.
+O Global junta comunidades do <a href="https://fluxer.app">Fluxer</a> e do Discord num mesmo chat.<br>
+Cada servidor escolhe um canal, e o que é escrito ali aparece nos canais dos outros.<br>
+Editar, apagar e responder também funciona entre os servidores.
 </p>
 
 <br>
 
-<h2 align="center">Como o chat funciona</h2>
+<h2 align="center">Como funciona</h2>
+
+<div align="center">
+<img src=".github/assets/readme/fluxo.png" alt="O caminho de uma mensagem pelo Global" width="760">
+</div>
+
+<br>
 
 <div align="center">
 
 | Etapa | O que acontece |
 | :---: | --- |
 | **1** | Alguém escreve no canal global do servidor |
-| **2** | O bot passa a mensagem pelos filtros: links, convites, spam, palavras e NSFW |
-| **3** | A mensagem é guardada no banco de dados |
-| **4** | O bot monta um embed com o autor e o nome do servidor |
-| **5** | O embed é enviado para os canais globais de todas as comunidades conectadas |
-| **6** | Edições, exclusões e replies são sincronizados entre os servidores |
+| **2** | A mensagem passa pelos filtros: links, convites, spam, palavras e NSFW |
+| **3** | O vínculo é guardado no MongoDB, para sincronizar edições e exclusões |
+| **4** | Emojis e menções são convertidos para a plataforma de destino |
+| **5** | Cada plataforma tem a sua fila, com limite de requisições |
+| **6** | O bot envia por webhook, com o nome e o avatar de quem escreveu |
 
 </div>
 
+<p align="center">O Global precisa da permissão <b>Gerenciar Webhooks</b> no canal conectado. Sem ela, a mensagem não chega e o bot avisa no canal.</p>
+
 <br>
 
-<h2 align="center">Funções do bot</h2>
+<h2 align="center">Fluxer e Discord</h2>
+
+<p align="center">
+Os dois bots rodam no mesmo processo.<br>
+Cada plataforma tem a sua fila de envio, então o limite de uma não segura a outra.
+</p>
+
+<br>
+
+<h2 align="center">Pontes privadas</h2>
+
+<p align="center">
+Quem não quer usar o chat global pode ligar canais de servidores amigos, entre Fluxer e Discord.<br>
+As mensagens ficam só dentro da ponte.
+</p>
 
 <div align="center">
 
-| Função | Descrição |
+| Comando | O que faz |
 | --- | --- |
-| `g.config` | Escolhe o canal onde o chat global aparece |
-| `g.automod` | Ajusta os filtros automáticos do servidor |
-| `g.pausar` · `g.retomar` | Pausa e retoma a conexão com o chat |
-| `g.desconectar` | Remove o servidor da rede |
+| `g.ponte criar [nome]` | Cria a ponte com o canal atual e gera um código |
+| `g.ponte entrar <código>` | Liga o canal atual a uma ponte |
+| `g.ponte listar` | Mostra as pontes do servidor |
+| `g.ponte sair` | Tira o canal atual da ponte |
+| `g.ponte remover <código> <id>` | O dono tira outro servidor da ponte |
+| `g.ponte encerrar <código>` | O dono apaga a ponte |
+
+</div>
+
+<p align="center">Até 10 servidores por ponte. Um canal não pode estar no chat global e em uma ponte ao mesmo tempo.</p>
+
+<br>
+
+<h2 align="center">Comandos</h2>
+
+<p align="center">No Discord os comandos também existem como slash. É preciso ter a permissão <b>Gerenciar Canais</b>.</p>
+
+<div align="center">
+
+| Comando | O que faz |
+| --- | --- |
+| `g.conectar` · `g.desconectar` | Define ou remove o canal do chat global |
+| `g.pausar` · `g.retomar` | Pausa e retoma a conexão |
+| `g.config` | Mostra o estado da conexão, do webhook e dos filtros |
+| `g.automod` | Ajusta os filtros automáticos |
+| `g.ponte` | Cria e gerencia pontes privadas |
 | `g.perfil` · `g.destacar` | Perfil do usuário e destaque de mensagens |
 | `g.report` | Envia uma mensagem para a moderação |
 | `g.botinfo` · `g.ping` · `g.ajuda` | Informações, latência e lista de comandos |
@@ -68,83 +113,80 @@ sem framework e sem etapa de build.
 
 <br>
 
-<h2 align="center">Páginas do site</h2>
+<h2 align="center">Instalação</h2>
 
-<div align="center">
-
-| Página | Arquivo | O que mostra |
-| --- | --- | --- |
-| Início | `index.html` | Recursos, demonstração do chat, código aberto e como usar |
-| Parceiros | `parceiros.html` | Cards 3D com as comunidades parceiras |
-| Estatísticas | `estatisticas.html` | Mensagens de hoje, servidores conectados, membros e ranking |
-
-</div>
-
-<br>
-
-<h2 align="center" id="tecnologias">Tecnologias</h2>
-
-<div align="center">
-
-| Parte | Tecnologias |
-| --- | --- |
-| Site | HTML, CSS e JavaScript puro, hospedado na Vercel |
-| Bot | JavaScript (Node.js 20+ ou Bun), `@fluxerjs/core`, Mongoose e MongoDB, `@napi-rs/canvas` |
-
-</div>
-
-<br>
-
-<h2 align="center">Rodar localmente</h2>
-
-<p align="center">Não há nada para instalar. Abra o <code>index.html</code> no navegador, ou use um servidor estático para testar as URLs sem <code>.html</code>:</p>
+<p align="center">Requer Node.js 20+ ou Bun, um MongoDB em execução e o token de um bot do Fluxer.</p>
 
 ```sh
-git clone https://github.com/Global-APP/Global-Site
-cd Global-Site
-npx serve .
+git clone https://github.com/globaloficial/global
+cd global
+bun install
+cp .env.example .env
 ```
-
-<br>
-
-<h2 align="center">Publicação</h2>
-
-<p align="center">
-O site fica na <a href="https://vercel.com">Vercel</a> com o framework definido como <b>Other</b>.<br>
-O <code>vercel.json</code> ativa as URLs limpas, e cada commit na branch principal publica uma nova versão.
-</p>
-
-<br>
-
-<h2 align="center">Configuração</h2>
 
 <div align="center">
 
-| Onde | O quê |
-| --- | --- |
-| `js/common.js` | Objeto `LINKS`: convite, suporte e GitHub |
-| `js/stats.js` | `STATS_URL`: endereço da API de estatísticas do bot |
-| `js/partners-data.js` | Lista de parceiros |
+| Variável | Obrigatória | Padrão |
+| --- | :---: | --- |
+| `TOKEN` | Sim | nenhum |
+| `MONGODB_URI` | Não | `mongodb://127.0.0.1:27017/global` |
+| `DISCORD_TOKEN` | Não | vazio, e a ponte com o Discord fica desligada |
+| `NSFW_URL` | Não | `http://localhost:3000` |
+| `NSFW_API_KEY` | Não | vazio |
+| `ENTREGA_CONCORRENCIA` | Não | `10` |
+| `ENTREGA_REQS_POR_SEGUNDO` | Não | `35` |
+| `DISCORD_CONCORRENCIA` | Não | `10` |
+| `DISCORD_REQS_POR_SEGUNDO` | Não | `30` |
 
 </div>
 
+> Se o serviço NSFW estiver fora do ar, as mídias são bloqueadas. Ajuste o `NSFW_URL` ou deixe o serviço rodando.
+
+Para o Discord, ative a **Message Content Intent** no [Developer Portal](https://discord.com/developers/applications). O bot também precisa de **Gerenciar Webhooks** e **Gerenciar Mensagens** nos canais conectados.
+
 <br>
 
-<h2 align="center">Adicionar um parceiro</h2>
+<h2 align="center">Execução</h2>
 
-<p align="center">Coloque o ícone (imagem, GIF ou vídeo <code>.mp4</code>/<code>.webm</code>) em <code>assets/partners/</code> e adicione um bloco em <code>js/partners-data.js</code>:</p>
-
-```js
-{
-  name: "Nome do servidor",
-  description: "Uma frase sobre a comunidade.",
-  invite: "https://fluxer.gg/codigo",
-  icon: "assets/partners/icone.png",
-  accent: "#0330ef"
-}
+```sh
+bun index.js
 ```
 
-<p align="center">Campos opcionais: <code>button</code> (cor do botão), <code>label</code> (texto do botão) e <code>letter</code> (letra usada se o ícone não carregar).</p>
+Com Node.js, passe o arquivo de ambiente explicitamente:
+
+```sh
+node --env-file=.env index.js
+```
+
+<br>
+
+<h2 align="center">Desenvolvimento</h2>
+
+```sh
+bun run lint
+bun run typecheck
+bun run test
+```
+
+<br>
+
+<h2 align="center">Estrutura</h2>
+
+```
+global/
+├── index.js
+├── migrations/
+├── listas/
+├── src/
+│   ├── commands/        conexao, geral, staff e dono
+│   ├── events/          eventos do Fluxer
+│   ├── plataformas/     adaptadores do Fluxer e do Discord
+│   ├── services/        filtros, retransmissão, sincronização, pontes e entrega
+│   ├── models/          Guild, MensagemGlobal, Ponte e outros
+│   ├── handlers/        carregamento e execução de comandos
+│   └── util/
+└── test/
+```
 
 <br>
 
@@ -160,38 +202,13 @@ O <code>vercel.json</code> ativa as URLs limpas, e cada commit na branch princip
 
 </div>
 
-<p align="center">Títulos em <b>Figtree</b> e textos em fonte sans-serif do sistema.</p>
-
 <br>
 
-<h2 align="center">Estrutura</h2>
-
-```
-Global-Site/
-├── index.html
-├── parceiros.html
-├── estatisticas.html
-├── vercel.json
-├── css/style.css
-├── js/
-│   ├── common.js          links, tema, menu e funções compartilhadas
-│   ├── home.js            página inicial
-│   ├── partners-data.js   lista de parceiros
-│   ├── partners.js        cards dos parceiros
-│   └── stats.js           estatísticas e ranking
-└── assets/
-    ├── wordmark.svg
-    ├── global.png
-    ├── partners/          ícones dos parceiros
-    └── readme/            imagem deste README
-```
-
-<br>
-
-<h2 align="center">Licença</h2>
+<h2 align="center">Privacidade e licença</h2>
 
 <p align="center">
-Distribuído sob a <a href="https://polyformproject.org/licenses/noncommercial/1.0.0/">PolyForm Noncommercial 1.0.0</a>.
+A política de privacidade está em <a href="PRIVACIDADE.md">PRIVACIDADE.md</a>.<br>
+Distribuído sob a <a href="LICENSE">PolyForm Noncommercial 1.0.0</a>.
 </p>
 
 <br>
