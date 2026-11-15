@@ -78,9 +78,9 @@
     <article class="policy">
       <header class="policy__head">
         <h1 class="page-title">Política de Privacidade</h1>
-        <p class="policy__lead">O Global é um bot do <a href="https://fluxer.app" target="_blank" rel="noopener noreferrer">Fluxer</a> criado para o público brasileiro. Ele conecta comunidades em um chat global: o que alguém escreve no canal conectado de um servidor é retransmitido para os canais conectados dos outros servidores.</p>
+        <p class="policy__lead">O Global é um bot do <a href="https://fluxer.app" target="_blank" rel="noopener noreferrer">Fluxer</a> criado para o público brasileiro, que também funciona no Discord. Ele conecta comunidades em um chat global: o que alguém escreve no canal conectado de um servidor é retransmitido para os canais conectados dos outros servidores, sejam eles do Fluxer ou do Discord.</p>
         <div class="policy__meta">
-          <span class="pill"><b>Última atualização</b> 11 de novembro de 2026</span>
+          <span class="pill"><b>Última atualização</b> 15 de novembro de 2026</span>
           <a class="pill" href="https://github.com/Global-APP/global/blob/main/PRIVACIDADE.md" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>Ver no GitHub</a>
         </div>
       </header>
@@ -89,7 +89,9 @@
         <nav class="toc" aria-label="Nesta página">
           <span class="toc__title">Nesta página</span>
         <a class="toc__link" href="#operador">Quem opera o bot</a>
+        <a class="toc__link" href="#plataformas">Fluxer e Discord</a>
         <a class="toc__link" href="#dados">O que é coletado</a>
+        <a class="toc__link" href="#pontes">Pontes</a>
         <a class="toc__link" href="#arquivos">Arquivos e figurinhas</a>
         <a class="toc__link" href="#nsfw">Verificação NSFW</a>
         <a class="toc__link" href="#adulto">Conteúdo adulto e menores</a>
@@ -108,6 +110,12 @@
             </ul>
           </section>
 
+          <section class="article__section" id="plataformas">
+            <h2>Fluxer e Discord</h2>
+            <p>O Global funciona nas duas plataformas, e os dados são tratados do mesmo jeito em ambas. No Discord, o bot recebe os mesmos tipos de dado descritos abaixo (IDs de usuário, servidor e canal, nome, avatar e o conteúdo das mensagens do canal conectado) e usa a permissão de ler o conteúdo das mensagens apenas nos canais conectados.</p>
+            <p>Cada plataforma tem as próprias regras e a própria política de privacidade, que continuam valendo para quem usa o Fluxer ou o Discord. Esta política trata apenas do que o Global faz com os dados que recebe. Nos comandos, o prefixo <code>g.</code> do Fluxer corresponde aos comandos slash (<code>/</code>) do Discord.</p>
+          </section>
+
           <section class="article__section" id="dados">
             <h2>O que o bot coleta e por quanto tempo</h2>
             <div class="table-wrap">
@@ -117,19 +125,26 @@
             <tr><td data-label="Dado">Mensagens enviadas no canal global: texto, anexos, figurinhas, nome, avatar, ID do autor, nome e ícone do servidor</td><td data-label="Para que serve">Retransmitir a mensagem para os outros servidores conectados</td><td data-label="Por quanto tempo">O bot não guarda o conteúdo, só passa adiante. As cópias ficam nos servidores de destino, onde seguem as regras de cada servidor e do Fluxer</td></tr>
             <tr><td data-label="Dado">Vínculo entre original e cópias: IDs da mensagem, do canal, do servidor e do autor, e a hora</td><td data-label="Para que serve">Sincronizar edição, exclusão e resposta, e permitir denúncias</td><td data-label="Por quanto tempo">7 dias, depois apagado automaticamente</td></tr>
             <tr><td data-label="Dado">Perfil do usuário: ID, selos (badges), selo escolhido e se é da equipe</td><td data-label="Para que serve">Mostrar selos e o perfil</td><td data-label="Por quanto tempo">Até o usuário pedir a exclusão</td></tr>
-            <tr><td data-label="Dado">Configuração do servidor: ID do servidor, ID do canal conectado, pausa, filtros, cor, ícone, modo de envio, dados do webhook e identificadores do painel de configuração</td><td data-label="Para que serve">Fazer o chat global funcionar naquele servidor</td><td data-label="Por quanto tempo">Até a exclusão ser pedida pelo servidor</td></tr>
+            <tr><td data-label="Dado">Configuração do servidor: ID do servidor, plataforma (Fluxer ou Discord), ID do canal conectado, pausa, filtros, cor, ícone, modo de envio, dados do webhook e identificadores do painel de configuração</td><td data-label="Para que serve">Fazer o chat global funcionar naquele servidor</td><td data-label="Por quanto tempo">Até a exclusão ser pedida pelo servidor</td></tr>
+            <tr><td data-label="Dado">Pontes: código, nome, data de criação e, para cada servidor participante, plataforma, ID e nome do servidor, ID do canal, dados do webhook e data de entrada</td><td data-label="Para que serve">Fazer a ponte funcionar entre os canais escolhidos</td><td data-label="Por quanto tempo">Até o canal sair da ponte, o servidor ser removido ou a ponte ser encerrada</td></tr>
             <tr><td data-label="Dado">Bloqueios: ID do usuário ou do servidor, motivo, quem bloqueou e quando</td><td data-label="Para que serve">Moderação do chat global</td><td data-label="Por quanto tempo">Até o bloqueio ser removido ou a exclusão ser pedida</td></tr>
             <tr><td data-label="Dado">Registros (logs) do bot: nome de usuário, ID, nome e ID do servidor, IDs de canal, comandos usados, erros e horários. Os logs não guardam o texto das mensagens</td><td data-label="Para que serve">Corrigir erros e investigar abusos</td><td data-label="Por quanto tempo">30 dias, depois apagados automaticamente</td></tr>
             <tr><td data-label="Dado">Denúncias feitas com <code>g.report</code>: conteúdo da mensagem denunciada, link da mídia, motivo, ID de quem denunciou e do denunciado</td><td data-label="Para que serve">Moderação</td><td data-label="Por quanto tempo">Ficam no canal privado da equipe e são apagadas em até 90 dias</td></tr>
                 </tbody>
               </table>
             </div>
-            <p>O bot lê os comandos (prefixo <code>g.</code>) e as mensagens do canal conectado. Ele não lê mensagens privadas e não processa as mensagens dos outros canais além de verificar se são comandos.</p>
+            <p>O bot lê os comandos (prefixo <code>g.</code> no Fluxer ou <code>/</code> no Discord) e as mensagens dos canais conectados. Ele não lê mensagens privadas e não processa as mensagens dos outros canais além de verificar se são comandos.</p>
+          </section>
+
+          <section class="article__section" id="pontes">
+            <h2>Pontes</h2>
+            <p>As pontes são conexões privadas entre canais escolhidos por quem as cria, separadas do chat global. Quem tem o código da ponte pode entrar nela, e as mensagens de um canal da ponte são retransmitidas para os outros canais da mesma ponte, no Fluxer ou no Discord. Essas mensagens passam pelos mesmos filtros e pela mesma verificação de mídia do chat global e seguem as mesmas regras de retenção da tabela acima.</p>
+            <div class="note"><strong>Cuidado com o código</strong>Não compartilhe o código de uma ponte com quem você não quer que participe dela.</div>
           </section>
 
           <section class="article__section" id="arquivos">
             <h2>Arquivos, imagens e figurinhas</h2>
-            <p>Quando o servidor de destino usa o modo webhook, o bot baixa os anexos temporariamente na memória (até 4 arquivos de 8 MB) e os reenvia. Nada é gravado em disco nem no banco de dados. O que não couber nesse limite é enviado como link.</p>
+            <p>Como as mensagens são entregues por webhook, o bot baixa os anexos temporariamente na memória (até 4 arquivos de 8 MB) e os reenvia. Nada é gravado em disco nem no banco de dados. O que não couber nesse limite é enviado como link.</p>
           </section>
 
           <section class="article__section" id="nsfw">
@@ -143,7 +158,7 @@
             <h2>Conteúdo adulto e menores de idade</h2>
             <p>O chat global é compartilhado entre comunidades que podem ter menores de idade. Por isso:</p>
             <ul class="article__list">
-              <li>Canais e servidores marcados como 18+ no Fluxer não podem ser conectados ao chat global, e as mensagens enviadas deles não são retransmitidas.</li>
+              <li>Canais e servidores marcados como 18+ no Fluxer ou no Discord não podem ser conectados ao chat global, e as mensagens enviadas deles não são retransmitidas.</li>
               <li>O filtro de palavras vem ligado por padrão nos servidores conectados.</li>
               <li>Mídia sexual ou imprópria é bloqueada em toda a rede, independentemente da configuração do servidor.</li>
             </ul>
@@ -152,7 +167,7 @@
           <section class="article__section" id="compartilhamento">
             <h2>Com quem compartilhamos</h2>
             <ul class="article__list">
-              <li>Com os outros servidores conectados: apenas as mensagens do chat global, com nome, avatar e nome/ícone do servidor de origem, como o próprio chat já exige.</li>
+              <li>Com os outros servidores conectados, no Fluxer ou no Discord: apenas as mensagens do chat global, com nome, avatar e nome/ícone do servidor de origem, como o próprio chat já exige.</li>
               <li>Com o serviço de verificação NSFW descrito acima.</li>
               <li>Não vendemos dados e não os usamos para publicidade.</li>
               <li>O banco de dados do bot fica em um servidor controlado pelo operador.</li>
@@ -162,7 +177,7 @@
           <section class="article__section" id="direitos">
             <h2>Seus direitos e como pedir a exclusão</h2>
             <p>Você pode pedir acesso, correção ou exclusão dos dados que o Global guarda sobre você ou sobre o seu servidor, conforme a Lei Geral de Proteção de Dados (LGPD). Escreva para <a href="mailto:contato.xmqr@gmail.com">contato.xmqr@gmail.com</a> informando o seu ID de usuário ou o ID do servidor. Respondemos em até 15 dias.</p>
-            <p>Para parar de ser retransmitido, o servidor pode usar <code>g.desconectar</code>. Mensagens já enviadas continuam nos servidores de destino, e a exclusão delas depende dos moderadores desses servidores.</p>
+            <p>Para parar de ser retransmitido, o servidor pode usar <code>g.desconectar</code> (ou <code>/desconectar</code> no Discord), e um canal sai de uma ponte com <code>g.ponte sair</code>. Mensagens já enviadas continuam nos servidores de destino, e a exclusão delas depende dos moderadores desses servidores.</p>
           </section>
 
           <section class="article__section" id="mudancas">
