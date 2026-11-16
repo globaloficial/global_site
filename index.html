@@ -3,41 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Global é um bot open-source do Fluxer que conecta comunidades em um chat global interconectado.">
+  <meta name="description" content="Central de suporte do Global: perguntas frequentes e contato com a equipe.">
   <meta name="theme-color" content="#0330ef">
-  <title>Global — Converse globalmente</title>
+  <title>Suporte — Global</title>
   <link rel="icon" type="image/png" href="assets/global.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@700;800;900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <aside class="sidebar">
-    <a class="sidebar__logo" href="#inicio" aria-label="Global — início">
+    <a class="sidebar__logo" href="/" aria-label="Global — suporte">
       <img class="wordmark" src="assets/wordmark.svg" alt="" width="1920" height="1157">
     </a>
 
-    <nav class="sidebar__nav" aria-label="Seções">
-      <a class="sidebar__link" href="#inicio" data-section="inicio"><i class="ri-home-4-line" aria-hidden="true"></i><span>Início</span></a>
-      <a class="sidebar__link" href="#recursos" data-section="recursos"><i class="ri-apps-2-line" aria-hidden="true"></i><span>Recursos</span></a>
-      <a class="sidebar__link" href="#demo" data-section="demo"><i class="ri-play-circle-line" aria-hidden="true"></i><span>Demonstração</span></a>
-      <a class="sidebar__link" href="#codigo-aberto" data-section="codigo-aberto"><i class="ri-github-line" aria-hidden="true"></i><span>Código aberto</span></a>
-      <a class="sidebar__link" href="#como" data-section="como"><i class="ri-question-line" aria-hidden="true"></i><span>Como usar</span></a>
-      <a class="sidebar__link" href="parceiros.html">
-        <i class="ri-team-line" aria-hidden="true"></i><span>Parceiros</span>
+    <nav class="sidebar__nav" aria-label="Suporte">
+      <a class="sidebar__link is-active" href="#inicio" aria-current="page">
+        <svg class="icon" aria-hidden="true"><use href="#help"/></svg><span>Suporte</span>
       </a>
-      <a class="sidebar__link" href="comandos.html">
-        <i class="ri-terminal-box-line" aria-hidden="true"></i><span>Comandos</span>
+      <a class="sidebar__link" href="#faq">
+        <svg class="icon" aria-hidden="true"><use href="#book"/></svg><span>Perguntas frequentes</span>
       </a>
-      <a class="sidebar__link" href="estatisticas.html">
-        <i class="ri-bar-chart-box-line" aria-hidden="true"></i><span>Estatísticas</span>
+      <a class="sidebar__link" href="#contato">
+        <svg class="icon" aria-hidden="true"><use href="#message"/></svg><span>Contato</span>
       </a>
-      <a class="sidebar__link" href="https://docs.globalbot.site">
-        <i class="ri-book-open-line" aria-hidden="true"></i><span>Documentação</span>
+      <a class="sidebar__link" href="#conversas" data-auth hidden>
+        <svg class="icon" aria-hidden="true"><use href="#inbox"/></svg><span>Conversas</span>
+      </a>
+      <hr class="sidebar__divider">
+      <a class="sidebar__link" href="https://globalbot.site" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" aria-hidden="true"><use href="#home"/></svg><span>Site do Global</span>
+      </a>
+      <a class="sidebar__link" href="https://docs.globalbot.site" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" aria-hidden="true"><use href="#shield"/></svg><span>Documentação</span>
+      </a>
+      <a class="sidebar__link" href="https://github.com/Global-APP/global" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" aria-hidden="true"><use href="#github"/></svg><span>GitHub</span>
       </a>
     </nav>
 
@@ -48,7 +52,7 @@
   </aside>
 
   <header class="topbar">
-    <a class="topbar__logo" href="#inicio" aria-label="Global — início">
+    <a class="topbar__logo" href="/" aria-label="Global — suporte">
       <img class="wordmark" src="assets/wordmark.svg" alt="" width="1920" height="1157">
     </a>
 
@@ -69,232 +73,184 @@
     </button>
 
     <nav class="menu__nav">
-      <a class="menu__link" href="#inicio">Início</a>
-      <a class="menu__link" href="#recursos">Recursos</a>
-      <a class="menu__link" href="#demo">Demonstração</a>
-      <a class="menu__link" href="#codigo-aberto">Código aberto</a>
-      <a class="menu__link" href="#como">Como usar</a>
-      <a class="menu__link" href="parceiros.html">Parceiros</a>
-      <a class="menu__link" href="comandos.html">Comandos</a>
-      <a class="menu__link" href="estatisticas.html">Estatísticas</a>
+      <a class="menu__link" href="#faq">Perguntas frequentes</a>
+      <a class="menu__link" href="#contato">Contato</a>
+      <a class="menu__link" href="#conversas" data-auth hidden>Conversas</a>
+      <a class="menu__link" href="https://globalbot.site">Site do Global</a>
       <a class="menu__link" href="https://docs.globalbot.site">Documentação</a>
     </nav>
 
     <div class="menu__links">
-      <a class="btn btn--fill" data-link="invite">Adicionar o bot</a>
-      <a class="btn btn--line" data-link="github"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>GitHub</a>
+      <a class="btn btn--line" href="https://github.com/Global-APP/global" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>GitHub</a>
     </div>
   </dialog>
 
   <main class="page">
-    <section class="hero" id="inicio">
-      <div class="hero__text">
-        <span class="hero__kicker">Bot open-source para o Fluxer</span>
+    <section class="docs-hero" id="inicio">
+      <span class="docs-hero__kicker">Suporte</span>
+      <h1 class="docs-hero__title">Como podemos <em>ajudar</em>?</h1>
+      <p class="docs-hero__lead">Descreva o seu problema para achar a resposta nas perguntas frequentes. Se não encontrar, a equipe responde.</p>
 
-        <h1 class="hero__title">
-          <span class="hero__line"><span>Converse</span></span>
-          <span class="hero__line"><span>globalmente.</span></span>
-        </h1>
+      <form class="ask-form" id="search-form" role="search">
+        <label class="ask-form__field">
+          <svg class="icon" aria-hidden="true"><use href="#search"/></svg>
+          <input id="search-input" type="search" placeholder="Qual é o seu problema?" autocomplete="off" aria-label="Qual é o seu problema?">
+        </label>
+        <button class="btn btn--fill" type="submit">Perguntar à equipe</button>
+      </form>
+      <p class="ask-form__count" id="search-count" role="status"></p>
 
-        <p class="hero__lead">Global é o bot que liga o seu servidor a outras comunidades em um único chat interconectado.</p>
+      <div class="session" id="session-bar"></div>
+      <p class="session__error" id="session-error" role="alert"></p>
+    </section>
 
-        <div class="hero__actions">
-          <a class="btn btn--fill" data-link="invite">Adicionar ao servidor <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></a>
-          <a class="btn btn--line" data-link="support">Servidor de suporte <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></a>
-        </div>
+    <section class="section" id="conversas" data-auth hidden>
+      <div class="section-head reveal"><span class="section-head__icon"><svg class="icon" aria-hidden="true"><use href="#inbox"/></svg></span><h2>Conversas</h2></div>
+      <p class="section__intro" data-staff hidden>Todas as conversas iniciadas pelos usuários. Abra uma para responder ou mudar o status.</p>
 
-        <div class="hero__oss">
-          <a class="pill" data-link="github">
-            <svg class="icon" aria-hidden="true"><use href="#github"/></svg>
-            <b>Open-source</b> · Global-APP/global
-          </a>
-        </div>
+      <div class="tabs" id="conv-tabs" role="tablist" aria-label="Filtrar por status">
+        <button class="tabs__button is-active" type="button" data-filter="todas">Todas</button>
+        <button class="tabs__button" type="button" data-filter="aberta">Abertas</button>
+        <button class="tabs__button" type="button" data-filter="andamento">Em andamento</button>
+        <button class="tabs__button" type="button" data-filter="resolvida">Resolvidas</button>
       </div>
 
-      <div class="globe" aria-hidden="true">
-        <div class="globe__tilt" id="globe-tilt">
-          <div class="globe__core"></div>
-          <div class="globe__spin" id="globe-spin"></div>
-        </div>
+      <div class="conv-list" id="conv-list"></div>
+      <p class="conv-empty" id="conv-empty" hidden></p>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-head reveal"><span class="section-head__icon"><svg class="icon" aria-hidden="true"><use href="#book"/></svg></span><h2>Perguntas frequentes</h2></div>
+      <div class="faq" id="faq-list"></div>
+      <div class="faq__empty" id="faq-empty" hidden>
+        <p>Não encontramos nada com esse texto.</p>
+        <button class="btn btn--fill" type="button" data-ask>Perguntar à equipe</button>
       </div>
     </section>
 
-    <section class="features" id="recursos">
-      <div class="section-head reveal">
-        <span class="section-head__num">02</span>
-        <h2>O que ele faz</h2>
-      </div>
+    <section class="section" id="contato">
+      <div class="section-head reveal"><span class="section-head__icon"><svg class="icon" aria-hidden="true"><use href="#message"/></svg></span><h2>Fale com a equipe</h2></div>
+      <p class="section__intro reveal">Escolha o canal que for mais fácil para você.</p>
 
-      <div class="features__grid">
-        <div class="features__list">
-          <article class="feature" data-feature="0">
-            <span class="feature__num">01</span>
-            <h3 class="feature__title">Responder</h3>
-            <p class="feature__text">Responda a qualquer mensagem do chat e a resposta chega em todas as comunidades conectadas.</p>
-          </article>
-          <article class="feature" data-feature="1">
-            <span class="feature__num">02</span>
-            <h3 class="feature__title">Apagar</h3>
-            <p class="feature__text">Apagou uma mensagem? Ela some de todos os servidores ao mesmo tempo.</p>
-          </article>
-          <article class="feature" data-feature="2">
-            <span class="feature__num">03</span>
-            <h3 class="feature__title">Figurinhas</h3>
-            <p class="feature__text">Mande figurinhas e dê mais cara de comunidade ao bate-papo.</p>
-          </article>
-          <article class="feature" data-feature="3">
-            <span class="feature__num">04</span>
-            <h3 class="feature__title">Conectar</h3>
-            <p class="feature__text">Ligue o seu servidor a outras comunidades e converse com todo mundo em um só lugar.</p>
-          </article>
-        </div>
+      <div class="doc-grid">
+        <a class="doc-card reveal" href="https://fluxer.gg/hDYAW1OU" target="_blank" rel="noopener noreferrer">
+          <span class="doc-card__icon"><svg class="icon" aria-hidden="true"><use href="#message"/></svg></span>
+          <h3 class="doc-card__title">Servidor de suporte</h3>
+          <p class="doc-card__text">Converse com a equipe e com a comunidade no Fluxer. É o jeito mais rápido de tirar uma dúvida.</p>
+          <span class="doc-card__meta">Entrar no servidor <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a>
 
-        <div class="features__preview">
-          <div class="window preview">
-            <div class="window__bar"><i>#</i><b>chat-global</b></div>
-            <div class="preview__stack" id="preview-stack"></div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <a class="doc-card reveal" href="mailto:support.globalapp@gmail.com">
+          <span class="doc-card__icon"><svg class="icon" aria-hidden="true"><use href="#mail"/></svg></span>
+          <h3 class="doc-card__title">E-mail</h3>
+          <p class="doc-card__text">Para dúvidas, problemas e pedidos que não cabem em uma mensagem rápida.</p>
+          <span class="doc-card__meta">support.globalapp@gmail.com <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a>
 
-    <section class="demo" id="demo">
-      <div class="section-head reveal">
-        <span class="section-head__num">03</span>
-        <h2>Assim fica o chat</h2>
-      </div>
-
-      <p class="demo__intro reveal">Quem conversa no seu servidor aparece normalmente. As mensagens das outras comunidades chegam em embeds. Role a página ou mova o mouse para girar a cena.</p>
-
-      <div class="demo__stage" id="demo-stage">
-        <div class="demo__scene" id="demo-scene">
-          <div class="window chat">
-            <div class="window__bar"><i>#</i><b>chat-global</b></div>
-            <div class="chat__feed" id="chat-feed" aria-live="polite"></div>
-          </div>
-
-          <article class="window server-card">
-            <div class="server-card__banner"></div>
-            <div class="server-card__body">
-              <span class="avatar server-card__icon"><img src="assets/icon.svg" alt=""></span>
-              <h3 class="server-card__name">Global: Converse globalmente</h3>
-              <p class="server-card__stats">
-                <span><i></i><b data-count="9">9</b> online</span>
-                <span><i></i><b data-count="31">31</b> membros</span>
-              </p>
-              <a class="server-card__join" data-link="support">Ir para a comunidade</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="opensource" id="codigo-aberto">
-      <div class="section-head reveal">
-        <span class="section-head__num">04</span>
-        <h2>Código aberto</h2>
-      </div>
-
-      <div class="opensource__grid">
-        <div class="reveal">
-          <p class="opensource__lead">O Global é open-source. Veja como ele funciona por dentro, sugira melhorias ou ajude a construir a próxima versão.</p>
-
-          <ul class="opensource__list">
-            <li>Todo o código está aberto no GitHub</li>
-            <li>Abra issues para reportar problemas e dar ideias</li>
-            <li>Envie pull requests e contribua com o projeto</li>
-          </ul>
-
-          <a class="btn btn--fill" data-link="github">
-            <svg class="icon" aria-hidden="true"><use href="#github"/></svg>
-            Ver no GitHub
-            <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg>
-          </a>
-        </div>
-
-        <div class="terminal reveal">
-          <div class="terminal__bar">
-            <svg class="icon" aria-hidden="true"><use href="#github"/></svg>
-            Global-APP / global
-            <small>open-source</small>
-          </div>
-
-          <div class="terminal__body">
-            <div class="terminal__line">
-              <code id="clone-command">git clone https://github.com/Global-APP/global.git</code>
-              <button class="terminal__copy" type="button" data-copy="#clone-command">Copiar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="how" id="como">
-      <div class="section-head reveal">
-        <span class="section-head__num">05</span>
-        <h2>Três passos e pronto.</h2>
-      </div>
-
-      <ol class="how__steps">
-        <li class="step reveal">
-          <b class="step__num">1</b>
-          <h3 class="step__title">Adicione o bot</h3>
-          <p class="step__text">Convide o Global para o seu servidor pelo link de autorização.</p>
-        </li>
-        <li class="step reveal">
-          <b class="step__num">2</b>
-          <h3 class="step__title">Escolha um canal</h3>
-          <p class="step__text">Escolha um canal onde o chat global vai aparecer com <code>g.config</code>.</p>
-        </li>
-        <li class="step reveal">
-          <b class="step__num">3</b>
-          <h3 class="step__title">Converse</h3>
-          <p class="step__text">Escreva, responda, apague e mande figurinhas para todas as comunidades.</p>
-        </li>
-      </ol>
-
-      <div class="how__actions">
-        <a class="btn btn--white" data-link="invite">Adicionar o Global <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></a>
-        <a class="btn btn--outline" data-link="support">Entrar no suporte <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></a>
-        <a class="btn btn--outline" data-link="github"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>GitHub</a>
+        <a class="doc-card reveal" href="https://github.com/Global-APP/global/issues" target="_blank" rel="noopener noreferrer">
+          <span class="doc-card__icon"><svg class="icon" aria-hidden="true"><use href="#github"/></svg></span>
+          <h3 class="doc-card__title">Reportar um problema</h3>
+          <p class="doc-card__text">Achou um erro no bot? Abra uma issue no GitHub, de forma pública e acompanhável.</p>
+          <span class="doc-card__meta">Abrir issue <svg class="icon icon--arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a>
       </div>
     </section>
   </main>
 
+  <dialog class="ask" id="ask-dialog" aria-labelledby="ask-title">
+    <div class="ask__box">
+      <button class="theme-toggle ask__close" type="button" data-ask-close aria-label="Fechar">
+        <svg class="icon" aria-hidden="true"><use href="#close"/></svg>
+      </button>
+
+      <h2 class="ask__title" id="ask-title">Perguntar à equipe</h2>
+
+      <div class="ask__login" id="ask-login" hidden>
+        <p class="ask__text">Entre com a sua conta para a equipe poder responder e você acompanhar a conversa por aqui. A sua pergunta fica guardada enquanto você entra.</p>
+        <div class="ask__actions">
+          <a class="btn btn--fill" data-login="fluxer">Entrar com Fluxer</a>
+          <a class="btn btn--line" data-login="discord">Entrar com Discord</a>
+        </div>
+        <p class="ask__text ask__text--small">Prefere não entrar? Fale no <a href="https://fluxer.gg/hDYAW1OU" target="_blank" rel="noopener noreferrer">servidor de suporte</a> ou por e-mail em <a href="mailto:support.globalapp@gmail.com">support.globalapp@gmail.com</a>.</p>
+      </div>
+
+      <form class="ask__form" id="ask-form" hidden>
+        <p class="ask__text">Descreva o problema com calma. A equipe responde aqui mesmo, e você vê o status da conversa.</p>
+
+        <label class="ask__label" for="ask-subject">Assunto</label>
+        <input class="ask__input ask__input--line" id="ask-subject" type="text" maxlength="120" placeholder="Resumo do problema" required>
+
+        <label class="ask__label" for="ask-question">Qual é o seu problema?</label>
+        <textarea class="ask__input" id="ask-question" rows="5" maxlength="2000" placeholder="Descreva o que aconteceu, em qual servidor e o que você já tentou." required></textarea>
+
+        <p class="ask__error" id="ask-error" role="alert"></p>
+
+        <div class="ask__actions">
+          <button class="btn btn--fill" type="submit" id="ask-send">Enviar para a equipe</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog class="ask chat" id="chat-dialog" aria-labelledby="chat-title">
+    <div class="ask__box chat__box">
+      <button class="theme-toggle ask__close" type="button" data-chat-close aria-label="Fechar">
+        <svg class="icon" aria-hidden="true"><use href="#close"/></svg>
+      </button>
+
+      <div class="chat__head">
+        <span class="chat__number" id="chat-number"></span>
+        <h2 class="ask__title" id="chat-title"></h2>
+        <div class="chat__status" id="chat-status"></div>
+      </div>
+
+      <div class="chat__controls" id="chat-controls" hidden>
+        <span class="ask__label">Status</span>
+        <button class="tabs__button" type="button" data-set-status="aberta">Aberta</button>
+        <button class="tabs__button" type="button" data-set-status="andamento">Em andamento</button>
+        <button class="tabs__button" type="button" data-set-status="resolvida">Resolvida</button>
+      </div>
+
+      <div class="chat__thread" id="chat-thread"></div>
+
+      <form class="chat__form" id="chat-form">
+        <textarea class="ask__input" id="chat-text" rows="3" maxlength="2000" placeholder="Escreva uma resposta" required></textarea>
+        <div class="ask__actions">
+          <button class="btn btn--fill" type="submit" id="chat-send">Enviar</button>
+        </div>
+      </form>
+      <p class="chat__closed" id="chat-closed" hidden>Esta conversa foi resolvida. Se precisar de mais ajuda, abra uma nova pergunta.</p>
+      <p class="ask__error" id="chat-error" role="alert"></p>
+    </div>
+  </dialog>
+
   <footer class="footer">
     <div class="footer__main">
       <div class="footer__brand">
-        <a href="#inicio" aria-label="Global — voltar ao topo">
+        <a href="/" aria-label="Global — suporte">
           <img class="wordmark" src="assets/wordmark.svg" alt="" width="1920" height="1157">
         </a>
-        <p>Um chat global que conecta comunidades do Fluxer.</p>
-        <a class="pill" data-link="github">
+        <p>Central de suporte do Global, o chat global do Fluxer.</p>
+        <a class="pill" href="https://github.com/Global-APP/global" target="_blank" rel="noopener noreferrer">
           <svg class="icon" aria-hidden="true"><use href="#github"/></svg>
           <b>Open-source</b> no GitHub
         </a>
       </div>
 
-      <nav aria-label="Navegação">
-        <h3 class="footer__title">Navegação</h3>
+      <nav aria-label="Suporte">
+        <h3 class="footer__title">Suporte</h3>
         <ul class="footer__list">
-          <li><a href="#recursos">Recursos</a></li>
-          <li><a href="#demo">Demonstração</a></li>
-          <li><a href="#codigo-aberto">Código aberto</a></li>
-          <li><a href="#como">Como usar</a></li>
-          <li><a href="parceiros.html">Parceiros</a></li>
-          <li><a href="comandos.html">Comandos</a></li>
-          <li><a href="estatisticas.html">Estatísticas</a></li>
-          <li><a href="https://docs.globalbot.site">Documentação</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
 
-      <nav aria-label="Links rápidos">
-        <h3 class="footer__title">Links rápidos</h3>
+      <nav aria-label="Links">
+        <h3 class="footer__title">Links</h3>
         <ul class="footer__list">
-          <li><a data-link="invite">Adicionar o bot</a></li>
-          <li><a data-link="support">Servidor de suporte</a></li>
-          <li><a data-link="github">Repositório no GitHub</a></li>
-          <li><a data-link="issues">Reportar um problema</a></li>
+          <li><a href="https://globalbot.site">Site do Global</a></li>
+          <li><a href="https://docs.globalbot.site">Documentação</a></li>
+          <li><a href="https://globalbot.site/comandos">Comandos</a></li>
         </ul>
       </nav>
     </div>
@@ -308,23 +264,24 @@
   <svg aria-hidden="true" style="position: absolute; width: 0; height: 0">
     <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 11h12.2l-4.6-4.6L13 5l7 7-7 7-1.4-1.4 4.6-4.6H4z"/></symbol>
     <symbol id="github" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
-    <symbol id="partners" viewBox="0 0 24 24"><path d="M16 11a3 3 0 100-6 3 3 0 000 6zm-8 0a3 3 0 100-6 3 3 0 000 6zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></symbol>
     <symbol id="book" viewBox="0 0 24 24"><path d="M5 3h12a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V4a1 1 0 011-1zm1 2v11.2A3 3 0 017 16h10V5zm1 13a1 1 0 000 2h10v-2z"/></symbol>
-    <symbol id="chart" viewBox="0 0 24 24"><path d="M4 20V10h4v10zm6 0V4h4v16zm6 0v-7h4v7z"/></symbol>
-    <symbol id="home" viewBox="0 0 24 24"><path d="M12 3l9 8h-3v9h-5v-6h-2v6H6v-9H3z"/></symbol>
-    <symbol id="spark" viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></symbol>
-    <symbol id="chat" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 012 2v10a2 2 0 01-2 2H9l-5 4v-4H4a2 2 0 01-2-2V6a2 2 0 012-2z"/></symbol>
-    <symbol id="code" viewBox="0 0 24 24"><path d="M8.6 16.6L4 12l4.6-4.6L10 8.8 6.8 12 10 15.2zm6.8 0l-1.4-1.4L17.2 12 14 8.8l1.4-1.4L20 12z"/></symbol>
-    <symbol id="steps" viewBox="0 0 24 24"><path d="M3 5h3v3H3zm5 1h13v2H8zm-5 5h3v3H3zm5 1h13v2H8zm-5 5h3v3H3zm5 1h13v2H8z"/></symbol>
-    <symbol id="terminal" viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 011 1v14a1 1 0 01-1 1H3a1 1 0 01-1-1V5a1 1 0 011-1zm1 2v12h16V6zm2.3 2.3L10 12l-3.7 3.7-1.4-1.4L7.2 12 4.9 9.7zM12 15h6v2h-6z"/></symbol>
     <symbol id="shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5.2-3.4 9.7-8 11-4.6-1.3-8-5.8-8-11V5zm0 2.1L6 6.4V11c0 4 2.4 7.4 6 8.8 3.6-1.4 6-4.8 6-8.8V6.4zm-1 10.3L8.3 11.7l1.4-1.4L11 11.6l3.3-3.3 1.4 1.4z"/></symbol>
+    <symbol id="home" viewBox="0 0 24 24"><path d="M12 3l9 8h-3v9h-5v-6h-2v6H6v-9H3z"/></symbol>
+    <symbol id="help" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2a8 8 0 110 16 8 8 0 010-16zm-1 11h2v2h-2zm1-8a3.5 3.5 0 011.5 6.7c-.4.3-.5.5-.5 1.3h-2c0-1.5.5-2.1 1.2-2.6A1.5 1.5 0 0012 9a1.5 1.5 0 00-1.5 1.5h-2A3.5 3.5 0 0112 7z"/></symbol>
+    <symbol id="inbox" viewBox="0 0 24 24"><path d="M4 3h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1zm1 2v8h4.2l1 2h3.6l1-2H19V5zm14 10h-3.1l-1 2H9.1l-1-2H5v4h14z"/></symbol>
+    <symbol id="plus" viewBox="0 0 24 24"><path d="M11 4h2v7h7v2h-7v7h-2v-7H4v-2h7z"/></symbol>
+    <symbol id="mail" viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm1 3.2V17h16V8.2l-8 5.3zM5.4 7l6.6 4.4L18.6 7z"/></symbol>
+    <symbol id="message" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 012 2v10a2 2 0 01-2 2H9l-5 4v-4H4a2 2 0 01-2-2V6a2 2 0 012-2z"/></symbol>
+    <symbol id="search" viewBox="0 0 24 24"><path d="M10 2a8 8 0 016.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"/></symbol>
     <symbol id="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></symbol>
     <symbol id="sun" viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8 4 4 0 000-8zM11 1h2v3h-2zm0 19h2v3h-2zM1 11h3v2H1zm19 0h3v2h-3zM4.2 5.6l1.4-1.4 2.1 2.1-1.4 1.4zm12.1 12.1l1.4-1.4 2.1 2.1-1.4 1.4zM5.6 19.8l-1.4-1.4 2.1-2.1 1.4 1.4zM17.7 7.7l-1.4-1.4 2.1-2.1 1.4 1.4z"/></symbol>
     <symbol id="burger" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></symbol>
     <symbol id="close" viewBox="0 0 24 24"><path d="M5.6 4.2L12 10.6l6.4-6.4 1.4 1.4-6.4 6.4 6.4 6.4-1.4 1.4-6.4-6.4-6.4 6.4-1.4-1.4 6.4-6.4-6.4-6.4z"/></symbol>
   </svg>
 
-  <script src="js/common.js" defer></script>
-  <script src="js/home.js" defer></script>
+  <script src="js/faq-data.js" defer></script>
+  <script src="js/support.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/conversas.js" defer></script>
 </body>
 </html>
