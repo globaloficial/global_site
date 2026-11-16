@@ -1,9 +1,6 @@
 const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 
-const SUPPORT_SERVER = "https://fluxer.gg/hDYAW1OU";
-const SUPPORT_EMAIL = "support.globalapp@gmail.com";
-
 const normalize = (text) => text.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 
 const stem = (term) => (term.length > 5 ? term.slice(0, term.length - 2) : term);
@@ -121,51 +118,9 @@ function filterFaq(query) {
 }
 
 function initSearch() {
-  const form = $("#search-form");
   const input = $("#search-input");
-  const dialog = $("#ask-dialog");
-  const question = $("#ask-question");
 
   input.addEventListener("input", () => filterFaq(input.value));
-
-  const openDialog = () => {
-    question.value = input.value.trim();
-    dialog.showModal();
-    question.focus();
-  };
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    openDialog();
-  });
-
-  $$("[data-ask]").forEach((button) => button.addEventListener("click", openDialog));
-  $("[data-ask-close]").addEventListener("click", () => dialog.close());
-
-  dialog.addEventListener("click", (event) => {
-    if (event.target === dialog) dialog.close();
-  });
-
-  $("#ask-copy").addEventListener("click", async (event) => {
-    const button = event.currentTarget;
-
-    try {
-      await navigator.clipboard.writeText(question.value);
-      button.textContent = "Copiado";
-    } catch {
-      question.select();
-      button.textContent = "Selecione e copie";
-    }
-
-    setTimeout(() => (button.textContent = "Copiar pergunta"), 1600);
-  });
-
-  $("#ask-mail").addEventListener("click", () => {
-    const subject = encodeURIComponent("Suporte do Global");
-    const body = encodeURIComponent(question.value);
-
-    location.href = `mailto:${SUPPORT_EMAIL}?subject=${subject}&body=${body}`;
-  });
 }
 
 initTheme();

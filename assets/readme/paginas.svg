@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 190" width="1200" height="190">
+  <rect width="1200" height="190" rx="20" fill="#0B0B0B"/>
+  <g transform="translate(30 20)">
+    <rect width="270" height="150" rx="16" fill="#0F0F0F" stroke="#0330ef" stroke-opacity="0.55"/>
+    <rect x="22" y="24" width="36" height="6" rx="3" fill="#0330ef"/>
+    <text x="22" y="76" font-family="Figtree, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#fff">Início</text>
+    <text x="22" y="106" font-family="Figtree, Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#ffffff" fill-opacity="0.6">Recursos e demonstração</text>
+  </g>
+  <g transform="translate(320 20)">
+    <rect width="270" height="150" rx="16" fill="#0F0F0F" stroke="#0330ef" stroke-opacity="0.55"/>
+    <rect x="22" y="24" width="36" height="6" rx="3" fill="#0330ef"/>
+    <text x="22" y="76" font-family="Figtree, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#fff">Parceiros</text>
+    <text x="22" y="106" font-family="Figtree, Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#ffffff" fill-opacity="0.6">Comunidades da rede</text>
+  </g>
+  <g transform="translate(610 20)">
+    <rect width="270" height="150" rx="16" fill="#0F0F0F" stroke="#0330ef" stroke-opacity="0.55"/>
+    <rect x="22" y="24" width="36" height="6" rx="3" fill="#0330ef"/>
+    <text x="22" y="76" font-family="Figtree, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#fff">Estatísticas</text>
+    <text x="22" y="106" font-family="Figtree, Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#ffffff" fill-opacity="0.6">Números e ranking</text>
+  </g>
+  <g transform="translate(900 20)">
+    <rect width="270" height="150" rx="16" fill="#0F0F0F" stroke="#0330ef" stroke-opacity="0.55"/>
+    <rect x="22" y="24" width="36" height="6" rx="3" fill="#0330ef"/>
+    <text x="22" y="76" font-family="Figtree, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#fff">Open-source</text>
+    <text x="22" y="106" font-family="Figtree, Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#ffffff" fill-opacity="0.6">Código no GitHub</text>
+  </g>
+</svg>
