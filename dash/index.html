@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Painel do Global: configure o chat global, os filtros e as conexões do seu servidor.">
+  <meta name="theme-color" content="#0330ef">
+  <title>Painel — Global</title>
+  <link rel="icon" type="image/png" href="assets/global.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="shell" id="shell" hidden>
+    <aside class="side" id="side" aria-label="Menu do painel"></aside>
+    <div class="scrim" id="scrim"></div>
+
+    <div class="content">
+      <header class="mobilebar">
+        <button class="iconbtn" type="button" id="menu-open" aria-label="Abrir menu"><i class="ri-menu-line" aria-hidden="true"></i></button>
+        <img class="mobilebar__logo" src="assets/wordmark.svg" alt="Global" width="1920" height="1157">
+      </header>
+
+      <main class="main" id="view"></main>
+    </div>
+  </div>
+
+  <section class="login" id="login" hidden>
+    <div class="login__card">
+      <img class="login__logo" src="assets/wordmark.svg" alt="Global" width="1920" height="1157">
+      <h1 class="login__title">Painel do Global</h1>
+      <p class="login__text">Entre com a sua conta para configurar o chat global, os filtros e as conexões dos servidores que você gerencia.</p>
+      <p class="login__error" id="login-error" role="alert"></p>
+      <div class="login__actions">
+        <a class="btn btn--fill" data-login="fluxer"><i class="ri-login-circle-line" aria-hidden="true"></i>Entrar com Fluxer</a>
+        <a class="btn btn--line" data-login="discord"><i class="ri-login-circle-line" aria-hidden="true"></i>Entrar com Discord</a>
+      </div>
+      <p class="login__hint">Você precisa de <strong>Administrador</strong> ou <strong>Gerenciar Canais</strong> no servidor.</p>
+    </div>
+  </section>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="js/api.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/pages.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
