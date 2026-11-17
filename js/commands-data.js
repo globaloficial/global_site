@@ -36,6 +36,14 @@ const COMMAND_GROUPS = [
         examples: [{ args: "", note: "Só funciona se a conexão estiver pausada." }]
       },
       {
+        name: "atualizar",
+        aliases: ["refresh", "tentar"],
+        permission: PERMISSION,
+        description: "Tenta criar o webhook de novo neste canal, sem esperar a pausa de 1 hora. Se funcionar, as mensagens voltam na hora. Funciona na Conexão Global e na Conexão Privada, no Fluxer e no Discord, e também como /atualizar.",
+        variables: [],
+        examples: [{ args: "", note: "Use depois de dar a permissão Gerenciar Webhooks ao Global. Se ainda faltar, ele avisa. Em servidores no modo embed não é preciso. Espere 5 segundos entre uma tentativa e outra." }]
+      },
+      {
         name: "config",
         aliases: ["configurar", "configurações"],
         permission: PERMISSION,
