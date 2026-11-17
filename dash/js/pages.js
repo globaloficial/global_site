@@ -12,9 +12,21 @@ const FIELD_LABELS = {
   cor: "Cor das mensagens"
 };
 
+const PONTE_LOG = {
+  "ponte:criar": "criou a ponte",
+  "ponte:entrar": "entrou na ponte",
+  "ponte:sair": "tirou este servidor da ponte",
+  "ponte:remover": "removeu um servidor da ponte",
+  "ponte:removido": "teve este servidor removido da ponte",
+  "ponte:encerrar": "encerrou a ponte",
+  "ponte:renomear": "renomeou a ponte",
+  "ponte:pausa": "mudou a pausa da ponte"
+};
+
 const SERVER_SECTIONS = [
   { id: "", label: "Visão geral", icon: "ri-dashboard-line" },
   { id: "conexao", label: "Conexão Global", icon: "ri-global-line" },
+  { id: "pontes", label: "Pontes", icon: "ri-links-line" },
   { id: "filtros", label: "Filtros", icon: "ri-shield-check-line" },
   { id: "mensagens", label: "Mensagens", icon: "ri-chat-settings-line" },
   { id: "logs", label: "Registro de alterações", icon: "ri-history-line" }
@@ -111,12 +123,20 @@ function statCard(iconName, label, value) {
   return el("div", { class: "stat" }, icon(iconName), el("span", { class: "stat__label" }, label), el("strong", { class: "stat__value" }, value));
 }
 
+function logDetail(item) {
+  if (item.campo === "ponte:pausa") return `${item.de ? "pausada" : "ativa"} → ${item.para ? "pausada" : "ativa"}`;
+  if (item.campo.startsWith("ponte:")) return item.de ? `${item.de} → ${item.para}` : String(item.para ?? "");
+  return `${formatValue(item.campo, item.de)} → ${formatValue(item.campo, item.para)}`;
+}
+
 function logRow(item) {
+  const text = PONTE_LOG[item.campo] || `alterou ${FIELD_LABELS[item.campo] || item.campo}`;
+
   return el("li", { class: "log" },
     avatar(item.autor, "avatar--small"),
     el("div", { class: "log__text" },
-      el("p", {}, el("strong", {}, item.autor.nome), ` alterou ${FIELD_LABELS[item.campo] || item.campo}`),
-      el("p", { class: "log__change" }, `${formatValue(item.campo, item.de)} → ${formatValue(item.campo, item.para)}`)
+      el("p", {}, el("strong", {}, item.autor.nome), ` ${text}`),
+      el("p", { class: "log__change" }, logDetail(item))
     ),
     el("time", {}, formatDate(item.em))
   );
@@ -398,4 +418,145 @@ async function pageTeamBlocks(view, token) {
   }
 }
 
-const SERVER_PAGES = { "": pageOverview, conexao: pageConnection, filtros: pageFilters, mensagens: pageMessages, logs: pageLogs };
+function participantRow(ponte, participante, run, base) {
+  const info = el("div", { class: "member__info" },
+    el("strong", {}, participante.nomeServidor),
+    el("span", { class: "member__meta" },
+      badge(PLATFORM_LABEL[participante.plataforma] || participante.plataforma, "brand"),
+      participante.eu ? badge("Este servidor", "ok") : null,
+      participante.dono ? badge("Dono da ponte") : null,
+      participante.pausado ? badge("Pausado", "warn") : null,
+      participante.canalNome ? el("span", { class: "muted" }, `# ${participante.canalNome}`) : null
+    )
+  );
+
+  const actions = el("div", { class: "member__actions" });
+
+  if (participante.eu) {
+    actions.append(
+      el("button", { class: "btn btn--line btn--small", type: "button", onclick: () => run(() => apiRequest(`${base}/${ponte.codigo}`, { method: "PATCH", body: { pausado: !participante.pausado } }), participante.pausado ? "Ponte retomada" : "Ponte pausada") },
+        icon(participante.pausado ? "ri-play-line" : "ri-pause-line"), participante.pausado ? "Retomar" : "Pausar"),
+      el("button", { class: "btn btn--line btn--small", type: "button", onclick: () => {
+        if (!confirmDialog("Tirar este servidor da ponte? O canal deixa de enviar e receber mensagens dela.")) return;
+        run(() => apiRequest(`${base}/${ponte.codigo}/participantes/${participante.guildId}`, { method: "DELETE" }), "Você saiu da ponte");
+      } }, icon("ri-logout-box-line"), "Sair")
+    );
+  } else if (ponte.souDono) {
+    actions.append(el("button", { class: "btn btn--line btn--small", type: "button", onclick: () => {
+      if (!confirmDialog(`Remover ${participante.nomeServidor} da ponte?`)) return;
+      run(() => apiRequest(`${base}/${ponte.codigo}/participantes/${participante.guildId}`, { method: "DELETE" }), "Servidor removido");
+    } }, icon("ri-user-unfollow-line"), "Remover"));
+  }
+
+  return el("li", { class: "member" }, info, actions);
+}
+
+function bridgeCard(ponte, run, base, limites) {
+  const copy = el("button", { class: "code", type: "button", "aria-label": "Copiar código da ponte", onclick: async () => {
+    try {
+      await navigator.clipboard.writeText(ponte.codigo);
+      toast("Código copiado");
+    } catch {
+      toast("Não foi possível copiar. Selecione o código e copie.", "error");
+    }
+  } }, ponte.codigo, icon("ri-file-copy-line"));
+
+  const owner = ponte.souDono ? el("div", { class: "bridge__tools" },
+    el("button", { class: "btn btn--line btn--small", type: "button", onclick: () => {
+      const nome = window.prompt("Novo nome da ponte", ponte.nome);
+      if (nome && nome.trim() && nome.trim() !== ponte.nome) run(() => apiRequest(`${base}/${ponte.codigo}`, { method: "PATCH", body: { nome } }), "Ponte renomeada");
+    } }, icon("ri-edit-line"), "Renomear"),
+    el("button", { class: "btn btn--danger btn--small", type: "button", onclick: () => {
+      if (!confirmDialog("Encerrar a ponte? Todos os canais são desligados dela e o código deixa de funcionar.")) return;
+      run(() => apiRequest(`${base}/${ponte.codigo}`, { method: "DELETE" }), "Ponte encerrada");
+    } }, icon("ri-delete-bin-line"), "Encerrar")
+  ) : null;
+
+  return el("section", { class: "card bridge" },
+    el("header", { class: "bridge__head" },
+      el("div", { class: "bridge__title" },
+        el("h2", { class: "card__title" }, ponte.nome),
+        el("div", { class: "bridge__meta" }, badge(ponte.souDono ? "Você é o dono" : "Participante", ponte.souDono ? "brand" : "muted"), copy,
+          el("span", { class: "muted" }, `${ponte.participantes.length} de ${limites.participantes} servidores`))
+      ),
+      owner
+    ),
+    el("ul", { class: "members" }, ...ponte.participantes.map((p) => participantRow(ponte, p, run, base)))
+  );
+}
+
+function channelSelect(canais, label) {
+  const select = el("select", { class: "input", "aria-label": label, disabled: canais.length === 0 },
+    el("option", { value: "" }, canais.length ? "Escolha um canal" : "Nenhum canal livre"),
+    ...canais.map((canal) => el("option", { value: canal.id }, `# ${canal.nome}`))
+  );
+
+  return select;
+}
+
+async function pageBridges(view, token) {
+  const { plataforma, id } = state.server.servidor;
+  const base = `/dash/servidores/${plataforma}/${id}/pontes`;
+  const head = pageHead("Pontes", "Ligue canais de servidores amigos, do Fluxer ou do Discord, sem passar pelo chat global.");
+
+  mount(view, head, el("p", { class: "muted" }, "Carregando…"));
+
+  let data;
+  try {
+    data = await apiRequest(base);
+  } catch (error) {
+    if (isCurrent(token)) mount(view, head, emptyState("ri-error-warning-line", "Não foi possível carregar", error.message));
+    return;
+  }
+  if (!isCurrent(token)) return;
+
+  const body = el("div", { class: "stack" });
+
+  const run = async (request, success) => {
+    try {
+      data = await request();
+      toast(success);
+    } catch (error) {
+      toast(error.message, "error");
+    }
+    if (isCurrent(token)) draw();
+  };
+
+  const draw = () => {
+    const livres = data.canaisLivres;
+    const createName = el("input", { class: "input", type: "text", maxlength: "40", placeholder: "Nome da ponte (opcional)", "aria-label": "Nome da ponte" });
+    const createChannel = channelSelect(livres, "Canal da nova ponte");
+    const createButton = el("button", { class: "btn btn--fill", type: "button", disabled: data.adulto || livres.length === 0 }, icon("ri-add-line"), "Criar ponte");
+    const joinCode = el("input", { class: "input", type: "text", maxlength: "9", placeholder: "Código (XXXX-XXXX)", "aria-label": "Código da ponte", autocomplete: "off" });
+    const joinChannel = channelSelect(livres, "Canal que vai entrar");
+    const joinButton = el("button", { class: "btn btn--fill", type: "button", disabled: data.adulto || livres.length === 0 }, icon("ri-login-box-line"), "Entrar");
+
+    createButton.addEventListener("click", () => {
+      if (!createChannel.value) return toast("Escolha um canal primeiro.", "error");
+      run(() => apiRequest(base, { method: "POST", body: { nome: createName.value, canalId: createChannel.value } }), "Ponte criada");
+    });
+
+    joinButton.addEventListener("click", () => {
+      if (!joinCode.value.trim()) return toast("Digite o código da ponte.", "error");
+      if (!joinChannel.value) return toast("Escolha um canal primeiro.", "error");
+      run(() => apiRequest(`${base}/entrar`, { method: "POST", body: { codigo: joinCode.value, canalId: joinChannel.value } }), "Você entrou na ponte");
+    });
+
+    mount(body,
+      data.adulto ? el("div", { class: "alert alert--danger" }, icon("ri-forbid-2-line"), "Servidores +18 não podem usar pontes, conforme a Política de Privacidade.") : null,
+      el("div", { class: "two" },
+        card("Criar ponte", "Você recebe um código para chamar os servidores amigos.", el("div", { class: "stack stack--tight" }, createName, createChannel, createButton)),
+        card("Entrar numa ponte", "Use o código que um amigo te passou.", el("div", { class: "stack stack--tight" }, joinCode, joinChannel, joinButton))
+      ),
+      el("p", { class: "muted" }, `Até ${data.limites.participantes} servidores por ponte e ${data.limites.pontes} pontes por servidor. Um canal não fica no chat global e numa ponte ao mesmo tempo, e canais +18 não entram.`),
+      data.pontes.length
+        ? data.pontes.map((ponte) => bridgeCard(ponte, run, base, data.limites))
+        : card(null, null, emptyState("ri-links-line", "Nenhuma ponte por aqui", "Crie uma ponte ou entre numa com o código de um amigo."))
+    );
+  };
+
+  mount(view, head, body);
+  draw();
+}
+
+const SERVER_PAGES = { "": pageOverview, conexao: pageConnection, pontes: pageBridges, filtros: pageFilters, mensagens: pageMessages, logs: pageLogs };
