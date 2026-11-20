@@ -87,11 +87,12 @@
         <article class="counter" data-reveal="zoom" style="--d:90ms"><span class="counter__value" data-stat="servidores">0</span><span class="counter__label">Servidores conectados</span></article>
         <article class="counter" data-reveal="zoom" style="--d:180ms"><span class="counter__value" data-stat="usuariosAtivos">0</span><span class="counter__label">Membros usando o Global</span></article>
       </div>
-      <div class="rankings">
+      <div class="rankings" id="rankings">
         <section class="ranking" data-reveal="up"><h2 class="ranking__title">Membros mais ativos</h2><ol class="ranking__list" id="ranking-users"></ol></section>
         <section class="ranking" data-reveal="up" style="--d:120ms"><h2 class="ranking__title">Servidores mais ativos</h2><ol class="ranking__list" id="ranking-servers"></ol></section>
       </div>
       <p class="stats__status" id="stats-status" role="status">Carregando…</p>
+      <button class="stats__more" id="stats-more" type="button" aria-expanded="false" aria-controls="rankings" hidden><span id="stats-more-label">Ver até o 10º lugar</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
     </div>
   </section>
 </main>
