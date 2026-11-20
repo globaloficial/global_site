@@ -1,7 +1,7 @@
 const STATS_URL = "https://api.globalbot.site/stats";
 const REFRESH_MS = 60_000;
 
-const formatNumber = (value) => Number(value).toLocaleString("pt-BR");
+const formatNumber = (value) => Number(value).toLocaleString(document.documentElement.lang || "pt-BR");
 
 let lastRanking = "";
 
@@ -64,7 +64,7 @@ async function loadStats() {
     if (!response.ok) throw new Error(`Resposta ${response.status}`);
 
     const data = await response.json();
-    const updatedAt = new Date(data.atualizadoEm).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+    const updatedAt = new Date(data.atualizadoEm).toLocaleTimeString(document.documentElement.lang || "pt-BR", { hour: "2-digit", minute: "2-digit" });
 
     renderStats(data);
     setStatus(`Atualizado às ${updatedAt}`);

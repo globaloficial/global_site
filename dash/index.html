@@ -16,6 +16,14 @@
 
 <body>
   <div class="cursor-glow" id="cursor-glow"></div>
+'  <div class="lang lang--float" id="lang">
+    <button class="lang-btn" id="lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="lang-menu" aria-label="Idioma"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg><span id="lang-cur">PT</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Idioma">
+      <li><button type="button" role="option" data-lang="pt" aria-selected="true">Português</button></li>
+      <li><button type="button" role="option" data-lang="en" aria-selected="false">English</button></li>
+      <li><button type="button" role="option" data-lang="es" aria-selected="false">Español</button></li>
+    </ul>
+  </div>
   <div class="shell" id="shell" hidden>
     <aside class="side" id="side" aria-label="Menu do painel"></aside>
     <div class="scrim" id="scrim"></div>
@@ -51,5 +59,7 @@
   <script src="js/pages.js" defer></script>
   <script src="js/app.js" defer></script>
   <script src="js/fx.js" defer></script>
+  <script src="js/i18n-data.js" defer></script>
+  <script src="js/i18n.js" defer></script>
 </body>
 </html>

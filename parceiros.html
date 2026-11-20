@@ -39,7 +39,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;pad
 @keyframes drift{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-3vw,4vh,0) scale(1.08)}}
 .cursor{position:fixed;left:0;top:0;width:460px;height:460px;margin:-230px 0 0 -230px;border-radius:50%;background:radial-gradient(closest-side,rgba(42,77,255,.14),transparent);pointer-events:none;z-index:0;opacity:0;transition:opacity .4s ease;will-change:transform}
 .cursor.on{opacity:1}
-.progress{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--brand),var(--soft));z-index:80;pointer-events:none}
+.progress{display:none;position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--brand),var(--soft));z-index:80;pointer-events:none}
 .page{position:relative;z-index:1;overflow-x:clip}
 
 .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:6px;padding:7px 7px 7px 12px;border-radius:999px;background:rgba(16,16,20,.6);border:1px solid var(--line);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);box-shadow:0 16px 44px -20px rgba(0,0,0,.9);transition:top .4s var(--ease),background .3s ease,box-shadow .3s ease}
@@ -362,13 +362,15 @@ h1 em,h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-sp
       </form>
     </div>
     <div class="foot-col"><h5>Links</h5><a href="index.html#recursos">Recursos</a><a href="comandos.html">Comandos</a><a href="https://dash.globalbot.site">Painel</a><a href="estatisticas.html">Estatísticas</a></div>
-    <div class="foot-col"><h5>Informações</h5><a href="https://fluxer.gg/hDYAW1OU">Suporte</a><a href="parceiros.html">Parceiros</a><a href="https://docs.globalbot.site/privacidade">Privacidade</a><a href="https://github.com/Global-APP/global">GitHub</a></div>
+    <div class="foot-col"><h5>Informações</h5><a href="https://fluxer.gg/hDYAW1OU">Suporte</a><a href="parceiros.html">Parceiros</a><a href="privacidade.html">Privacidade</a><a href="https://github.com/Global-APP/global">GitHub</a></div>
   </div>
   <div class="foot-bottom"><span>© <span id="year">2026</span> Global</span><span>Criado por <a href="https://github.com/Global-APP/global">xMqR</a> · Apoiado financeiramente por Joao.</span></div>
 </footer>
 
 <button class="top" id="top" type="button" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/i18n-data.js"></script>
+<script src="js/i18n.js"></script>
 <script>
 (function () {
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -416,128 +418,7 @@ h1 em,h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-sp
       em.remove();
     });
   }
-  var I18N = {"Global — Converse globalmente": ["Global — Chat worldwide", "Global — Conversa en todo el mundo"], "Global é o bot open-source que conecta comunidades do Fluxer e do Discord em um único chat interconectado.": ["Global is the open-source bot that connects Fluxer and Discord communities in a single interconnected chat.", "Global es el bot de código abierto que conecta comunidades de Fluxer y Discord en un único chat interconectado."], "Principal": ["Main", "Principal"], "Global — início": ["Global — home", "Global — inicio"], "Idioma": ["Language", "Idioma"], "Abrir menu": ["Open menu", "Abrir menú"], "Voltar ao topo": ["Back to top", "Volver arriba"], "Comando para conectar": ["Command to connect", "Comando para conectar"], "Início": ["Home", "Inicio"], "Recursos": ["Features", "Funciones"], "Vantagens": ["Benefits", "Ventajas"], "Dúvidas": ["FAQ", "Dudas"], "Comandos": ["Commands", "Comandos"], "Painel": ["Dashboard", "Panel"], "Adicionar": ["Add", "Añadir"], "Comunidades do Fluxer e do Discord já conversam por aqui": ["Fluxer and Discord communities are already chatting here", "Comunidades de Fluxer y Discord ya conversan por aquí"], "Pronto para levar a sua <em>comunidade</em> ao mundo todo?": ["Ready to take your <em>community</em> worldwide?", "¿Listo para llevar tu <em>comunidad</em> a todo el mundo?"], "Global conecta o seu servidor a outras comunidades em um único chat, com painel web, pontes personalizadas e moderação embutida. Gratuito e de código aberto.": ["Global connects your server to other communities in a single chat, with a web dashboard, custom bridges and built-in moderation. Free and open source.", "Global conecta tu servidor con otras comunidades en un único chat, con panel web, puentes personalizados y moderación integrada. Gratis y de código abierto."], "Adicionar ao servidor": ["Add to your server", "Añadir al servidor"], "Saiba mais": ["Learn more", "Saber más"], "Comunidades que confiam no Global": ["Communities that trust Global", "Comunidades que confían en Global"], "Tudo para o seu servidor <em>conversar sem fronteiras</em>": ["Everything your server needs to <em>chat without borders</em>", "Todo para que tu servidor <em>converse sin fronteras</em>"], "Chat interconectado": ["Interconnected chat", "Chat interconectado"], "O que alguém escreve no canal conectado aparece nos outros servidores, com nome, avatar e o servidor de origem.": ["What someone writes in the connected channel shows up on the other servers, with name, avatar and the server it came from.", "Lo que alguien escribe en el canal conectado aparece en los otros servidores, con nombre, avatar y el servidor de origen."], "Pontes personalizadas": ["Custom bridges", "Puentes personalizados"], "Crie um código, chame servidores amigos e ligue os canais de vocês, entre Fluxer e Discord.": ["Create a code, invite friendly servers and link your channels, across Fluxer and Discord.", "Crea un código, invita a servidores amigos y une sus canales, entre Fluxer y Discord."], "Painel web": ["Web dashboard", "Panel web"], "Configure conexão, filtros e mensagens pelo navegador e veja quem mudou o quê no registro de alterações.": ["Set up the connection, filters and messages from your browser and see who changed what in the change log.", "Configura la conexión, los filtros y los mensajes desde el navegador y mira quién cambió qué en el registro de cambios."], "Apagou, sumiu": ["Delete once, gone everywhere", "Lo borras y desaparece"], "Apagou a mensagem original? As cópias somem de todos os servidores ao mesmo tempo.": ["Deleted the original message? The copies vanish from every server at the same time.", "¿Borraste el mensaje original? Las copias desaparecen de todos los servidores al mismo tiempo."], "Moderação embutida": ["Built-in moderation", "Moderación integrada"], "Filtros de palavrões e de links, bloqueio de conteúdo +18 e pausa quando você precisar.": ["Profanity and link filters, 18+ content blocking and a pause whenever you need it.", "Filtros de palabrotas y de enlaces, bloqueo de contenido +18 y pausa cuando la necesites."], "Fluxer e Discord": ["Fluxer and Discord", "Fluxer y Discord"], "O mesmo bot, os mesmos comandos e o mesmo chat nas duas plataformas, sem ninguém ficar de fora.": ["The same bot, the same commands and the same chat on both platforms, so nobody is left out.", "El mismo bot, los mismos comandos y el mismo chat en las dos plataformas, sin dejar a nadie fuera."], "Mensagens hoje": ["Messages today", "Mensajes hoy"], "Servidores conectados": ["Connected servers", "Servidores conectados"], "Usuários ativos": ["Active users", "Usuarios activos"], "Plataformas: Fluxer e Discord": ["Platforms: Fluxer and Discord", "Plataformas: Fluxer y Discord"], "Mas por que usar o <em>Global?</em>": ["But why use <em>Global?</em>", "Pero ¿por qué usar <em>Global?</em>"], "Sem o Global": ["Without Global", "Sin Global"], "Só quem já conhece o servidor conversa por ali": ["Only people who already know the server chat there", "Solo conversa quien ya conoce el servidor"], "Divulgar o servidor depende só de você": ["Promoting the server is all on you", "Promocionar el servidor depende solo de ti"], "Canais quietos, com pouca gente falando": ["Quiet channels with few people talking", "Canales tranquilos, con poca gente hablando"], "Amizades limitadas à mesma comunidade": ["Friendships limited to the same community", "Amistades limitadas a la misma comunidad"], "Pouco motivo para os membros voltarem todo dia": ["Little reason for members to come back every day", "Pocos motivos para que los miembros vuelvan cada día"], "Seu servidor aparece, com nome e ícone, nas conversas de outras comunidades": ["Your server shows up, with its name and icon, in other communities' chats", "Tu servidor aparece, con nombre e icono, en las conversaciones de otras comunidades"], "Mais gente descobre a sua comunidade, sem depender só de divulgação": ["More people discover your community, without relying only on promotion", "Más gente descubre tu comunidad, sin depender solo de la promoción"], "Canais movimentados o dia todo, com conversa de verdade": ["Busy channels all day, with real conversation", "Canales activos todo el día, con conversación de verdad"], "Amizades novas entre servidores do Fluxer e do Discord": ["New friendships across Fluxer and Discord servers", "Nuevas amistades entre servidores de Fluxer y Discord"], "Mais engajamento: os membros voltam para conversar": ["More engagement: members keep coming back to chat", "Más participación: los miembros vuelven para conversar"], "Divulgação": ["Promotion", "Difusión"], "Cada mensagem pode mostrar o nome e o ícone do seu servidor, apresentando a sua comunidade a quem está conversando.": ["Every message can show your server's name and icon, introducing your community to everyone in the conversation.", "Cada mensaje puede mostrar el nombre y el icono de tu servidor, presentando tu comunidad a quien está conversando."], "Seja encontrado": ["Get discovered", "Que te encuentren"], "Quem gosta da conversa descobre de onde ela veio e pode entrar para conhecer a sua comunidade.": ["People who enjoy the chat find out where it came from and can join to meet your community.", "Quien disfruta la conversación descubre de dónde viene y puede entrar a conocer tu comunidad."], "Amizades": ["Friendships", "Amistades"], "Converse com gente de outros servidores e faça amizades que vão além da sua comunidade.": ["Chat with people from other servers and make friends beyond your own community.", "Conversa con gente de otros servidores y haz amistades que van más allá de tu comunidad."], "Engajamento": ["Engagement", "Participación"], "Um chat sempre em movimento dá motivo para os membros voltarem e participarem todos os dias.": ["A chat that is always moving gives members a reason to come back and take part every day.", "Un chat siempre en movimiento da motivos a los miembros para volver y participar cada día."], "O que é o Global?": ["What is Global?", "¿Qué es Global?"], "O Global é um bot que conecta servidores do Fluxer e do Discord em um chat global. O que alguém escreve no canal conectado de um servidor aparece nos canais conectados dos outros.": ["Global is a bot that connects Fluxer and Discord servers in one global chat. What someone writes in a server's connected channel shows up in the other servers' connected channels.", "Global es un bot que conecta servidores de Fluxer y Discord en un chat global. Lo que alguien escribe en el canal conectado de un servidor aparece en los canales conectados de los demás."], "Como conecto o meu servidor?": ["How do I connect my server?", "¿Cómo conecto mi servidor?"], "Adicione o bot ao servidor, vá até o canal que vai receber o chat global e use <code>g.conectar</code> no Fluxer ou <code>/conectar</code> no Discord. Quem usa o comando precisa da permissão Gerenciar Canais. Também dá para conectar pelo <a href=\"\">painel</a>.": ["Add the bot to your server, go to the channel that will receive the global chat and use <code>g.conectar</code> on Fluxer or <code>/conectar</code> on Discord. Whoever runs the command needs the Manage Channels permission. You can also connect from the <a href=\"\">dashboard</a>.", "Añade el bot al servidor, ve al canal que recibirá el chat global y usa <code>g.conectar</code> en Fluxer o <code>/conectar</code> en Discord. Quien use el comando necesita el permiso Gestionar Canales. También puedes conectar desde el <a href=\"\">panel</a>."], "Que permissões o bot precisa?": ["What permissions does the bot need?", "¿Qué permisos necesita el bot?"], "Ler e enviar mensagens no canal conectado. Para o modo webhook, que deixa a conversa mais natural, ele também precisa da permissão Gerenciar Webhooks.": ["Read and send messages in the connected channel. For webhook mode, which makes the conversation feel more natural, it also needs the Manage Webhooks permission.", "Leer y enviar mensajes en el canal conectado. Para el modo webhook, que hace la conversación más natural, también necesita el permiso Gestionar Webhooks."], "As mensagens não chegam ao meu canal": ["Messages are not reaching my channel", "Los mensajes no llegan a mi canal"], "Confira, nesta ordem: se o canal está conectado, se o chat não está pausado, se o canal não é 18+, se o bot tem permissão de enviar mensagens no canal e se ele está online.": ["Check, in this order: that the channel is connected, that the chat is not paused, that the channel is not 18+, that the bot can send messages in the channel and that it is online.", "Revisa, en este orden: que el canal esté conectado, que el chat no esté pausado, que el canal no sea +18, que el bot tenga permiso para enviar mensajes en el canal y que esté en línea."], "O que são pontes?": ["What are bridges?", "¿Qué son los puentes?"], "Pontes são conexões privadas entre canais escolhidos, separadas do chat global. Quem cria a ponte recebe um código, e quem tem o código pode entrar.": ["Bridges are private connections between chosen channels, separate from the global chat. Whoever creates a bridge gets a code, and anyone with the code can join.", "Los puentes son conexiones privadas entre canales elegidos, separadas del chat global. Quien crea el puente recibe un código, y quien tenga el código puede unirse."], "O Global guarda as minhas mensagens?": ["Does Global store my messages?", "¿Global guarda mis mensajes?"], "O bot não guarda o conteúdo das mensagens, só retransmite. Ele mantém por 7 dias o vínculo entre a mensagem original e as cópias, para sincronizar edições e exclusões. Os detalhes estão na <a href=\"\">Política de Privacidade</a>.": ["The bot does not store message content, it only relays it. It keeps the link between the original message and its copies for 7 days, to sync edits and deletions. Details are in the <a href=\"\">Privacy Policy</a>.", "El bot no guarda el contenido de los mensajes, solo los retransmite. Mantiene durante 7 días el vínculo entre el mensaje original y las copias, para sincronizar ediciones y eliminaciones. Los detalles están en la <a href=\"\">Política de Privacidad</a>."], "Pronto para levar a sua comunidade a <em>novos horizontes?</em>": ["Ready to take your community to <em>new horizons?</em>", "¿Listo para llevar tu comunidad a <em>nuevos horizontes?</em>"], "Adicione o bot, escolha um canal e comece a conversar em minutos. Sem cartão, sem complicação.": ["Add the bot, pick a channel and start chatting in minutes. No card, no hassle.", "Añade el bot, elige un canal y empieza a conversar en minutos. Sin tarjeta, sin complicaciones."], "Comece agora": ["Get started", "Empieza ahora"], "Copie o comando, cole no canal que vai receber o chat global e pronto.": ["Copy the command, paste it in the channel that will receive the global chat and you're done.", "Copia el comando, pégalo en el canal que recibirá el chat global y listo."], "Copiar": ["Copy", "Copiar"], "Copiado ✓": ["Copied ✓", "Copiado ✓"], "Comando copiado": ["Command copied", "Comando copiado"], "Selecione e copie o comando": ["Select and copy the command", "Selecciona y copia el comando"], "Links": ["Links", "Enlaces"], "Estatísticas": ["Statistics", "Estadísticas"], "Informações": ["Information", "Información"], "Suporte": ["Support", "Soporte"], "Parceiros": ["Partners", "Socios"], "Privacidade": ["Privacy", "Privacidad"], "GitHub": ["GitHub", "GitHub"], "©": ["©", "©"], "Global": ["Global", "Global"], "Criado por <a href=\"\">xMqR</a> · Apoiado financeiramente por Joao.": ["Created by <a href=\"\">xMqR</a> · Financially supported by Joao.", "Creado por <a href=\"\">xMqR</a> · Con apoyo financiero de Joao."], "Parceiros · Global": ["Partners · Global", "Socios · Global"], "Conheça as comunidades parceiras do Global, que tal se tornar uma delas?": ["Meet Global's partner communities. Why not become one of them?", "Conoce las comunidades socias de Global. ¿Y si te conviertes en una de ellas?"], "Comunidades que <em>fazem parte</em> da rede do Global": ["Communities that are <em>part of</em> the Global network", "Comunidades que <em>forman parte</em> de la red de Global"], "Entre, converse e conheça gente nova. Estas comunidades já estão conectadas ao Global.": ["Jump in, chat and meet new people. These communities are already connected to Global.", "Entra, conversa y conoce gente nueva. Estas comunidades ya están conectadas a Global."], "Entrar no servidor": ["Join the server", "Entrar al servidor"], "Falar com a gente": ["Talk to us", "Habla con nosotros"], "Quer ser parceiro?": ["Want to be a partner?", "¿Quieres ser socio?"], "Entre no servidor de suporte e fale com a gente para colocar a sua comunidade aqui.": ["Join the support server and talk to us to get your community listed here.", "Entra al servidor de soporte y habla con nosotros para poner tu comunidad aquí."], "O Família BR é o maior servidor brasileiro do Fluxer, projetado para funcionar como um porto seguro online onde você pode conversar, fazer amizades e interagir diariamente.": ["Família BR is the biggest Brazilian server on Fluxer, designed to be an online safe haven where you can chat, make friends and hang out every day.", "Família BR es el mayor servidor brasileño de Fluxer, pensado como un puerto seguro en línea donde puedes conversar, hacer amistades e interactuar a diario."], "Gateway é uma comunidade que busca ser um ambiente acolhedor para desenvolvedores e pessoas que tem interesse em assuntos envolvendo tecnologia no geral.": ["Gateway is a community that aims to be a welcoming place for developers and anyone interested in technology in general.", "Gateway es una comunidad que busca ser un ambiente acogedor para desarrolladores y personas interesadas en la tecnología en general."], "Uma comunidade para todos que odeiam acordar cedo (ou a escola, lol) tenha a liberdade de se expressar!": ["A community for everyone who hates waking up early (or school, lol) to speak their mind freely!", "¡Una comunidad para todos los que odian madrugar (o la escuela, jaja) y quieren expresarse con libertad!"], "Conheça o primeiro servidor brasileiro de debates no Fluxer e QG do nosso movimento!": ["Meet the first Brazilian debate server on Fluxer and the HQ of our movement!", "¡Conoce el primer servidor brasileño de debates en Fluxer y el cuartel general de nuestro movimiento!"], "Seu bot multifuncional, um companheiro amigável para a sua comunidade.": ["Your multipurpose bot, a friendly companion for your community.", "Tu bot multifuncional, un compañero amigable para tu comunidad."]};
-  var LANGS = ['pt', 'en', 'es'];
-  var LANG_ATTR = { pt: 'pt-BR', en: 'en', es: 'es' };
-  var IDX = { en: 0, es: 1 };
-  var lang = 'pt';
-  var lookup = {};
-  Object.keys(I18N).forEach(function (key) { lookup[key] = I18N[key]; });
-
-  function T(pt) {
-    var entry = lookup[pt];
-    return lang === 'pt' || !entry ? pt : entry[IDX[lang]];
-  }
-
-  var HTML_SEL = '[data-split], .faq-a p, .foot-bottom > span:last-child';
-  var SKIP_SEL = '.logo, #lang, [data-stat], #year, #toast, .pname, script, style';
-  var htmlNodes = Array.prototype.slice.call(document.querySelectorAll(HTML_SEL)).map(function (el) {
-    var raw = el.innerHTML.replace(/\s+/g, ' ').trim();
-    var hrefs = [];
-    var key = raw.replace(/href="([^"]*)"/g, function (m, h) { hrefs.push(h); return 'href=""'; });
-    return { el: el, key: key, hrefs: hrefs };
-  });
-
-  var textNodes = [];
-  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  var current;
-  while ((current = walker.nextNode())) {
-    var text = current.nodeValue.trim();
-    var parent = current.parentNode;
-    if (!text || !/[A-Za-zÀ-ÿ©]/.test(text)) continue;
-    if (parent.closest(SKIP_SEL) || parent.closest(HTML_SEL)) continue;
-    textNodes.push({ node: current, key: text });
-  }
-
-  var attrNodes = [];
-  document.querySelectorAll('[aria-label]').forEach(function (el) {
-    if (el.closest('#lang-menu')) return;
-    attrNodes.push({ el: el, key: el.getAttribute('aria-label') });
-  });
-  var metaNodes = [document.querySelector('meta[name="description"]')].filter(Boolean).map(function (el) {
-    return { el: el, key: el.getAttribute('content') };
-  });
-  var titleKey = document.title;
-
-  window.__i18nMissing = [];
-
-  function swapHtml(item) {
-    var entry = lookup[item.key];
-    if (!entry) { window.__i18nMissing.push(item.key); return; }
-    var html = lang === 'pt' ? item.key : entry[IDX[lang]];
-    var n = 0;
-    item.el.innerHTML = html.replace(/href=""/g, function () { return 'href="' + item.hrefs[n++] + '"'; });
-  }
-
-  function applyText() {
-    window.__i18nMissing = [];
-    htmlNodes.forEach(swapHtml);
-    textNodes.forEach(function (item) {
-      var entry = lookup[item.key];
-      if (!entry) { window.__i18nMissing.push(item.key); return; }
-      var value = lang === 'pt' ? item.key : entry[IDX[lang]];
-      item.node.nodeValue = item.node.nodeValue.replace(/\S[\s\S]*\S|\S/, function () { return value; });
-    });
-    attrNodes.forEach(function (item) {
-      var entry = lookup[item.key];
-      if (!entry) { window.__i18nMissing.push(item.key); return; }
-      item.el.setAttribute('aria-label', lang === 'pt' ? item.key : entry[IDX[lang]]);
-    });
-    metaNodes.forEach(function (item) {
-      var entry = lookup[item.key];
-      if (entry) item.el.setAttribute('content', lang === 'pt' ? item.key : entry[IDX[lang]]);
-    });
-    if (lookup[titleKey]) document.title = lang === 'pt' ? titleKey : lookup[titleKey][IDX[lang]];
-    document.documentElement.lang = LANG_ATTR[lang];
-  }
-
-  var langBox = document.getElementById('lang');
-  var langBtn = document.getElementById('lang-btn');
-  var langCur = document.getElementById('lang-cur');
-  var langOptions = Array.prototype.slice.call(document.querySelectorAll('#lang-menu [data-lang]'));
-
-  function setMenu(open) {
-    langBox.classList.toggle('open', open);
-    langBtn.setAttribute('aria-expanded', String(open));
-  }
-
-  function applyLang(next, initial) {
-    if (LANGS.indexOf(next) < 0) next = 'pt';
-    lang = next;
-    applyText();
-    langCur.textContent = next.toUpperCase();
-    langOptions.forEach(function (o) { o.setAttribute('aria-selected', String(o.dataset.lang === next)); });
-    if (initial) return;
-    htmlNodes.forEach(function (item) {
-      if (!item.el.hasAttribute('data-split')) return;
-      splitText(item.el);
-      item.el.classList.remove('in');
-      void item.el.offsetWidth;
-      item.el.classList.add('in');
-    });
-    try { localStorage.setItem('global-lang', next); } catch (err) {}
-  }
-
-  langBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    setMenu(!langBox.classList.contains('open'));
-  });
-  langOptions.forEach(function (o) {
-    o.addEventListener('click', function () {
-      applyLang(o.dataset.lang, false);
-      setMenu(false);
-    });
-  });
-  document.addEventListener('click', function (e) { if (!langBox.contains(e.target)) setMenu(false); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
-
-  var saved = null;
-  try { saved = localStorage.getItem('global-lang'); } catch (err) {}
-  if (!saved) {
-    var nav2 = (navigator.language || 'pt').slice(0, 2).toLowerCase();
-    saved = nav2 === 'es' || nav2 === 'en' ? nav2 : 'pt';
-  }
-  if (saved !== 'pt') applyLang(saved, true);
+  window.GlobalUI = { splitText: splitText };
   document.querySelectorAll('[data-split]').forEach(splitText);
 
   var targets = document.querySelectorAll('[data-reveal],[data-split]');
