@@ -3,7 +3,7 @@ const DRAFT_KEY = "global-suporte-rascunho";
 const LIST_REFRESH_MS = 20_000;
 const CHAT_REFRESH_MS = 10_000;
 
-const dateFormat = new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeStyle: "short" });
+const dateFormat = { format: (value) => new Intl.DateTimeFormat(document.documentElement.lang || "pt-BR", { dateStyle: "short", timeStyle: "short" }).format(value) };
 
 const view = {
   filter: "todas",

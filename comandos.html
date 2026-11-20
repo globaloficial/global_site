@@ -29,6 +29,14 @@
     <a href="https://docs.globalbot.site">Docs</a>
     <a href="https://dash.globalbot.site">Painel</a>
   </div>
+  <div class="lang" id="lang">
+    <button class="lang-btn" id="lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="lang-menu" aria-label="Idioma"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg><span id="lang-cur">PT</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Idioma">
+      <li><button type="button" role="option" data-lang="pt" aria-selected="true">Português</button></li>
+      <li><button type="button" role="option" data-lang="en" aria-selected="false">English</button></li>
+      <li><button type="button" role="option" data-lang="es" aria-selected="false">Español</button></li>
+    </ul>
+  </div>
   <a class="btn btn-primary" data-magnetic href="https://web.fluxer.app/oauth2/authorize?client_id=1562253521942745089&amp;scope=bot&amp;permissions=22527189434367169">Adicionar</a>
   <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
 </nav>
@@ -72,10 +80,11 @@
       </form>
     </div>
     <div class="foot-col"><h5>Links</h5><a href="index.html#recursos">Recursos</a><a href="comandos.html">Comandos</a><a href="https://dash.globalbot.site">Painel</a><a href="estatisticas.html">Estatísticas</a></div>
-    <div class="foot-col"><h5>Informações</h5><a href="https://fluxer.gg/hDYAW1OU">Suporte</a><a href="parceiros.html">Parceiros</a><a href="https://docs.globalbot.site/privacidade">Privacidade</a><a href="https://github.com/Global-APP/global">GitHub</a></div>
+    <div class="foot-col"><h5>Informações</h5><a href="https://fluxer.gg/hDYAW1OU">Suporte</a><a href="parceiros.html">Parceiros</a><a href="privacidade.html">Privacidade</a><a href="https://github.com/Global-APP/global">GitHub</a></div>
   </div>
   <div class="foot-bottom"><span>© <span id="year">2026</span> Global</span><span>Criado por <a href="https://github.com/Global-APP/global">xMqR</a> · Apoiado financeiramente por Joao.</span></div>
 </footer>
+
 
 <button class="top" id="top" type="button" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -83,6 +92,8 @@
 <script src="js/common.js" defer></script>
 <script src="js/commands-data.js" defer></script>
 <script src="js/commands.js" defer></script>
+<script src="js/i18n-data.js" defer></script>
+<script src="js/i18n.js" defer></script>
 <script src="js/core.js" defer></script>
 </body>
 </html>

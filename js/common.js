@@ -21,7 +21,7 @@ function animateNumber(element, target, duration, from = 0) {
     const progress = Math.min((now - start) / duration, 1);
     const value = from + (target - from) * (1 - (1 - progress) ** 3);
 
-    element.textContent = Math.round(value).toLocaleString("pt-BR");
+    element.textContent = Math.round(value).toLocaleString(document.documentElement.lang || "pt-BR");
     if (progress < 1) requestAnimationFrame(tick);
   };
 

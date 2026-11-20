@@ -23,7 +23,7 @@ const icon = (name) => el("i", { class: name, "aria-hidden": "true" });
 
 const PLATFORM_LABEL = { fluxer: "Fluxer", discord: "Discord" };
 
-const dateFormat = new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeStyle: "short" });
+const dateFormat = { format: (value) => new Intl.DateTimeFormat(document.documentElement.lang || "pt-BR", { dateStyle: "short", timeStyle: "short" }).format(value) };
 
 function formatDate(timestamp) {
   return dateFormat.format(new Date(timestamp));
@@ -97,5 +97,5 @@ function emptyState(iconName, title, text) {
 }
 
 function confirmDialog(message) {
-  return window.confirm(message);
+  return window.confirm(window.T ? window.T(message) : message);
 }

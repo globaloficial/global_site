@@ -77,7 +77,7 @@
       window.__revealIO.observe(n);
     });
   };
-  window.GlobalUI = { toast: toast, reveal: observeReveal };
+  window.GlobalUI = { toast: toast, reveal: observeReveal, splitText: splitText };
 
   var nav = document.getElementById('nav');
   var navLinks = document.getElementById('nav-links');
