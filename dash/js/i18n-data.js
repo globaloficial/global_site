@@ -1,4 +1,20 @@
 window.I18N_DATA = {
+"Mais páginas": [
+"More pages",
+"Más páginas"
+],
+"Páginas": [
+"Pages",
+"Páginas"
+],
+"Servidor de Suporte": [
+"Support Server",
+"Servidor de Soporte"
+],
+"FluxerList": [
+"FluxerList",
+"FluxerList"
+],
 "Gerenciar Canais": [
 "Manage Channels",
 "Gestionar Canales"

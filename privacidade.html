@@ -12,6 +12,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/core.css">
 <link rel="stylesheet" href="css/docs.css">
+<style id="more-css">
+.more{position:relative;margin-left:2px}
+.more-btn{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;color:var(--muted);transition:color .25s ease,background .25s ease}
+.more-btn:hover,.more.open .more-btn{color:var(--ink);background:rgba(255,255,255,.08)}
+.more-btn .chev{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s var(--ease)}
+.more.open .chev{transform:rotate(180deg)}
+.more-menu{position:absolute;top:calc(100% + 14px);right:-40px;width:230px;padding:8px;border-radius:16px;background:rgba(14,14,18,.97);border:1px solid var(--line-2);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 24px 60px -20px rgba(0,0,0,.8);opacity:0;transform:translateY(-8px) scale(.96);transform-origin:top right;pointer-events:none;transition:opacity .25s ease,transform .35s var(--ease);z-index:90}
+.more.open .more-menu{opacity:1;transform:none;pointer-events:auto}
+.more-title{display:block;padding:8px 12px 6px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);opacity:.7}
+.more-menu a{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:10px;font-size:14px;color:var(--muted);opacity:0;transform:translateY(-4px);transition:background .2s ease,color .2s ease,padding .3s var(--ease),opacity .3s ease,transform .35s var(--ease)}
+.more.open .more-menu a{opacity:1;transform:none;transition-delay:calc(var(--i)*28ms)}
+.more-menu a:hover{background:rgba(255,255,255,.08);color:var(--ink);padding-left:16px;transition-delay:0s}
+.more-menu a svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.6}
+@media (max-width:980px){.more-menu{right:auto;left:-8px;transform-origin:top left}}
+</style>
 </head>
 <body>
 <div class="ambient"></div>
@@ -28,6 +43,21 @@
     <a href="estatisticas.html">Estatísticas</a>
     <a href="https://docs.globalbot.site">Docs</a>
     <a href="https://dash.globalbot.site">Painel</a>
+  </div>
+  <div class="more" id="more">
+    <button class="more-btn" id="more-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="more-menu" aria-label="Mais páginas"><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <div class="more-menu" id="more-menu" role="menu" aria-label="Mais páginas">
+      <span class="more-title">Páginas</span>
+      <a role="menuitem" style="--i:0" href="index.html">Início</a>
+      <a role="menuitem" style="--i:1" href="comandos.html">Comandos</a>
+      <a role="menuitem" style="--i:2" href="parceiros.html">Parceiros</a>
+      <a role="menuitem" style="--i:3" href="estatisticas.html">Estatísticas</a>
+      <a role="menuitem" style="--i:4" href="https://docs.globalbot.site">Docs</a>
+      <a role="menuitem" style="--i:5" href="https://dash.globalbot.site">Painel</a>
+      <a role="menuitem" style="--i:6" href="https://support.globalbot.site">Suporte</a>
+      <a role="menuitem" style="--i:7" href="privacidade.html">Privacidade</a>
+      <a role="menuitem" style="--i:8" href="https://fluxerlist.com/bots/global" target="_blank" rel="noopener noreferrer">FluxerList<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
   </div>
   <div class="lang" id="lang">
     <button class="lang-btn" id="lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="lang-menu" aria-label="Idioma"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg><span id="lang-cur">PT</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
@@ -168,8 +198,8 @@
         <button class="btn btn-primary" type="submit" id="copy-btn">Copiar</button>
       </form>
     </div>
-    <div class="foot-col"><h5>Links</h5><a href="index.html#recursos">Recursos</a><a href="comandos.html">Comandos</a><a href="https://dash.globalbot.site">Painel</a><a href="estatisticas.html">Estatísticas</a></div>
-    <div class="foot-col"><h5>Informações</h5><a href="https://fluxer.gg/hDYAW1OU">Suporte</a><a href="parceiros.html">Parceiros</a><a href="privacidade.html">Privacidade</a><a href="https://github.com/Global-APP/global">GitHub</a></div>
+    <div class="foot-col"><h5>Links</h5><a href="https://fluxer.gg/hDYAW1OU">Servidor de Suporte</a><a href="https://github.com/Global-APP/global">GitHub</a><a href="https://fluxerlist.com/bots/global">FluxerList</a></div>
+    <div class="foot-col"><h5>Informações</h5><a href="https://support.globalbot.site">Suporte</a><a href="comandos.html">Comandos</a><a href="estatisticas.html">Estatísticas</a><a href="parceiros.html">Parceiros</a><a href="https://docs.globalbot.site">Docs</a><a href="privacidade.html">Privacidade</a></div>
   </div>
   <div class="foot-bottom"><span>© <span id="year">2026</span> Global</span><span>Criado por <a href="https://github.com/Global-APP/global">xMqR</a> · Apoiado financeiramente por Joao.</span></div>
 </footer>
@@ -181,5 +211,18 @@
 <script src="js/i18n.js" defer></script>
 <script src="js/core.js" defer></script>
 <script src="js/docs.js" defer></script>
+<script id="more-js">
+(function () {
+  var box = document.getElementById('more');
+  var btn = document.getElementById('more-btn');
+  if (!box || !btn) return;
+  function set(open) { box.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); set(!box.classList.contains('open')); });
+  document.addEventListener('click', function (e) { if (!box.contains(e.target)) set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+  var lang = document.getElementById('lang-btn');
+  if (lang) lang.addEventListener('click', function () { set(false); });
+})();
+</script>
 </body>
 </html>
