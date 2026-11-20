@@ -1,4 +1,12 @@
 window.I18N_DATA = {
+"Ver até o 10º lugar": [
+"See up to 10th place",
+"Ver hasta el 10.º lugar"
+],
+"Mostrar menos": [
+"Show less",
+"Mostrar menos"
+],
 "Mais páginas": [
 "More pages",
 "Más páginas"

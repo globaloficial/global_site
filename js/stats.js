@@ -1,5 +1,6 @@
 const STATS_URL = "https://api.globalbot.site/stats";
 const REFRESH_MS = 60_000;
+const VISIBLE_DEFAULT = 3;
 
 const formatNumber = (value) => Number(value).toLocaleString(document.documentElement.lang || "pt-BR");
 
@@ -21,7 +22,7 @@ function updateCounters(data) {
 function createRankItem(entry, index) {
   const item = document.createElement("li");
 
-  item.className = "rank";
+  item.className = index >= VISIBLE_DEFAULT ? "rank rank--extra" : "rank";
   item.style.setProperty("--delay", `${index * 0.12}s`);
   item.innerHTML = `
     <b class="rank__position">${index + 1}</b>
@@ -56,6 +57,25 @@ function renderStats(data) {
   lastRanking = snapshot;
   renderRanking($("#ranking-users"), data.topUsuarios ?? []);
   renderRanking($("#ranking-servers"), data.topServidores ?? []);
+  updateMoreButton(data);
+}
+
+function updateMoreButton(data) {
+  const total = Math.max((data.topUsuarios ?? []).length, (data.topServidores ?? []).length);
+  $("#stats-more").hidden = total <= VISIBLE_DEFAULT;
+}
+
+function setupMoreButton() {
+  const button = $("#stats-more");
+  const rankings = $("#rankings");
+  const label = $("#stats-more-label");
+
+  button.addEventListener("click", () => {
+    const expanded = rankings.classList.toggle("expanded");
+    button.setAttribute("aria-expanded", String(expanded));
+    label.textContent = window.T ? window.T(expanded ? "Mostrar menos" : "Ver até o 10º lugar") : (expanded ? "Mostrar menos" : "Ver até o 10º lugar");
+    label.dataset.state = expanded ? "open" : "closed";
+  });
 }
 
 async function loadStats() {
@@ -73,6 +93,7 @@ async function loadStats() {
   }
 }
 
+setupMoreButton();
 loadStats();
 setInterval(() => {
   if (!document.hidden) loadStats();

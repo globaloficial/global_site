@@ -88,3 +88,11 @@
 @media (max-width:900px){.command__columns{grid-template-columns:1fr;gap:20px}.counters{grid-template-columns:1fr}.rankings{grid-template-columns:1fr}}
 @media (max-width:560px){.cmd-bar{flex-direction:column;align-items:stretch}.search{max-width:none}.tabs{align-self:flex-start}.command{padding:20px}}
 @media (prefers-reduced-motion:reduce){.rank{animation:none;opacity:1}}
+
+.rank--extra{display:none}
+.rankings.expanded .rank--extra{display:flex}
+.stats__more{display:flex;align-items:center;gap:8px;margin:14px auto 0;padding:9px 16px;border-radius:999px;border:1px solid var(--line);font-size:13.5px;font-weight:600;color:var(--muted);transition:color .25s ease,background .25s ease,border-color .25s ease,transform .3s var(--ease)}
+.stats__more[hidden]{display:none}
+.stats__more:hover{color:var(--ink);background:rgba(255,255,255,.07);border-color:var(--line-2);transform:translateY(-2px)}
+.stats__more svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .45s var(--ease)}
+.stats__more[aria-expanded="true"] svg{transform:rotate(180deg)}
