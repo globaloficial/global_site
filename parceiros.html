@@ -1,170 +1,706 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Conheça as comunidades parceiras do Global, que tal se tornar uma delas?">
-  <meta name="theme-color" content="#0330ef">
-  <title>Parceiros · Global</title>
-  <link rel="icon" type="image/png" href="assets/global.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Conheça as comunidades parceiras do Global, que tal se tornar uma delas?">
+<meta name="theme-color" content="#0a0a0a">
+<title>Parceiros · Global</title>
+<link rel="icon" type="image/png" href="assets/global.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0a0a0a; --ink:#f5f5f7; --muted:#9a9db0; --dim:#6f7388;
+  --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.16);
+  --brand:#0330ef; --brand-2:#2a4dff; --soft:#8ea6ff; --pale:#d4dcff;
+  --sans:'Figtree',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --wrap:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px;overflow-x:clip}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip;min-height:100vh}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+ul{list-style:none}
+img{display:block;max-width:100%}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;padding:2px 7px;border-radius:7px;background:rgba(255,255,255,.08);color:var(--pale)}
+::selection{background:var(--brand);color:#fff}
+:focus-visible{outline:2px solid var(--soft);outline-offset:3px;border-radius:8px}
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
-  <link rel="stylesheet" href="css/style.css">
+.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ambient::before{content:"";position:absolute;right:-18vw;top:-26vh;width:52vw;height:90vh;background:radial-gradient(closest-side,rgba(3,48,239,.72),rgba(3,48,239,.2) 60%,transparent);filter:blur(50px);animation:drift 10s ease-in-out infinite}
+.ambient::after{content:"";position:absolute;left:-24vw;bottom:-36vh;width:54vw;height:74vh;background:radial-gradient(closest-side,rgba(3,48,239,.26),transparent);filter:blur(54px);animation:drift 12s ease-in-out infinite reverse}
+@keyframes drift{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-3vw,4vh,0) scale(1.08)}}
+.cursor{position:fixed;left:0;top:0;width:460px;height:460px;margin:-230px 0 0 -230px;border-radius:50%;background:radial-gradient(closest-side,rgba(42,77,255,.14),transparent);pointer-events:none;z-index:0;opacity:0;transition:opacity .4s ease;will-change:transform}
+.cursor.on{opacity:1}
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--brand),var(--soft));z-index:80;pointer-events:none}
+.page{position:relative;z-index:1;overflow-x:clip}
+
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:6px;padding:7px 7px 7px 12px;border-radius:999px;background:rgba(16,16,20,.6);border:1px solid var(--line);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);box-shadow:0 16px 44px -20px rgba(0,0,0,.9);transition:top .4s var(--ease),background .3s ease,box-shadow .3s ease}
+.nav.scrolled{top:10px;background:rgba(10,10,13,.85)}
+.brand{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;overflow:hidden;margin-right:8px;transition:transform .5s var(--ease)}
+.brand:hover{transform:rotate(-14deg) scale(1.1)}
+.brand img{width:100%;height:100%}
+.nav-links{position:relative;display:flex;align-items:center}
+.nav-links a{position:relative;z-index:1;padding:8px 14px;font-size:13.5px;font-weight:500;color:var(--muted);white-space:nowrap;transition:color .25s ease}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-ind{position:absolute;top:50%;left:0;height:32px;margin-top:-16px;border-radius:999px;background:rgba(255,255,255,.09);opacity:0;pointer-events:none;transition:transform .45s var(--ease),width .45s var(--ease),opacity .3s ease}
+.nav .btn{margin-left:6px}
+.nav-toggle{display:none;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);place-items:center;margin-left:4px}
+.nav-toggle span,.nav-toggle span::before{display:block;width:15px;height:1.6px;background:var(--ink);position:relative;transition:transform .3s var(--ease)}
+.nav-toggle span::before{content:"";position:absolute;top:-5px;left:0}
+.nav-toggle[aria-expanded="true"] span{transform:rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span::before{transform:translateY(5px) rotate(-90deg)}
+
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 20px;border-radius:10px;border:1px solid transparent;font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;isolation:isolate;transition:transform .35s var(--ease),box-shadow .35s ease,background .3s ease,border-color .3s ease;will-change:transform}
+.btn::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);transform:skewX(-20deg);transition:left .7s var(--ease);z-index:-1}
+.btn:hover::after{left:130%}
+.btn:active{transform:scale(.95)!important}
+.btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-primary{color:#fff;background:linear-gradient(180deg,var(--brand-2),var(--brand));box-shadow:0 8px 24px -8px rgba(3,48,239,.8),inset 0 1px 0 rgba(255,255,255,.3)}
+.btn-primary:hover{box-shadow:0 14px 36px -8px rgba(42,77,255,.95),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn-text{padding:11px 14px;color:var(--ink);background:none}
+.btn-text span{position:relative}
+.btn-text span::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:0 50%;transition:transform .4s var(--ease)}
+.btn-text:hover span::after{transform:scaleX(1)}
+.btn-line{color:var(--ink);background:rgba(255,255,255,.05);border-color:var(--line-2)}
+.btn-line:hover{background:rgba(255,255,255,.11)}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:ripple .7s ease-out forwards;pointer-events:none;z-index:-1}
+@keyframes ripple{to{transform:scale(1);opacity:0}}
+
+h1,h2,h3{font-weight:500;letter-spacing:-.035em;line-height:1.06}
+h1 em,h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;font-size:1.14em;line-height:.9}
+.label{display:inline-block;padding:5px 14px;border-radius:999px;border:1px solid var(--line-2);background:rgba(255,255,255,.04);font-size:12.5px;font-weight:500;color:var(--pale)}
+.title{font-size:clamp(32px,4.6vw,54px);text-shadow:0 2px 40px rgba(0,0,0,.6)}
+.lead{margin:22px auto 0;max-width:600px;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.65;color:var(--muted)}
+.center{text-align:center}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.section{position:relative;padding:clamp(80px,11vw,140px) 0}
+.head{margin-bottom:clamp(40px,5vw,64px)}
+.head .label{margin-bottom:22px}
+
+[data-split] .w{display:inline-block;vertical-align:top;perspective:700px}
+[data-split] .wi{display:inline-block;opacity:0;transform:translateY(.6em) rotateX(-70deg);filter:blur(8px);transform-origin:50% 100%;transition:transform 1s var(--ease) calc(var(--i)*55ms),opacity .8s ease calc(var(--i)*55ms),filter .8s ease calc(var(--i)*55ms)}
+[data-split].in .wi{opacity:1;transform:none;filter:none}
+.wi.em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;font-size:1.14em;line-height:.9;padding-right:.08em}
+[data-reveal]{opacity:0;transition:opacity .9s ease var(--d,0ms),transform 1s var(--ease) var(--d,0ms)}
+[data-reveal="up"]{transform:translateY(34px)}
+[data-reveal="zoom"]{transform:scale(.9)}
+[data-reveal="tilt"]{transform:perspective(1000px) rotateX(18deg) translateY(44px)}
+[data-reveal].in{opacity:1;transform:none}
+
+.hero{position:relative;padding:clamp(140px,20vh,190px) 0 0;text-align:center}
+.proof{display:inline-flex;flex-direction:column;align-items:center;gap:9px}
+.avatars{display:flex;align-items:center}
+.avatars span{width:30px;height:30px;margin-left:-9px;border-radius:50%;border:2px solid var(--bg);overflow:hidden;background:#1b1d2b;transition:transform .4s var(--ease),margin .4s var(--ease)}
+.avatars span:first-child{margin-left:0}
+.avatars:hover span{margin-left:-2px}
+.avatars span:hover{transform:translateY(-5px) scale(1.15)}
+.avatars img{width:100%;height:100%;object-fit:cover}
+.proof small{font-size:12.5px;color:var(--muted)}
+.proof i{display:block;width:150px;height:1px;background:linear-gradient(90deg,transparent,var(--line-2),transparent)}
+.hero h1{margin:26px auto 0;max-width:15em;font-size:clamp(38px,6.2vw,76px);letter-spacing:-.045em;text-shadow:0 2px 50px rgba(0,0,0,.6)}
+.hero-actions{margin-top:34px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+.glow{position:relative;width:min(560px,86vw);height:200px;margin:10px auto 0;pointer-events:none}
+.glow i{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);display:block}
+.glow .g1{width:100%;height:150px;border-radius:50% 50% 0 0/100% 100% 0 0;background:radial-gradient(60% 100% at 50% 100%,#fff 0%,#c3d0ff 20%,#5a7bff 46%,rgba(3,48,239,.6) 66%,transparent 100%);filter:blur(26px);animation:breathe 5s ease-in-out infinite}
+.glow .g2{width:62%;height:90px;border-radius:50% 50% 0 0/100% 100% 0 0;background:radial-gradient(60% 100% at 50% 100%,#fff,#aebdff 45%,transparent 100%);filter:blur(14px);animation:breathe 4s ease-in-out infinite reverse}
+.glow .g3{width:30%;height:44px;background:radial-gradient(closest-side,#fff,transparent);filter:blur(8px);bottom:44px}
+@keyframes breathe{0%,100%{opacity:.85;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.07,1.12)}}
+.glow.cut{height:150px;margin-top:46px;clip-path:inset(-300px -400px 0 -400px)}
+.glow.cut i{bottom:-40px}
+.glow.cut .g3{bottom:-14px}
+.glow.cut::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(190,205,255,.5),transparent)}
+
+.trust{position:relative;z-index:2;margin-top:0;text-align:center}
+.trust p{font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--dim)}
+.logos{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px clamp(28px,5vw,64px)}
+.logo{display:inline-flex;align-items:center;gap:10px;font-size:17px;font-weight:600;color:var(--muted);filter:grayscale(1);opacity:.78;transition:filter .4s ease,opacity .4s ease,transform .45s var(--ease),color .3s ease}
+.logo:hover{filter:none;opacity:1;color:var(--ink);transform:translateY(-4px) scale(1.05)}
+.logo span{width:30px;height:30px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#1b1d2b;font-size:12px;font-weight:800}
+.logo img{width:100%;height:100%;object-fit:cover}
+
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{position:relative;padding:28px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.03);overflow:hidden;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .5s var(--ease),border-color .4s ease}
+.card.live{transition:transform .12s linear,border-color .4s ease}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),rgba(42,77,255,.26),transparent 55%);opacity:0;transition:opacity .4s ease;pointer-events:none}
+.card:hover{border-color:rgba(142,166,255,.4)}
+.card:hover::before{opacity:1}
+.ico{position:relative;width:46px;height:46px;border-radius:13px;display:grid;place-items:center;margin-bottom:22px;color:var(--soft);background:rgba(3,48,239,.16);border:1px solid rgba(142,166,255,.26);transition:transform .5s var(--ease),background .3s ease}
+.card:hover .ico{transform:translateY(-4px) rotate(-6deg);background:rgba(3,48,239,.3)}
+.ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card h3{position:relative;font-size:19px;font-weight:600;letter-spacing:-.02em}
+.card p{position:relative;margin-top:10px;font-size:14.5px;line-height:1.65;color:var(--muted)}
+.stats{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{padding:26px 16px;text-align:center;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.025);transition:transform .5s var(--ease),border-color .4s ease}
+.stat:hover{transform:translateY(-6px);border-color:rgba(142,166,255,.4)}
+.stat b{display:block;font-size:clamp(30px,4vw,46px);font-weight:600;letter-spacing:-.04em;background:linear-gradient(180deg,#fff,var(--soft));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{display:block;margin-top:6px;font-size:13.5px;color:var(--muted)}
+
+.compare{max-width:820px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0 28px;align-items:start}
+.c-head{display:flex;align-items:center;gap:10px;height:56px;padding:0 6px;font-size:21px;font-weight:500;letter-spacing:-.02em}
+.c-head.other{color:var(--dim)}
+.c-head.us{padding-left:30px}
+.c-head img.mark{width:30px;height:30px;border-radius:50%}
+.c-head img.word{height:26px;width:auto}
+.c-box{position:relative;padding:20px 26px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.02);overflow:hidden}
+.c-box.us{border-color:rgba(142,166,255,.3);background:linear-gradient(210deg,rgba(42,77,255,.34),rgba(10,10,14,.9) 46%),rgba(255,255,255,.02);box-shadow:0 40px 90px -50px rgba(3,48,239,.95)}
+.c-box.us::before{content:"";position:absolute;inset:0;background:radial-gradient(360px circle at var(--mx,90%) var(--my,0%),rgba(142,166,255,.3),transparent 55%);opacity:.7;transition:opacity .4s ease;pointer-events:none}
+.c-box li{position:relative;display:flex;align-items:flex-start;gap:12px;padding:13px 0;font-size:14.5px;line-height:1.45;border-top:1px solid var(--line);transition:transform .45s var(--ease)}
+.c-box li:first-child{border-top:0}
+.c-box.other li{color:var(--dim)}
+.c-box li:hover{transform:translateX(6px)}
+.c-box li svg{flex:none;width:18px;height:18px;margin-top:1px;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.c-box.other svg{stroke:#585c70}
+.c-box.us svg{stroke:var(--pale)}
+.c-box.us svg path{stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .8s var(--ease) calc(var(--n)*110ms + 300ms)}
+.in .c-box.us svg path{stroke-dashoffset:0}
+
+.faq{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;padding:22px 4px;text-align:left;font-size:16.5px;font-weight:500;letter-spacing:-.01em;transition:padding .4s var(--ease),color .3s ease}
+.faq-q:hover{padding-left:12px;color:#fff}
+.faq-q i{flex:none;position:relative;width:22px;height:22px;opacity:.75}
+.faq-q i::before,.faq-q i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.6px;background:var(--ink);border-radius:2px;transform:translate(-50%,-50%);transition:transform .45s var(--ease)}
+.faq-q i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq-item.open .faq-q i::before{transform:translate(-50%,-50%) rotate(45deg)}
+.faq-item.open .faq-q i::after{transform:translate(-50%,-50%) rotate(-45deg)}
+.faq-item.open .faq-q{color:#fff}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden}
+.faq-a p{padding:0 4px 24px;max-width:62ch;font-size:15px;line-height:1.7;color:var(--muted);opacity:0;transform:translateY(-6px);transition:opacity .5s ease .1s,transform .5s var(--ease) .1s}
+.faq-item.open .faq-a p{opacity:1;transform:none}
+.faq-a a{color:var(--soft);text-decoration:underline;text-underline-offset:3px}
+
+.cta{padding-top:clamp(60px,9vw,120px);text-align:center}
+.cta .btn{margin-top:30px}
+
+.footer{position:relative;z-index:1;border-top:1px solid var(--line);background:#08080a}
+.foot{max-width:var(--wrap);margin:0 auto;padding:56px 24px 0;display:grid;grid-template-columns:1.4fr .6fr .6fr;gap:40px}
+.foot-brand .logo-row{display:flex;align-items:center;gap:12px}
+.foot-brand .mark{width:32px;height:32px;border-radius:50%}
+.foot-brand .word{height:26px;width:auto}
+.foot-brand h4{margin-top:30px;font-size:14px;font-weight:600}
+.foot-brand p{margin-top:6px;max-width:44ch;font-size:13.5px;line-height:1.6;color:var(--muted)}
+.copy{margin-top:16px;display:flex;gap:8px;max-width:420px}
+.copy input{flex:1;min-width:0;padding:11px 14px;border-radius:10px;border:1px solid var(--line-2);background:rgba(255,255,255,.04);font-size:14px;transition:border-color .3s ease,background .3s ease}
+.copy input:focus{outline:none;border-color:var(--soft);background:rgba(255,255,255,.07)}
+.foot-col h5{font-size:13px;font-weight:600;margin-bottom:16px}
+.foot-col a{display:block;width:fit-content;padding:5px 0;font-size:13.5px;color:var(--muted);background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:color .25s ease,background-size .4s var(--ease)}
+.foot-col a:hover{color:var(--ink);background-size:100% 1px}
+.foot-bottom{max-width:var(--wrap);margin:44px auto 0;padding:22px 24px 30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:var(--dim)}
+.foot-bottom a{color:var(--muted);transition:color .25s ease}
+.foot-bottom a:hover{color:var(--ink)}
+
+.lang{position:relative;margin-left:4px}
+.lang-btn{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 11px;border-radius:999px;font-size:13px;font-weight:600;color:var(--muted);transition:color .25s ease,background .25s ease}
+.lang-btn:hover,.lang.open .lang-btn{color:var(--ink);background:rgba(255,255,255,.08)}
+.lang-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.lang-btn .chev{width:13px;height:13px;transition:transform .4s var(--ease)}
+.lang.open .chev{transform:rotate(180deg)}
+.lang-menu{position:absolute;top:calc(100% + 12px);right:0;min-width:156px;padding:6px;border-radius:14px;background:rgba(14,14,18,.96);border:1px solid var(--line-2);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 24px 60px -20px rgba(0,0,0,.9);opacity:0;transform:translateY(-8px) scale(.95);transform-origin:top right;pointer-events:none;transition:opacity .25s ease,transform .4s var(--ease)}
+.lang.open .lang-menu{opacity:1;transform:none;pointer-events:auto}
+.lang-menu button{display:flex;align-items:center;justify-content:space-between;width:100%;padding:10px 12px;border-radius:9px;font-size:14px;color:var(--muted);text-align:left;transition:background .2s ease,color .2s ease,padding .3s var(--ease)}
+.lang-menu button:hover{background:rgba(255,255,255,.08);color:var(--ink);padding-left:16px}
+.lang-menu button[aria-selected="true"]{color:#fff}
+.lang-menu button[aria-selected="true"]::after{content:"✓";color:var(--soft)}
+.benefits{margin:clamp(40px,5vw,64px) auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card.sm{padding:24px}
+.card.sm h3{font-size:18px}
+.card.sm p{font-size:14px}
+.top{position:fixed;right:22px;bottom:22px;z-index:75;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-2);background:rgba(16,16,22,.8);backdrop-filter:blur(12px);transform:translateY(80px) scale(.6);opacity:0;pointer-events:none;transition:transform .5s var(--ease),opacity .4s ease,background .3s ease}
+.top.show{transform:none;opacity:1;pointer-events:auto}
+.top:hover{background:var(--brand);transform:translateY(-4px)}
+.top svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.toast{position:fixed;left:50%;bottom:28px;z-index:90;padding:11px 18px;border-radius:12px;border:1px solid var(--line-2);background:rgba(16,16,22,.92);backdrop-filter:blur(12px);font-size:14px;transform:translate(-50%,30px);opacity:0;pointer-events:none;transition:transform .45s var(--ease),opacity .3s ease}
+.toast.show{transform:translate(-50%,0);opacity:1}
+
+@media (max-width:980px){
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .benefits{grid-template-columns:repeat(2,1fr)}
+  .foot{grid-template-columns:1fr 1fr}
+  .foot-brand{grid-column:1/-1}
+}
+@media (max-width:820px){
+  .nav-links{display:none}
+  .nav{width:calc(100% - 24px);justify-content:space-between;flex-wrap:wrap;border-radius:22px;padding:7px 7px 7px 12px}
+  .nav .btn{display:none}
+  .nav-toggle{display:grid}
+  .lang{margin-left:auto}
+  .nav.open{align-items:flex-start}
+  .nav.open .nav-links{display:flex;order:3;flex-direction:column;align-items:stretch;width:100%;padding:8px 0 6px}
+  .nav.open .nav-links a{padding:13px 10px;font-size:16px}
+  .nav.open .btn{display:inline-flex;order:4;width:100%;margin:6px 0 2px}
+  .nav-ind{display:none}
+  .compare{grid-template-columns:1fr;gap:14px}
+  .c-head.us{padding-left:6px;height:46px;margin-top:10px}
+  .c-head.other{height:46px}
+}
+@media (max-width:560px){
+  .feat-grid{grid-template-columns:1fr}
+  .benefits{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .wrap{padding:0 20px}
+  .hero-actions .btn-primary{flex:1 1 100%}
+  .foot{grid-template-columns:1fr 1fr;padding-inline:20px}
+  .foot-bottom{padding:22px 20px 74px}
+  .copy{flex-direction:column}
+  .top{right:14px;bottom:14px}
+}
+@media (max-width:360px){
+  .stats{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0ms!important}
+  [data-reveal],[data-split] .wi{opacity:1;transform:none;filter:none}
+}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pcard{--acc:var(--brand-2);display:flex;flex-direction:column;padding:0;min-height:300px}
+.pcard::before{background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--acc) 32%,transparent),transparent 58%)}
+.pcard:hover{border-color:color-mix(in srgb,var(--acc) 55%,transparent)}
+.pban{height:78px;background:linear-gradient(135deg,color-mix(in srgb,var(--acc) 55%,#000),color-mix(in srgb,var(--acc) 12%,transparent));border-bottom:1px solid var(--line);transition:filter .4s ease}
+.pcard:hover .pban{filter:saturate(1.4) brightness(1.15)}
+.pbody{position:relative;display:flex;flex-direction:column;flex:1;padding:0 24px 24px}
+.pico{width:68px;height:68px;margin-top:-34px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#0e0e12;border:3px solid #0e0e12;box-shadow:0 0 0 1px color-mix(in srgb,var(--acc) 60%,transparent),0 10px 30px -10px var(--acc);transition:transform .5s var(--ease)}
+.pcard:hover .pico{transform:scale(1.08) rotate(-5deg)}
+.pico img,.pico video{width:100%;height:100%;object-fit:cover;display:block}
+.pico b{font-size:28px;font-weight:700;color:var(--pale)}
+.pbody h3{margin-top:16px;font-size:19px;font-weight:600;letter-spacing:-.02em}
+.pbody p{margin:10px 0 22px;font-size:14.5px;line-height:1.65;color:var(--muted);flex:1}
+.pbody .btn{align-self:flex-start}
+.pcard.join{border-style:dashed;border-color:var(--line-2);background:rgba(3,48,239,.06)}
+.pcard.join .pban{background:repeating-linear-gradient(135deg,rgba(142,166,255,.14) 0 10px,transparent 10px 20px)}
+.phero{padding-bottom:0}
+.phero .lead{position:relative;z-index:2}
+.phero .glow{margin-top:0;height:150px}
+.psec{padding-top:0}
+@media (max-width:980px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.pgrid{grid-template-columns:1fr}.pcard{min-height:0}}
+</style>
 </head>
-
 <body>
-  <aside class="sidebar">
-    <a class="sidebar__logo" href="index.html" aria-label="Global — início">
-      <img class="wordmark" src="assets/wordmark.svg" alt="" width="1920" height="1157">
-    </a>
+<div class="ambient"></div>
+<div class="cursor" id="cursor"></div>
+<div class="progress" id="progress"></div>
 
-    <nav class="sidebar__nav" aria-label="Seções">
-      <a class="sidebar__link" href="index.html" data-section="inicio"><i class="ri-home-4-line" aria-hidden="true"></i><span>Início</span></a>
-      <a class="sidebar__link" href="index.html#recursos" data-section="recursos"><i class="ri-apps-2-line" aria-hidden="true"></i><span>Recursos</span></a>
-      <a class="sidebar__link" href="index.html#demo" data-section="demo"><i class="ri-play-circle-line" aria-hidden="true"></i><span>Demonstração</span></a>
-      <a class="sidebar__link" href="index.html#codigo-aberto" data-section="codigo-aberto"><i class="ri-github-line" aria-hidden="true"></i><span>Código aberto</span></a>
-      <a class="sidebar__link" href="index.html#como" data-section="como"><i class="ri-question-line" aria-hidden="true"></i><span>Como usar</span></a>
-      <a class="sidebar__link is-active" href="parceiros.html" aria-current="page">
-        <i class="ri-team-line" aria-hidden="true"></i><span>Parceiros</span>
-      </a>
-      <a class="sidebar__link" href="comandos.html">
-        <i class="ri-terminal-box-line" aria-hidden="true"></i><span>Comandos</span>
-      </a>
-      <a class="sidebar__link" href="estatisticas.html">
-        <i class="ri-bar-chart-box-line" aria-hidden="true"></i><span>Estatísticas</span>
-      </a>
-      <a class="sidebar__link" href="https://docs.globalbot.site">
-        <i class="ri-book-open-line" aria-hidden="true"></i><span>Documentação</span>
-      </a>
-    </nav>
+<nav class="nav" id="nav" aria-label="Principal">
+  <a class="brand" href="index.html" aria-label="Global — início"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmFja2dyb3VuZCIgeDE9IjAiIHkxPSIwLjUyIiB4Mj0iMCIgeTI9IjAuOTIiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMwZjBmMGYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDMzMGVmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnbG9iZSIgeDE9IjAiIHkxPSIwLjU5IiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNTg3N2Y2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0idXJsKCNiYWNrZ3JvdW5kKSIvPgogIDxwYXRoIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxLjUgMjEuNSkgc2NhbGUoMC4wMzUyNzIpIiBmaWxsPSJ1cmwoI2dsb2JlKSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNzYxIDhMNzMzIDE0TDY4NSAxN0w2MDUgMzNMNTA1IDY2TDQzOSA5N0wzNTcgMTQ1TDI2NyAyMTdMMTk0IDI5MkwxNDYgMzU2TDEwNiA0MjFMNjYgNTAzTDQwIDU3N0wxNyA2NzFMOCA3NDBMOCA4NTRMMTcgOTM3TDI2IDk4NEw0OSAxMDY0TDczIDExMjhMMTE1IDEyMTFMMTQ1IDEyNjBMMjA5IDEzNDFMMjc1IDE0MDdMMzIxIDE0NDZMMzkyIDE0OTNMNDY3IDE1MzRMNTQ2IDE1NjVMNjA0IDE1ODNMNzM5IDE2MDZMODY4IDE2MDZMMTAxMSAxNTgyTDExMDkgMTU0OUwxMTc3IDE1MThMMTIzMiAxNDg2TDEyOTIgMTQ0NUwxMzQxIDE0MDVMMTM5OCAxMzQ4TDE0NDUgMTI5MUwxNDk0IDEyMThMMTUyNiAxMTYwTDE1NjYgMTA2M0wxNTkxIDk2OUwxNjA0IDg4N0wxNjA1IDc2OUwxNTkyIDY2NUwxNTc0IDU4NUwxNTU3IDUzMkwxNTE4IDQ0M0wxNDc4IDM3M0wxNDI5IDMwNUwxMzk2IDI2N0wxMzEwIDE4NUwxMjY5IDE1NEwxMTkwIDEwNUwxMTIzIDcyTDEwMTEgMzRMOTI5IDE3TDg5MCAxNUw4NTMgOFpNMTA3NiAyMjRMMTE0OSAyNjRMMTIwMyAzMDNMMTI1NCAzNDZMMTMxMSA0MTFMMTM0MiA0NTRMMTM4MyA1MjVMMTM5OSA1NjFMMTQyMyA2MzJMMTQzOSA2OThMMTQ0OCA3OTJMMTQ0NyA4NjRMMTQ0MCA4OTdMMTQzOSA5MjJMMTQyMyA5ODVMMTM5OSAxMDU0TDEzNTkgMTEzM0wxMzE1IDExOTRMMTMxMSAxMTgwTDEzMTcgMTExM0wxMzEwIDEwMzNMMTMwMyAxMDE3TDEyODMgOTkzTDEyMzcgOTYyTDExOTEgOTQ0TDExNjQgOTI1TDExMzcgODkzTDExMDkgODUxTDEwODAgODI1TDEwNTQgODE3TDEwMTQgODE2TDkwMiA4NDBMODU3IDg2NUw4NDEgODkzTDgzMSA5NjlMODM0IDEwMDdMODY3IDEwNTJMOTI4IDExMTZMOTc1IDExNzJMMTAwNyAxMjE2TDEwMzEgMTI1N0wxMDUzIDEzMzZMMTA1NCAxMzg4TDEwNTEgMTM5NUwxMDMxIDE0MDdMOTQ2IDE0MzFMODIyIDE0NDhMNzQyIDE0NDdMNzEzIDE0NDBMNjg4IDE0MzlMNjIwIDE0MjJMNTU0IDEzOThMNDkzIDEzNjdMNDQxIDEzMzRMMzk1IDEyOThMMzQ1IDEyNTFMMzEzIDEyMTZMMjczIDExNjNMMjQxIDExMTBMMjE1IDEwNTRMMTkzIDk5MkwxNzYgOTE4TDE2NiA4MDBMMTc1IDcwMEwxOTMgNjIxTDIyNCA1NDJMMjgxIDQ0MUwzMzMgMzc4TDM0NCAzNjlMMzUwIDM2OUwzNjUgMzg2TDM4MiA0MjhMMzg4IDQ4MEwzOTAgNTUxTDM5MyA1NzBMNDAwIDU4MEw0MTggNTk2TDQ0MCA2MDVMNTM2IDYyN0w1NzIgNjQwTDYyMSA2ODBMNjY5IDczNEw2ODAgNzM2TDY5NSA3MThMNzA0IDY4MUw3MDEgNjY4TDY3MiA2MTZMNjU5IDU1MUw2NTkgNTE3TDY2NSA0NzhMNjc3IDQ1MUw2OTcgNDMyTDczMyA0MThMODUwIDQxOEw4NjcgNDE0TDg4MyA0MDRMOTAyIDM4M0w5MjggMzI4TDk1NCAyOTVMMTA0OCAyMjVMMTA1NyAyMjFaIi8+Cjwvc3ZnPgo=" alt="Global" width="34" height="34"></a>
+  <div class="nav-links" id="nav-links">
+    <span class="nav-ind" id="nav-ind"></span>
+    <a href="index.html#inicio">Início</a>
+    <a href="index.html#recursos">Recursos</a>
+    <a href="parceiros.html" class="active">Parceiros</a>
+    <a href="comandos.html">Comandos</a>
+    <a href="https://dash.globalbot.site">Painel</a>
+  </div>
+  <div class="lang" id="lang">
+    <button class="lang-btn" id="lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="lang-menu" aria-label="Idioma"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg><span id="lang-cur">PT</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Idioma">
+      <li><button type="button" role="option" data-lang="pt" aria-selected="true">Português</button></li>
+      <li><button type="button" role="option" data-lang="en" aria-selected="false">English</button></li>
+      <li><button type="button" role="option" data-lang="es" aria-selected="false">Español</button></li>
+    </ul>
+  </div>
+  <a class="btn btn-primary" data-magnetic href="https://web.fluxer.app/oauth2/authorize?client_id=1562253521942745089&amp;scope=bot&amp;permissions=22527189434367169">Adicionar</a>
+  <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+</nav>
 
-    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">
-      <svg class="icon icon--moon" aria-hidden="true"><use href="#moon"/></svg>
-      <svg class="icon icon--sun" aria-hidden="true"><use href="#sun"/></svg>
-    </button>
-  </aside>
-
-  <header class="topbar">
-    <a class="topbar__logo" href="index.html" aria-label="Global — início">
-      <img class="wordmark" src="assets/wordmark.svg" alt="" width="1920" height="1157">
-    </a>
-
-    <div class="topbar__actions">
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">
-        <svg class="icon icon--moon" aria-hidden="true"><use href="#moon"/></svg>
-        <svg class="icon icon--sun" aria-hidden="true"><use href="#sun"/></svg>
-      </button>
-      <button class="theme-toggle" type="button" data-menu-open aria-label="Abrir menu">
-        <svg class="icon" aria-hidden="true"><use href="#burger"/></svg>
-      </button>
+<main class="page">
+  <section class="hero phero" id="inicio">
+    <div class="wrap">
+      <span class="label" data-reveal="up">Parceiros</span>
+      <h1 data-split>Comunidades que <em>fazem parte</em> da rede do Global</h1>
+      <p class="lead" data-reveal="up" style="--d:380ms">Entre, converse e conheça gente nova. Estas comunidades já estão conectadas ao Global.</p>
+      <div class="glow" id="glow" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div>
     </div>
-  </header>
+  </section>
 
-  <dialog class="menu" id="menu" aria-label="Menu">
-    <button class="theme-toggle menu__close" type="button" data-menu-close aria-label="Fechar menu">
-      <svg class="icon" aria-hidden="true"><use href="#close"/></svg>
-    </button>
-
-    <nav class="menu__nav">
-      <a class="menu__link" href="index.html">Início</a>
-      <a class="menu__link" href="index.html#recursos">Recursos</a>
-      <a class="menu__link" href="index.html#demo">Demonstração</a>
-      <a class="menu__link" href="index.html#codigo-aberto">Código aberto</a>
-      <a class="menu__link" href="index.html#como">Como usar</a>
-      <a class="menu__link" href="parceiros.html">Parceiros</a>
-      <a class="menu__link" href="comandos.html">Comandos</a>
-      <a class="menu__link" href="estatisticas.html">Estatísticas</a>
-      <a class="menu__link" href="https://docs.globalbot.site">Documentação</a>
-    </nav>
-
-    <div class="menu__links">
-      <a class="btn btn--fill" data-link="invite">Adicionar o bot</a>
-      <a class="btn btn--line" data-link="github"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>GitHub</a>
-    </div>
-  </dialog>
-
-  <main class="page">
-    <section class="partners" id="parceiros">
-      <div class="section-head reveal">
-        <h1 class="page-title">Parceiros</h1>
+  <section class="section psec" id="parceiros">
+    <div class="wrap">
+      <div class="pgrid">
+        <article class="card pcard" data-tilt data-reveal="tilt" style="--acc:#36a124;--d:0ms"><div class="pban"></div><div class="pbody"><div class="pico"><img src="assets/partners/familiabr.gif" alt="" width="68" height="68" loading="lazy"></div><h3 class="pname">Família BR</h3><p>O Família BR é o maior servidor brasileiro do Fluxer, projetado para funcionar como um porto seguro online onde você pode conversar, fazer amizades e interagir diariamente.</p><a class="btn btn-line" href="https://fluxer.gg/V73Gi4ia" target="_blank" rel="noopener noreferrer">Entrar no servidor <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></article>
+        <article class="card pcard" data-tilt data-reveal="tilt" style="--acc:#f8d510;--d:90ms"><div class="pban"></div><div class="pbody"><div class="pico"><img src="assets/partners/gateway.png" alt="" width="68" height="68" loading="lazy"></div><h3 class="pname">Gateway</h3><p>Gateway é uma comunidade que busca ser um ambiente acolhedor para desenvolvedores e pessoas que tem interesse em assuntos envolvendo tecnologia no geral.</p><a class="btn btn-line" href="https://fluxer.gg/pYcwvdjJ" target="_blank" rel="noopener noreferrer">Entrar no servidor <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></article>
+        <article class="card pcard" data-tilt data-reveal="tilt" style="--acc:#b3358f;--d:180ms"><div class="pban"></div><div class="pbody"><div class="pico"><video src="assets/partners/queremosacordartarde.webm.mp4" autoplay loop muted playsinline></video></div><h3 class="pname">Queremos acordar tarde!</h3><p>Uma comunidade para todos que odeiam acordar cedo (ou a escola, lol) tenha a liberdade de se expressar!</p><a class="btn btn-line" href="https://fluxer.gg/5Qclag12" target="_blank" rel="noopener noreferrer">Entrar no servidor <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></article>
+        <article class="card pcard" data-tilt data-reveal="tilt" style="--acc:#d9d9e0;--d:0ms"><div class="pban"></div><div class="pbody"><div class="pico"><img src="assets/partners/arn.png" alt="" width="68" height="68" loading="lazy"></div><h3 class="pname">Aliança Racionalista Nacional - ARN</h3><p>Conheça o primeiro servidor brasileiro de debates no Fluxer e QG do nosso movimento!</p><a class="btn btn-line" href="https://fluxer.gg/M1fsAYTA" target="_blank" rel="noopener noreferrer">Entrar no servidor <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></article>
+        <article class="card pcard" data-tilt data-reveal="tilt" style="--acc:#648de5;--d:90ms"><div class="pban"></div><div class="pbody"><div class="pico"><img src="assets/partners/ace.gif" alt="" width="68" height="68" loading="lazy"></div><h3 class="pname">Ace</h3><p>Seu bot multifuncional, um companheiro amigável para a sua comunidade.</p><a class="btn btn-line" href="https://fluxer.gg/MDovFpRt" target="_blank" rel="noopener noreferrer">Entrar no servidor <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></article>
+        <article class="card pcard join" data-tilt data-reveal="tilt" style="--d:180ms"><div class="pban"></div><div class="pbody"><div class="pico"><b>+</b></div><h3>Quer ser parceiro?</h3><p>Entre no servidor de suporte e fale com a gente para colocar a sua comunidade aqui.</p><a class="btn btn-primary" href="https://fluxer.gg/hDYAW1OU" target="_blank" rel="noopener noreferrer">Falar com a gente <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></article>
       </div>
-
-      <p class="partners__intro reveal">Comunidades que fazem parte da rede do Global. Entre, converse e conheça gente nova.</p>
-
-      <div class="partners__stage" id="partners-stage">
-        <div class="partners__scene" id="partners-scene"></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer__main">
-      <div class="footer__brand">
-        <a href="index.html" aria-label="Global — voltar ao topo">
-          <img class="wordmark" src="assets/wordmark.svg" alt="" width="1920" height="1157">
-        </a>
-        <p>Um chat global que conecta comunidades do Fluxer.</p>
-        <a class="pill" data-link="github">
-          <svg class="icon" aria-hidden="true"><use href="#github"/></svg>
-          <b>Open-source</b> no GitHub
-        </a>
-      </div>
-
-      <nav aria-label="Navegação">
-        <h3 class="footer__title">Navegação</h3>
-        <ul class="footer__list">
-          <li><a href="index.html#recursos">Recursos</a></li>
-          <li><a href="index.html#demo">Demonstração</a></li>
-          <li><a href="index.html#codigo-aberto">Código aberto</a></li>
-          <li><a href="index.html#como">Como usar</a></li>
-          <li><a href="parceiros.html">Parceiros</a></li>
-          <li><a href="comandos.html">Comandos</a></li>
-          <li><a href="estatisticas.html">Estatísticas</a></li>
-          <li><a href="https://docs.globalbot.site">Documentação</a></li>
-        </ul>
-      </nav>
-
-      <nav aria-label="Links rápidos">
-        <h3 class="footer__title">Links rápidos</h3>
-        <ul class="footer__list">
-          <li><a data-link="invite">Adicionar o bot</a></li>
-          <li><a data-link="support">Servidor de suporte</a></li>
-          <li><a data-link="github">Repositório no GitHub</a></li>
-          <li><a data-link="issues">Reportar um problema</a></li>
-        </ul>
-      </nav>
     </div>
+  </section>
 
-    <div class="footer__bottom">
-      <span>© 2026 Global</span>
-      <span>Criado por xMqR · Apoiado financeiramente por Joao.</span>
+  <section class="section cta" id="cta">
+    <div class="wrap">
+      <h2 class="title" data-split>Pronto para levar a sua comunidade a <em>novos horizontes?</em></h2>
+      <p class="lead" data-reveal="up" style="--d:300ms">Adicione o bot, escolha um canal e comece a conversar em minutos. Sem cartão, sem complicação.</p>
+      <a class="btn btn-primary" data-magnetic data-reveal="zoom" style="--d:420ms" href="https://web.fluxer.app/oauth2/authorize?client_id=1562253521942745089&amp;scope=bot&amp;permissions=22527189434367169">Adicionar ao servidor</a>
+      <div class="glow cut" id="glow2" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div>
     </div>
-  </footer>
+  </section>
+</main>
 
-  <svg aria-hidden="true" style="position: absolute; width: 0; height: 0">
-    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 11h12.2l-4.6-4.6L13 5l7 7-7 7-1.4-1.4 4.6-4.6H4z"/></symbol>
-    <symbol id="github" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
-    <symbol id="partners" viewBox="0 0 24 24"><path d="M16 11a3 3 0 100-6 3 3 0 000 6zm-8 0a3 3 0 100-6 3 3 0 000 6zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></symbol>
-    <symbol id="book" viewBox="0 0 24 24"><path d="M5 3h12a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V4a1 1 0 011-1zm1 2v11.2A3 3 0 017 16h10V5zm1 13a1 1 0 000 2h10v-2z"/></symbol>
-    <symbol id="chart" viewBox="0 0 24 24"><path d="M4 20V10h4v10zm6 0V4h4v16zm6 0v-7h4v7z"/></symbol>
-    <symbol id="home" viewBox="0 0 24 24"><path d="M12 3l9 8h-3v9h-5v-6h-2v6H6v-9H3z"/></symbol>
-    <symbol id="spark" viewBox="0 0 24 24"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></symbol>
-    <symbol id="chat" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 012 2v10a2 2 0 01-2 2H9l-5 4v-4H4a2 2 0 01-2-2V6a2 2 0 012-2z"/></symbol>
-    <symbol id="code" viewBox="0 0 24 24"><path d="M8.6 16.6L4 12l4.6-4.6L10 8.8 6.8 12 10 15.2zm6.8 0l-1.4-1.4L17.2 12 14 8.8l1.4-1.4L20 12z"/></symbol>
-    <symbol id="steps" viewBox="0 0 24 24"><path d="M3 5h3v3H3zm5 1h13v2H8zm-5 5h3v3H3zm5 1h13v2H8zm-5 5h3v3H3zm5 1h13v2H8z"/></symbol>
-    <symbol id="terminal" viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 011 1v14a1 1 0 01-1 1H3a1 1 0 01-1-1V5a1 1 0 011-1zm1 2v12h16V6zm2.3 2.3L10 12l-3.7 3.7-1.4-1.4L7.2 12 4.9 9.7zM12 15h6v2h-6z"/></symbol>
-    <symbol id="shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5.2-3.4 9.7-8 11-4.6-1.3-8-5.8-8-11V5zm0 2.1L6 6.4V11c0 4 2.4 7.4 6 8.8 3.6-1.4 6-4.8 6-8.8V6.4zm-1 10.3L8.3 11.7l1.4-1.4L11 11.6l3.3-3.3 1.4 1.4z"/></symbol>
-    <symbol id="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></symbol>
-    <symbol id="sun" viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8 4 4 0 000-8zM11 1h2v3h-2zm0 19h2v3h-2zM1 11h3v2H1zm19 0h3v2h-3zM4.2 5.6l1.4-1.4 2.1 2.1-1.4 1.4zm12.1 12.1l1.4-1.4 2.1 2.1-1.4 1.4zM5.6 19.8l-1.4-1.4 2.1-2.1 1.4 1.4zM17.7 7.7l-1.4-1.4 2.1-2.1 1.4 1.4z"/></symbol>
-    <symbol id="burger" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></symbol>
-    <symbol id="close" viewBox="0 0 24 24"><path d="M5.6 4.2L12 10.6l6.4-6.4 1.4 1.4-6.4 6.4 6.4 6.4-1.4 1.4-6.4-6.4-6.4 6.4-1.4-1.4 6.4-6.4-6.4-6.4z"/></symbol>
-  </svg>
+<footer class="footer">
+  <div class="foot">
+    <div class="foot-brand">
+      <div class="logo-row"><img class="mark" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmFja2dyb3VuZCIgeDE9IjAiIHkxPSIwLjUyIiB4Mj0iMCIgeTI9IjAuOTIiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMwZjBmMGYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDMzMGVmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnbG9iZSIgeDE9IjAiIHkxPSIwLjU5IiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNTg3N2Y2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0idXJsKCNiYWNrZ3JvdW5kKSIvPgogIDxwYXRoIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxLjUgMjEuNSkgc2NhbGUoMC4wMzUyNzIpIiBmaWxsPSJ1cmwoI2dsb2JlKSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNzYxIDhMNzMzIDE0TDY4NSAxN0w2MDUgMzNMNTA1IDY2TDQzOSA5N0wzNTcgMTQ1TDI2NyAyMTdMMTk0IDI5MkwxNDYgMzU2TDEwNiA0MjFMNjYgNTAzTDQwIDU3N0wxNyA2NzFMOCA3NDBMOCA4NTRMMTcgOTM3TDI2IDk4NEw0OSAxMDY0TDczIDExMjhMMTE1IDEyMTFMMTQ1IDEyNjBMMjA5IDEzNDFMMjc1IDE0MDdMMzIxIDE0NDZMMzkyIDE0OTNMNDY3IDE1MzRMNTQ2IDE1NjVMNjA0IDE1ODNMNzM5IDE2MDZMODY4IDE2MDZMMTAxMSAxNTgyTDExMDkgMTU0OUwxMTc3IDE1MThMMTIzMiAxNDg2TDEyOTIgMTQ0NUwxMzQxIDE0MDVMMTM5OCAxMzQ4TDE0NDUgMTI5MUwxNDk0IDEyMThMMTUyNiAxMTYwTDE1NjYgMTA2M0wxNTkxIDk2OUwxNjA0IDg4N0wxNjA1IDc2OUwxNTkyIDY2NUwxNTc0IDU4NUwxNTU3IDUzMkwxNTE4IDQ0M0wxNDc4IDM3M0wxNDI5IDMwNUwxMzk2IDI2N0wxMzEwIDE4NUwxMjY5IDE1NEwxMTkwIDEwNUwxMTIzIDcyTDEwMTEgMzRMOTI5IDE3TDg5MCAxNUw4NTMgOFpNMTA3NiAyMjRMMTE0OSAyNjRMMTIwMyAzMDNMMTI1NCAzNDZMMTMxMSA0MTFMMTM0MiA0NTRMMTM4MyA1MjVMMTM5OSA1NjFMMTQyMyA2MzJMMTQzOSA2OThMMTQ0OCA3OTJMMTQ0NyA4NjRMMTQ0MCA4OTdMMTQzOSA5MjJMMTQyMyA5ODVMMTM5OSAxMDU0TDEzNTkgMTEzM0wxMzE1IDExOTRMMTMxMSAxMTgwTDEzMTcgMTExM0wxMzEwIDEwMzNMMTMwMyAxMDE3TDEyODMgOTkzTDEyMzcgOTYyTDExOTEgOTQ0TDExNjQgOTI1TDExMzcgODkzTDExMDkgODUxTDEwODAgODI1TDEwNTQgODE3TDEwMTQgODE2TDkwMiA4NDBMODU3IDg2NUw4NDEgODkzTDgzMSA5NjlMODM0IDEwMDdMODY3IDEwNTJMOTI4IDExMTZMOTc1IDExNzJMMTAwNyAxMjE2TDEwMzEgMTI1N0wxMDUzIDEzMzZMMTA1NCAxMzg4TDEwNTEgMTM5NUwxMDMxIDE0MDdMOTQ2IDE0MzFMODIyIDE0NDhMNzQyIDE0NDdMNzEzIDE0NDBMNjg4IDE0MzlMNjIwIDE0MjJMNTU0IDEzOThMNDkzIDEzNjdMNDQxIDEzMzRMMzk1IDEyOThMMzQ1IDEyNTFMMzEzIDEyMTZMMjczIDExNjNMMjQxIDExMTBMMjE1IDEwNTRMMTkzIDk5MkwxNzYgOTE4TDE2NiA4MDBMMTc1IDcwMEwxOTMgNjIxTDIyNCA1NDJMMjgxIDQ0MUwzMzMgMzc4TDM0NCAzNjlMMzUwIDM2OUwzNjUgMzg2TDM4MiA0MjhMMzg4IDQ4MEwzOTAgNTUxTDM5MyA1NzBMNDAwIDU4MEw0MTggNTk2TDQ0MCA2MDVMNTM2IDYyN0w1NzIgNjQwTDYyMSA2ODBMNjY5IDczNEw2ODAgNzM2TDY5NSA3MThMNzA0IDY4MUw3MDEgNjY4TDY3MiA2MTZMNjU5IDU1MUw2NTkgNTE3TDY2NSA0NzhMNjc3IDQ1MUw2OTcgNDMyTDczMyA0MThMODUwIDQxOEw4NjcgNDE0TDg4MyA0MDRMOTAyIDM4M0w5MjggMzI4TDk1NCAyOTVMMTA0OCAyMjVMMTA1NyAyMjFaIi8+Cjwvc3ZnPgo=" alt="" width="32" height="32"><img class="word" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIwIDExNTciIGZpbGw9IiNmZmYiPgogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTY0MyAxMTU0TDg3NSAxMTU1TDkwMyAxMDgyTDkwNiAxMDc4TDExMjggMTA3OEwxMTMxIDEwODJMMTE1OSAxMTU1TDE5MTkgMTE1NUwxOTE5IDk5NEwxNjE2IDk5NEwxNjE1IDY0OEwxMzkwIDY0OEwxMzg5IDExNDhMMTE1MiA2NDhMODkxIDY0OFpNMTAxOCA3ODBMMTA5MSA5NTdMOTQ0IDk1OEw5NDMgOTU3TDEwMTQgNzg2Wk0xNSA2NDhMMTUgMTE1NUw1MjQgMTE1NEw1NjQgMTE0OEw2MTAgMTEzM0w2NDIgMTExM0w2NjIgMTA5Mkw2NzcgMTA2NEw2ODQgMTAzNEw2ODQgMTAwM0w2NzggOTc2TDY2OCA5NTVMNjQ4IDkzMUw2MjQgOTE0TDU4NiA4OThMNjE1IDg4NEw2MzMgODcxTDY0NSA4NTlMNjYxIDgzNEw2NjcgODE3TDY3MCA4MDFMNjY5IDc2NUw2NjEgNzM2TDY0NiA3MTBMNjMzIDY5Nkw2MTUgNjgyTDU5MyA2NzBMNTU5IDY1OEw1MzAgNjUyTDQ5MSA2NDhaTTIzOSA5NTJMNDIwIDk1Mkw0MzkgOTU5TDQ1MyA5NzJMNDU5IDk4OEw0NTkgMTAwNEw0NTUgMTAxNkw0NDMgMTAyOUw0MjkgMTAzNkw0MTUgMTAzOUwyNDAgMTA0MFpNMjQwIDc2NEwzOTIgNzYzTDQxNiA3NjdMNDMxIDc3NUw0NDAgNzg1TDQ0NSA3OTlMNDQ0IDgxOEw0MzggODMwTDQzMCA4MzhMNDE5IDg0NEw0MDUgODQ4TDI0MSA4NDlaTTc3MCAzOUw3NzAgNTQ3TDEyOTggNTQ3TDEyOTggMzg1TDk5NSAzODRMOTk0IDM5Wk0yMCAyMDdMNiAyNTJMMSAyODhMMSAzMjRMMyAzNDNMOSAzNzJMMjMgNDA5TDM2IDQzMkw0OSA0NTBMNjkgNDcyTDEwNCA1MDBMMTM3IDUxOUwxODUgNTM4TDIzOCA1NTFMMjc5IDU1NkwzMjUgNTU4TDM3NSA1NTVMNDAyIDU1MUw0NDAgNTQyTDQ4NCA1MjZMNTEwIDUxM0w1MzUgNDk3TDU2NCA0NzFMNTcyIDU0N0w3NDcgNTQ3TDc0NyAyNTFMMzA1IDI1MUwzMDUgMzU2TDUzMCAzNTdMNTI5IDM2M0w1MjIgMzc1TDUxMCAzODdMNTAwIDM5NEw0NjggNDA4TDQzNSA0MTVMNDE1IDQxN0wzNjEgNDE2TDM0MCA0MTNMMzA1IDQwM0wyODIgMzkyTDI2MiAzNzhMMjQ1IDM2MEwyMzIgMzM2TDIyNiAzMTBMMjI2IDI4OEwyMzEgMjYyTDI0MiAyMzdMMjUyIDIyM0wyNzEgMjA1TDI5MCAxOTNMMzEyIDE4NEwzMzIgMTc5TDM2MCAxNzZMMzkwIDE3N0w0MTYgMTgyTDQzMyAxODhMNDU4IDIwM0w0NzIgMjE4TDQ4MCAyMzRMNjkwIDIwMUw2ODggMTkwTDY4MCAxNjhMNjY5IDE0N0w2NTQgMTI3TDYzMyAxMDZMNTk4IDgxTDU3MSA2N0w1MzAgNTFMNTAxIDQzTDQ0NiAzM0w0MDAgMjlMMzM5IDI5TDMxMCAzMUwyNjYgMzdMMjI5IDQ1TDE5NiA1NUwxNTcgNzFMMTI3IDg3TDk4IDEwN0w3OSAxMjNMNTQgMTUwTDM0IDE3OVpNMTU0NyA0TDE0OTQgMTNMMTQ1NiAyNkwxNDMyIDM4TDE0MTAgNTFMMTM4NyA2OUwxMzU1IDEwMUwxMzMwIDEzNkwxMzA4IDE4MUwxMjk4IDIxNEwxMjkyIDI1MEwxMjkyIDI5OEwxMzAwIDM0NkwxMzExIDM3OUwxMzIyIDQwM0wxMzQ5IDQ0NUwxMzY4IDQ2N0wxMzg1IDQ4M0wxNDE3IDUwN0wxNDM2IDUxOEwxNDY3IDUzMkwxNDk1IDU0MUwxNTQzIDU0OUwxNTgzIDU0OUwxNjMyIDU0MUwxNjczIDUyN0wxNjk1IDUxNkwxNzI1IDQ5N0wxNzQ1IDQ4MUwxNzY4IDQ1OEwxNzgyIDQ0MUwxNzk4IDQxN0wxODA5IDM5N0wxODI2IDM1NEwxODM2IDMwMkwxODM2IDI2MkwxODMxIDIyNUwxODI1IDE5OUwxODIzIDE5N0wxODIwIDE4M0wxODA0IDE0OEwxNzc2IDEwNUwxNzM1IDY0TDE2OTYgMzhMMTY3MiAyNkwxNjM0IDEzTDE1ODEgNFpNMTYzMSAyNzlMMTY0OSAyNzlMMTY1OCAyODJMMTY2OCAyOTJMMTY4NyAzMTdMMTY5NCAzMjJMMTcxNSAzMzFMMTczMSAzNDRMMTczNiAzNTJMMTczOCAzNjVMMTczOCAzOTZMMTczNiA0MTJMMTczMSA0MjVMMTY5NyA0NTZMMTY3NCA0NzFMMTY1MiA0ODJMMTY0OCA0ODJMMTY0NiA0ODBMMTY0NyA0NTVMMTY0MCA0MzBMMTYyMSA0MDFMMTU4MCAzNTZMMTU3NSAzNDlMMTU3MSAzMzhMMTU3NCAzMDhMMTU4MSAyOTVMMTYwMiAyODVaTTE2NDkgNzBMMTY1MiA3M0wxNjUwIDc3TDE2MzggODRMMTYwOSAxMDhMMTU5OCAxMzFMMTU5MCAxNDBMMTU4MiAxNDRMMTUzOSAxNDRMMTUzMCAxNDdMMTUyMSAxNTRMMTUxNiAxNjRMMTUxNCAxOTBMMTUxOCAyMTBMMTUyOSAyMzBMMTUyOSAyMzlMMTUyMiAyNTJMMTUxNyAyNTJMMTQ5NSAyMjhMMTQ4NCAyMjBMMTQzMiAyMDZMMTQyMiAxOTZMMTQxOSAxNDlMMTQxNCAxMzVMMTQwNSAxMjRMMTQwNSAxMjFMMTQxMiAxMTNMMTQzNCA5NUwxNDYzIDc3TDE0OTggNjNMMTU0NCA1M0wxNTg1IDUzTDE2MjQgNjFaIi8+Cjwvc3ZnPgo=" alt="Global" width="43" height="26"></div>
+      <h4>Comece agora</h4>
+      <p>Copie o comando, cole no canal que vai receber o chat global e pronto.</p>
+      <form class="copy" id="copy-form">
+        <input id="copy-input" type="text" value="g.conectar" readonly aria-label="Comando para conectar">
+        <button class="btn btn-primary" type="submit" id="copy-btn">Copiar</button>
+      </form>
+    </div>
+    <div class="foot-col"><h5>Links</h5><a href="index.html#recursos">Recursos</a><a href="comandos.html">Comandos</a><a href="https://dash.globalbot.site">Painel</a><a href="estatisticas.html">Estatísticas</a></div>
+    <div class="foot-col"><h5>Informações</h5><a href="https://fluxer.gg/hDYAW1OU">Suporte</a><a href="parceiros.html">Parceiros</a><a href="https://docs.globalbot.site/privacidade">Privacidade</a><a href="https://github.com/Global-APP/global">GitHub</a></div>
+  </div>
+  <div class="foot-bottom"><span>© <span id="year">2026</span> Global</span><span>Criado por <a href="https://github.com/Global-APP/global">xMqR</a> · Apoiado financeiramente por Joao.</span></div>
+</footer>
 
-  <script src="js/common.js" defer></script>
-  <script src="js/partners-data.js" defer></script>
-  <script src="js/partners.js" defer></script>
+<button class="top" id="top" type="button" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var clamp = function (v, a, b) { return Math.min(b, Math.max(a, v)); };
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var toastEl = document.getElementById('toast');
+  var toastTimer;
+  function toast(message) {
+    toastEl.textContent = message;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 2200);
+  }
+
+  function splitText(root) {
+    var index = 0;
+    function walk(node, em) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+        if (child.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          child.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+            var outer = document.createElement('span');
+            outer.className = 'w';
+            var inner = document.createElement('span');
+            inner.className = 'wi' + (em ? ' em' : '');
+            inner.style.setProperty('--i', index++);
+            inner.textContent = part;
+            outer.appendChild(inner);
+            frag.appendChild(outer);
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1) {
+          walk(child, em || child.tagName === 'EM');
+        }
+      });
+    }
+    walk(root, false);
+    root.querySelectorAll('em').forEach(function (em) {
+      while (em.firstChild) em.parentNode.insertBefore(em.firstChild, em);
+      em.remove();
+    });
+  }
+  var I18N = {"Global — Converse globalmente": ["Global — Chat worldwide", "Global — Conversa en todo el mundo"], "Global é o bot open-source que conecta comunidades do Fluxer e do Discord em um único chat interconectado.": ["Global is the open-source bot that connects Fluxer and Discord communities in a single interconnected chat.", "Global es el bot de código abierto que conecta comunidades de Fluxer y Discord en un único chat interconectado."], "Principal": ["Main", "Principal"], "Global — início": ["Global — home", "Global — inicio"], "Idioma": ["Language", "Idioma"], "Abrir menu": ["Open menu", "Abrir menú"], "Voltar ao topo": ["Back to top", "Volver arriba"], "Comando para conectar": ["Command to connect", "Comando para conectar"], "Início": ["Home", "Inicio"], "Recursos": ["Features", "Funciones"], "Vantagens": ["Benefits", "Ventajas"], "Dúvidas": ["FAQ", "Dudas"], "Comandos": ["Commands", "Comandos"], "Painel": ["Dashboard", "Panel"], "Adicionar": ["Add", "Añadir"], "Comunidades do Fluxer e do Discord já conversam por aqui": ["Fluxer and Discord communities are already chatting here", "Comunidades de Fluxer y Discord ya conversan por aquí"], "Pronto para levar a sua <em>comunidade</em> ao mundo todo?": ["Ready to take your <em>community</em> worldwide?", "¿Listo para llevar tu <em>comunidad</em> a todo el mundo?"], "Global conecta o seu servidor a outras comunidades em um único chat, com painel web, pontes personalizadas e moderação embutida. Gratuito e de código aberto.": ["Global connects your server to other communities in a single chat, with a web dashboard, custom bridges and built-in moderation. Free and open source.", "Global conecta tu servidor con otras comunidades en un único chat, con panel web, puentes personalizados y moderación integrada. Gratis y de código abierto."], "Adicionar ao servidor": ["Add to your server", "Añadir al servidor"], "Saiba mais": ["Learn more", "Saber más"], "Comunidades que confiam no Global": ["Communities that trust Global", "Comunidades que confían en Global"], "Tudo para o seu servidor <em>conversar sem fronteiras</em>": ["Everything your server needs to <em>chat without borders</em>", "Todo para que tu servidor <em>converse sin fronteras</em>"], "Chat interconectado": ["Interconnected chat", "Chat interconectado"], "O que alguém escreve no canal conectado aparece nos outros servidores, com nome, avatar e o servidor de origem.": ["What someone writes in the connected channel shows up on the other servers, with name, avatar and the server it came from.", "Lo que alguien escribe en el canal conectado aparece en los otros servidores, con nombre, avatar y el servidor de origen."], "Pontes personalizadas": ["Custom bridges", "Puentes personalizados"], "Crie um código, chame servidores amigos e ligue os canais de vocês, entre Fluxer e Discord.": ["Create a code, invite friendly servers and link your channels, across Fluxer and Discord.", "Crea un código, invita a servidores amigos y une sus canales, entre Fluxer y Discord."], "Painel web": ["Web dashboard", "Panel web"], "Configure conexão, filtros e mensagens pelo navegador e veja quem mudou o quê no registro de alterações.": ["Set up the connection, filters and messages from your browser and see who changed what in the change log.", "Configura la conexión, los filtros y los mensajes desde el navegador y mira quién cambió qué en el registro de cambios."], "Apagou, sumiu": ["Delete once, gone everywhere", "Lo borras y desaparece"], "Apagou a mensagem original? As cópias somem de todos os servidores ao mesmo tempo.": ["Deleted the original message? The copies vanish from every server at the same time.", "¿Borraste el mensaje original? Las copias desaparecen de todos los servidores al mismo tiempo."], "Moderação embutida": ["Built-in moderation", "Moderación integrada"], "Filtros de palavrões e de links, bloqueio de conteúdo +18 e pausa quando você precisar.": ["Profanity and link filters, 18+ content blocking and a pause whenever you need it.", "Filtros de palabrotas y de enlaces, bloqueo de contenido +18 y pausa cuando la necesites."], "Fluxer e Discord": ["Fluxer and Discord", "Fluxer y Discord"], "O mesmo bot, os mesmos comandos e o mesmo chat nas duas plataformas, sem ninguém ficar de fora.": ["The same bot, the same commands and the same chat on both platforms, so nobody is left out.", "El mismo bot, los mismos comandos y el mismo chat en las dos plataformas, sin dejar a nadie fuera."], "Mensagens hoje": ["Messages today", "Mensajes hoy"], "Servidores conectados": ["Connected servers", "Servidores conectados"], "Usuários ativos": ["Active users", "Usuarios activos"], "Plataformas: Fluxer e Discord": ["Platforms: Fluxer and Discord", "Plataformas: Fluxer y Discord"], "Mas por que usar o <em>Global?</em>": ["But why use <em>Global?</em>", "Pero ¿por qué usar <em>Global?</em>"], "Sem o Global": ["Without Global", "Sin Global"], "Só quem já conhece o servidor conversa por ali": ["Only people who already know the server chat there", "Solo conversa quien ya conoce el servidor"], "Divulgar o servidor depende só de você": ["Promoting the server is all on you", "Promocionar el servidor depende solo de ti"], "Canais quietos, com pouca gente falando": ["Quiet channels with few people talking", "Canales tranquilos, con poca gente hablando"], "Amizades limitadas à mesma comunidade": ["Friendships limited to the same community", "Amistades limitadas a la misma comunidad"], "Pouco motivo para os membros voltarem todo dia": ["Little reason for members to come back every day", "Pocos motivos para que los miembros vuelvan cada día"], "Seu servidor aparece, com nome e ícone, nas conversas de outras comunidades": ["Your server shows up, with its name and icon, in other communities' chats", "Tu servidor aparece, con nombre e icono, en las conversaciones de otras comunidades"], "Mais gente descobre a sua comunidade, sem depender só de divulgação": ["More people discover your community, without relying only on promotion", "Más gente descubre tu comunidad, sin depender solo de la promoción"], "Canais movimentados o dia todo, com conversa de verdade": ["Busy channels all day, with real conversation", "Canales activos todo el día, con conversación de verdad"], "Amizades novas entre servidores do Fluxer e do Discord": ["New friendships across Fluxer and Discord servers", "Nuevas amistades entre servidores de Fluxer y Discord"], "Mais engajamento: os membros voltam para conversar": ["More engagement: members keep coming back to chat", "Más participación: los miembros vuelven para conversar"], "Divulgação": ["Promotion", "Difusión"], "Cada mensagem pode mostrar o nome e o ícone do seu servidor, apresentando a sua comunidade a quem está conversando.": ["Every message can show your server's name and icon, introducing your community to everyone in the conversation.", "Cada mensaje puede mostrar el nombre y el icono de tu servidor, presentando tu comunidad a quien está conversando."], "Seja encontrado": ["Get discovered", "Que te encuentren"], "Quem gosta da conversa descobre de onde ela veio e pode entrar para conhecer a sua comunidade.": ["People who enjoy the chat find out where it came from and can join to meet your community.", "Quien disfruta la conversación descubre de dónde viene y puede entrar a conocer tu comunidad."], "Amizades": ["Friendships", "Amistades"], "Converse com gente de outros servidores e faça amizades que vão além da sua comunidade.": ["Chat with people from other servers and make friends beyond your own community.", "Conversa con gente de otros servidores y haz amistades que van más allá de tu comunidad."], "Engajamento": ["Engagement", "Participación"], "Um chat sempre em movimento dá motivo para os membros voltarem e participarem todos os dias.": ["A chat that is always moving gives members a reason to come back and take part every day.", "Un chat siempre en movimiento da motivos a los miembros para volver y participar cada día."], "O que é o Global?": ["What is Global?", "¿Qué es Global?"], "O Global é um bot que conecta servidores do Fluxer e do Discord em um chat global. O que alguém escreve no canal conectado de um servidor aparece nos canais conectados dos outros.": ["Global is a bot that connects Fluxer and Discord servers in one global chat. What someone writes in a server's connected channel shows up in the other servers' connected channels.", "Global es un bot que conecta servidores de Fluxer y Discord en un chat global. Lo que alguien escribe en el canal conectado de un servidor aparece en los canales conectados de los demás."], "Como conecto o meu servidor?": ["How do I connect my server?", "¿Cómo conecto mi servidor?"], "Adicione o bot ao servidor, vá até o canal que vai receber o chat global e use <code>g.conectar</code> no Fluxer ou <code>/conectar</code> no Discord. Quem usa o comando precisa da permissão Gerenciar Canais. Também dá para conectar pelo <a href=\"\">painel</a>.": ["Add the bot to your server, go to the channel that will receive the global chat and use <code>g.conectar</code> on Fluxer or <code>/conectar</code> on Discord. Whoever runs the command needs the Manage Channels permission. You can also connect from the <a href=\"\">dashboard</a>.", "Añade el bot al servidor, ve al canal que recibirá el chat global y usa <code>g.conectar</code> en Fluxer o <code>/conectar</code> en Discord. Quien use el comando necesita el permiso Gestionar Canales. También puedes conectar desde el <a href=\"\">panel</a>."], "Que permissões o bot precisa?": ["What permissions does the bot need?", "¿Qué permisos necesita el bot?"], "Ler e enviar mensagens no canal conectado. Para o modo webhook, que deixa a conversa mais natural, ele também precisa da permissão Gerenciar Webhooks.": ["Read and send messages in the connected channel. For webhook mode, which makes the conversation feel more natural, it also needs the Manage Webhooks permission.", "Leer y enviar mensajes en el canal conectado. Para el modo webhook, que hace la conversación más natural, también necesita el permiso Gestionar Webhooks."], "As mensagens não chegam ao meu canal": ["Messages are not reaching my channel", "Los mensajes no llegan a mi canal"], "Confira, nesta ordem: se o canal está conectado, se o chat não está pausado, se o canal não é 18+, se o bot tem permissão de enviar mensagens no canal e se ele está online.": ["Check, in this order: that the channel is connected, that the chat is not paused, that the channel is not 18+, that the bot can send messages in the channel and that it is online.", "Revisa, en este orden: que el canal esté conectado, que el chat no esté pausado, que el canal no sea +18, que el bot tenga permiso para enviar mensajes en el canal y que esté en línea."], "O que são pontes?": ["What are bridges?", "¿Qué son los puentes?"], "Pontes são conexões privadas entre canais escolhidos, separadas do chat global. Quem cria a ponte recebe um código, e quem tem o código pode entrar.": ["Bridges are private connections between chosen channels, separate from the global chat. Whoever creates a bridge gets a code, and anyone with the code can join.", "Los puentes son conexiones privadas entre canales elegidos, separadas del chat global. Quien crea el puente recibe un código, y quien tenga el código puede unirse."], "O Global guarda as minhas mensagens?": ["Does Global store my messages?", "¿Global guarda mis mensajes?"], "O bot não guarda o conteúdo das mensagens, só retransmite. Ele mantém por 7 dias o vínculo entre a mensagem original e as cópias, para sincronizar edições e exclusões. Os detalhes estão na <a href=\"\">Política de Privacidade</a>.": ["The bot does not store message content, it only relays it. It keeps the link between the original message and its copies for 7 days, to sync edits and deletions. Details are in the <a href=\"\">Privacy Policy</a>.", "El bot no guarda el contenido de los mensajes, solo los retransmite. Mantiene durante 7 días el vínculo entre el mensaje original y las copias, para sincronizar ediciones y eliminaciones. Los detalles están en la <a href=\"\">Política de Privacidad</a>."], "Pronto para levar a sua comunidade a <em>novos horizontes?</em>": ["Ready to take your community to <em>new horizons?</em>", "¿Listo para llevar tu comunidad a <em>nuevos horizontes?</em>"], "Adicione o bot, escolha um canal e comece a conversar em minutos. Sem cartão, sem complicação.": ["Add the bot, pick a channel and start chatting in minutes. No card, no hassle.", "Añade el bot, elige un canal y empieza a conversar en minutos. Sin tarjeta, sin complicaciones."], "Comece agora": ["Get started", "Empieza ahora"], "Copie o comando, cole no canal que vai receber o chat global e pronto.": ["Copy the command, paste it in the channel that will receive the global chat and you're done.", "Copia el comando, pégalo en el canal que recibirá el chat global y listo."], "Copiar": ["Copy", "Copiar"], "Copiado ✓": ["Copied ✓", "Copiado ✓"], "Comando copiado": ["Command copied", "Comando copiado"], "Selecione e copie o comando": ["Select and copy the command", "Selecciona y copia el comando"], "Links": ["Links", "Enlaces"], "Estatísticas": ["Statistics", "Estadísticas"], "Informações": ["Information", "Información"], "Suporte": ["Support", "Soporte"], "Parceiros": ["Partners", "Socios"], "Privacidade": ["Privacy", "Privacidad"], "GitHub": ["GitHub", "GitHub"], "©": ["©", "©"], "Global": ["Global", "Global"], "Criado por <a href=\"\">xMqR</a> · Apoiado financeiramente por Joao.": ["Created by <a href=\"\">xMqR</a> · Financially supported by Joao.", "Creado por <a href=\"\">xMqR</a> · Con apoyo financiero de Joao."], "Parceiros · Global": ["Partners · Global", "Socios · Global"], "Conheça as comunidades parceiras do Global, que tal se tornar uma delas?": ["Meet Global's partner communities. Why not become one of them?", "Conoce las comunidades socias de Global. ¿Y si te conviertes en una de ellas?"], "Comunidades que <em>fazem parte</em> da rede do Global": ["Communities that are <em>part of</em> the Global network", "Comunidades que <em>forman parte</em> de la red de Global"], "Entre, converse e conheça gente nova. Estas comunidades já estão conectadas ao Global.": ["Jump in, chat and meet new people. These communities are already connected to Global.", "Entra, conversa y conoce gente nueva. Estas comunidades ya están conectadas a Global."], "Entrar no servidor": ["Join the server", "Entrar al servidor"], "Falar com a gente": ["Talk to us", "Habla con nosotros"], "Quer ser parceiro?": ["Want to be a partner?", "¿Quieres ser socio?"], "Entre no servidor de suporte e fale com a gente para colocar a sua comunidade aqui.": ["Join the support server and talk to us to get your community listed here.", "Entra al servidor de soporte y habla con nosotros para poner tu comunidad aquí."], "O Família BR é o maior servidor brasileiro do Fluxer, projetado para funcionar como um porto seguro online onde você pode conversar, fazer amizades e interagir diariamente.": ["Família BR is the biggest Brazilian server on Fluxer, designed to be an online safe haven where you can chat, make friends and hang out every day.", "Família BR es el mayor servidor brasileño de Fluxer, pensado como un puerto seguro en línea donde puedes conversar, hacer amistades e interactuar a diario."], "Gateway é uma comunidade que busca ser um ambiente acolhedor para desenvolvedores e pessoas que tem interesse em assuntos envolvendo tecnologia no geral.": ["Gateway is a community that aims to be a welcoming place for developers and anyone interested in technology in general.", "Gateway es una comunidad que busca ser un ambiente acogedor para desarrolladores y personas interesadas en la tecnología en general."], "Uma comunidade para todos que odeiam acordar cedo (ou a escola, lol) tenha a liberdade de se expressar!": ["A community for everyone who hates waking up early (or school, lol) to speak their mind freely!", "¡Una comunidad para todos los que odian madrugar (o la escuela, jaja) y quieren expresarse con libertad!"], "Conheça o primeiro servidor brasileiro de debates no Fluxer e QG do nosso movimento!": ["Meet the first Brazilian debate server on Fluxer and the HQ of our movement!", "¡Conoce el primer servidor brasileño de debates en Fluxer y el cuartel general de nuestro movimiento!"], "Seu bot multifuncional, um companheiro amigável para a sua comunidade.": ["Your multipurpose bot, a friendly companion for your community.", "Tu bot multifuncional, un compañero amigable para tu comunidad."]};
+  var LANGS = ['pt', 'en', 'es'];
+  var LANG_ATTR = { pt: 'pt-BR', en: 'en', es: 'es' };
+  var IDX = { en: 0, es: 1 };
+  var lang = 'pt';
+  var lookup = {};
+  Object.keys(I18N).forEach(function (key) { lookup[key] = I18N[key]; });
+
+  function T(pt) {
+    var entry = lookup[pt];
+    return lang === 'pt' || !entry ? pt : entry[IDX[lang]];
+  }
+
+  var HTML_SEL = '[data-split], .faq-a p, .foot-bottom > span:last-child';
+  var SKIP_SEL = '.logo, #lang, [data-stat], #year, #toast, .pname, script, style';
+  var htmlNodes = Array.prototype.slice.call(document.querySelectorAll(HTML_SEL)).map(function (el) {
+    var raw = el.innerHTML.replace(/\s+/g, ' ').trim();
+    var hrefs = [];
+    var key = raw.replace(/href="([^"]*)"/g, function (m, h) { hrefs.push(h); return 'href=""'; });
+    return { el: el, key: key, hrefs: hrefs };
+  });
+
+  var textNodes = [];
+  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  var current;
+  while ((current = walker.nextNode())) {
+    var text = current.nodeValue.trim();
+    var parent = current.parentNode;
+    if (!text || !/[A-Za-zÀ-ÿ©]/.test(text)) continue;
+    if (parent.closest(SKIP_SEL) || parent.closest(HTML_SEL)) continue;
+    textNodes.push({ node: current, key: text });
+  }
+
+  var attrNodes = [];
+  document.querySelectorAll('[aria-label]').forEach(function (el) {
+    if (el.closest('#lang-menu')) return;
+    attrNodes.push({ el: el, key: el.getAttribute('aria-label') });
+  });
+  var metaNodes = [document.querySelector('meta[name="description"]')].filter(Boolean).map(function (el) {
+    return { el: el, key: el.getAttribute('content') };
+  });
+  var titleKey = document.title;
+
+  window.__i18nMissing = [];
+
+  function swapHtml(item) {
+    var entry = lookup[item.key];
+    if (!entry) { window.__i18nMissing.push(item.key); return; }
+    var html = lang === 'pt' ? item.key : entry[IDX[lang]];
+    var n = 0;
+    item.el.innerHTML = html.replace(/href=""/g, function () { return 'href="' + item.hrefs[n++] + '"'; });
+  }
+
+  function applyText() {
+    window.__i18nMissing = [];
+    htmlNodes.forEach(swapHtml);
+    textNodes.forEach(function (item) {
+      var entry = lookup[item.key];
+      if (!entry) { window.__i18nMissing.push(item.key); return; }
+      var value = lang === 'pt' ? item.key : entry[IDX[lang]];
+      item.node.nodeValue = item.node.nodeValue.replace(/\S[\s\S]*\S|\S/, function () { return value; });
+    });
+    attrNodes.forEach(function (item) {
+      var entry = lookup[item.key];
+      if (!entry) { window.__i18nMissing.push(item.key); return; }
+      item.el.setAttribute('aria-label', lang === 'pt' ? item.key : entry[IDX[lang]]);
+    });
+    metaNodes.forEach(function (item) {
+      var entry = lookup[item.key];
+      if (entry) item.el.setAttribute('content', lang === 'pt' ? item.key : entry[IDX[lang]]);
+    });
+    if (lookup[titleKey]) document.title = lang === 'pt' ? titleKey : lookup[titleKey][IDX[lang]];
+    document.documentElement.lang = LANG_ATTR[lang];
+  }
+
+  var langBox = document.getElementById('lang');
+  var langBtn = document.getElementById('lang-btn');
+  var langCur = document.getElementById('lang-cur');
+  var langOptions = Array.prototype.slice.call(document.querySelectorAll('#lang-menu [data-lang]'));
+
+  function setMenu(open) {
+    langBox.classList.toggle('open', open);
+    langBtn.setAttribute('aria-expanded', String(open));
+  }
+
+  function applyLang(next, initial) {
+    if (LANGS.indexOf(next) < 0) next = 'pt';
+    lang = next;
+    applyText();
+    langCur.textContent = next.toUpperCase();
+    langOptions.forEach(function (o) { o.setAttribute('aria-selected', String(o.dataset.lang === next)); });
+    if (initial) return;
+    htmlNodes.forEach(function (item) {
+      if (!item.el.hasAttribute('data-split')) return;
+      splitText(item.el);
+      item.el.classList.remove('in');
+      void item.el.offsetWidth;
+      item.el.classList.add('in');
+    });
+    try { localStorage.setItem('global-lang', next); } catch (err) {}
+  }
+
+  langBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    setMenu(!langBox.classList.contains('open'));
+  });
+  langOptions.forEach(function (o) {
+    o.addEventListener('click', function () {
+      applyLang(o.dataset.lang, false);
+      setMenu(false);
+    });
+  });
+  document.addEventListener('click', function (e) { if (!langBox.contains(e.target)) setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+  var saved = null;
+  try { saved = localStorage.getItem('global-lang'); } catch (err) {}
+  if (!saved) {
+    var nav2 = (navigator.language || 'pt').slice(0, 2).toLowerCase();
+    saved = nav2 === 'es' || nav2 === 'en' ? nav2 : 'pt';
+  }
+  if (saved !== 'pt') applyLang(saved, true);
+  document.querySelectorAll('[data-split]').forEach(splitText);
+
+  var targets = document.querySelectorAll('[data-reveal],[data-split]');
+  if (reduce || !('IntersectionObserver' in window)) {
+    targets.forEach(function (n) { n.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+    targets.forEach(function (n) { io.observe(n); });
+  }
+
+  var nav = document.getElementById('nav');
+  var navLinks = document.getElementById('nav-links');
+  var indicator = document.getElementById('nav-ind');
+  var toggle = document.getElementById('nav-toggle');
+  var anchors = Array.prototype.slice.call(navLinks.querySelectorAll('a'));
+  var activeLink = anchors.filter(function (a) { return a.classList.contains('active'); })[0] || anchors[0];
+
+  function moveIndicator(link) {
+    if (!link || getComputedStyle(indicator).display === 'none') return;
+    indicator.style.width = link.offsetWidth + 'px';
+    indicator.style.transform = 'translateX(' + link.offsetLeft + 'px)';
+    indicator.style.opacity = '1';
+  }
+  anchors.forEach(function (link) {
+    link.addEventListener('pointerenter', function () { moveIndicator(link); });
+    link.addEventListener('focus', function () { moveIndicator(link); });
+  });
+  navLinks.addEventListener('pointerleave', function () { moveIndicator(activeLink); });
+  window.addEventListener('resize', function () { moveIndicator(activeLink); });
+  window.addEventListener('load', function () { moveIndicator(activeLink); });
+
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  anchors.forEach(function (a) {
+    a.addEventListener('click', function () {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.querySelectorAll('.btn').forEach(function (button) {
+    button.addEventListener('pointerdown', function (e) {
+      var r = button.getBoundingClientRect();
+      var size = Math.max(r.width, r.height) * 2;
+      var dot = document.createElement('span');
+      dot.className = 'ripple';
+      dot.style.width = dot.style.height = size + 'px';
+      dot.style.left = (e.clientX - r.left - size / 2) + 'px';
+      dot.style.top = (e.clientY - r.top - size / 2) + 'px';
+      button.appendChild(dot);
+      dot.addEventListener('animationend', function () { dot.remove(); });
+    });
+  });
+
+  var mouse = { x: 0, y: 0, px: 0, py: 0, cx: 0, cy: 0, tx: 0, ty: 0 };
+  var cursor = document.getElementById('cursor');
+  var glows = [document.getElementById('glow'), document.getElementById('glow2')];
+
+  if (fine && !reduce) {
+    window.addEventListener('pointermove', function (e) {
+      mouse.x = e.clientX / innerWidth * 2 - 1;
+      mouse.y = e.clientY / innerHeight * 2 - 1;
+      mouse.tx = e.clientX;
+      mouse.ty = e.clientY;
+      cursor.classList.add('on');
+    });
+    document.addEventListener('pointerleave', function () { cursor.classList.remove('on'); });
+
+    document.querySelectorAll('[data-tilt]').forEach(function (card) {
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width;
+        var y = (e.clientY - r.top) / r.height;
+        card.classList.add('live');
+        card.style.setProperty('--ry', ((x - 0.5) * 10).toFixed(2) + 'deg');
+        card.style.setProperty('--rx', ((0.5 - y) * 10).toFixed(2) + 'deg');
+        card.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+        card.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+      });
+      card.addEventListener('pointerleave', function () {
+        card.classList.remove('live');
+        card.style.setProperty('--ry', '0deg');
+        card.style.setProperty('--rx', '0deg');
+      });
+    });
+
+    document.querySelectorAll('[data-magnetic]').forEach(function (button) {
+      button.addEventListener('pointermove', function (e) {
+        var r = button.getBoundingClientRect();
+        var dx = e.clientX - (r.left + r.width / 2);
+        var dy = e.clientY - (r.top + r.height / 2);
+        button.style.transform = 'translate(' + (dx * 0.2).toFixed(1) + 'px,' + (dy * 0.3).toFixed(1) + 'px)';
+      });
+      button.addEventListener('pointerleave', function () { button.style.transform = ''; });
+    });
+  }
+
+  var copyForm = document.getElementById('copy-form');
+  var copyInput = document.getElementById('copy-input');
+  var copyButton = document.getElementById('copy-btn');
+  copyForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var done = function () {
+      copyButton.firstChild.nodeValue = T('Copiado ✓');
+      toast(T('Comando copiado'));
+      setTimeout(function () { copyButton.firstChild.nodeValue = T('Copiar'); }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(copyInput.value).then(done).catch(function () {
+        copyInput.select();
+        try { document.execCommand('copy'); done(); } catch (err) { toast(T('Selecione e copie o comando')); }
+      });
+    } else {
+      copyInput.select();
+      try { document.execCommand('copy'); done(); } catch (err) { toast(T('Selecione e copie o comando')); }
+    }
+  });
+
+  var topButton = document.getElementById('top');
+  topButton.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+
+  var progress = document.getElementById('progress');
+  var last = performance.now();
+  function frame(now) {
+    requestAnimationFrame(frame);
+    var dt = Math.min((now - last) / 1000, 0.05);
+    last = now;
+    var sy = scrollY;
+    var max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    progress.style.transform = 'scaleX(' + clamp(sy / max, 0, 1).toFixed(4) + ')';
+    nav.classList.toggle('scrolled', sy > 30);
+    topButton.classList.toggle('show', sy > 900);
+
+    if (fine && !reduce) {
+      var k = 1 - Math.exp(-dt * 8);
+      mouse.cx += (mouse.tx - mouse.cx) * k;
+      mouse.cy += (mouse.ty - mouse.cy) * k;
+      cursor.style.transform = 'translate3d(' + mouse.cx.toFixed(1) + 'px,' + mouse.cy.toFixed(1) + 'px,0)';
+      var kp = 1 - Math.exp(-dt * 5);
+      mouse.px += (mouse.x - mouse.px) * kp;
+      mouse.py += (mouse.y - mouse.py) * kp;
+    }
+    if (!reduce) {
+      glows.forEach(function (glow, i) {
+        if (!glow) return;
+        var r = glow.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > innerHeight) return;
+        var sp = clamp((r.top + r.height / 2) / innerHeight, 0, 1.2);
+        glow.style.transform = 'translate3d(' + (mouse.px * 26).toFixed(1) + 'px,0,0) scale(' + (1.12 - sp * 0.14).toFixed(3) + ')';
+        glow.style.opacity = clamp(1.25 - sp * 0.35, 0.6, 1).toFixed(2);
+      });
+    }
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>

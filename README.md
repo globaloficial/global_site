@@ -31,7 +31,10 @@ O site do chat que liga o Fluxer e o Discord.
 | `index.html` | Página inicial, com a apresentação do Global |
 | `parceiros.html` | Comunidades parceiras |
 | `estatisticas.html` | Números do bot em tempo real |
+| `comandos.html` | Todos os comandos, por plataforma |
 | `docs/` | Documentação e política de privacidade |
+| `support/` | Central de suporte, FAQ e conversas com a equipe |
+| `dash/` | Painel web de configuração |
 
 </div>
 
