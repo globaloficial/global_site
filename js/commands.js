@@ -53,6 +53,8 @@ function createCommand(command, platform) {
   const prefix = PLATFORMS[platform].prefix;
 
   article.className = "command";
+  article.setAttribute("data-reveal", "up");
+  article.setAttribute("data-reveal", "up");
   article.id = `${platform}-${command.name}`;
   article.dataset.search = [command.name, ...aliases, command.description].join(" ").toLowerCase();
   article.innerHTML = `

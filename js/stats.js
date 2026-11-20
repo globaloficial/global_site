@@ -73,7 +73,6 @@ async function loadStats() {
   }
 }
 
-initSceneTilt($("#stats-stage"), $("#stats-scene"));
 loadStats();
 setInterval(() => {
   if (!document.hidden) loadStats();
