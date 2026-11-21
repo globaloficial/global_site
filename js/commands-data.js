@@ -103,6 +103,18 @@ const COMMAND_GROUPS = [
     text: "Perfil, badges, denúncias e informações do bot.",
     commands: [
       {
+        name: "verreacao",
+        aliases: ["verreação", "reacao", "reação", "inforeacao", "inforeação"],
+        description: "Mostra quem reagiu à mensagem do Global que você respondeu, com o emoji e o perfil de cada pessoa, no Fluxer e no Discord. No Discord, funciona só escrito, não como /.",
+        variables: [
+          { name: "ver", values: "ver", text: "Palavra opcional, não muda o resultado.", optional: true }
+        ],
+        examples: [
+          { args: "", note: "Responda a mensagem do Global com o comando." },
+          { args: "ver", note: "Mesmo resultado, com a palavra ver." }
+        ]
+      },
+      {
         name: "perfil",
         aliases: ["profile"],
         description: "Mostra o card de perfil, com as suas badges. Há um intervalo de 5 segundos entre usos.",

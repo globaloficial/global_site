@@ -1,4 +1,28 @@
 window.I18N_DATA = {
+"Reações espelhadas": [
+"Mirrored reactions",
+"Reacciones espejadas"
+],
+"Reaja com um emoji em uma mensagem e o Global reage igual nas cópias dos outros servidores, no Fluxer e no Discord. Responda a mensagem com o comando de reação para ver quem reagiu.": [
+"React with an emoji to a message and Global reacts the same on the copies in other servers, on Fluxer and Discord. Reply to the message with the reaction command to see who reacted.",
+"Reacciona con un emoji a un mensaje y Global reacciona igual en las copias de los otros servidores, en Fluxer y en Discord. Responde al mensaje con el comando de reacción para ver quién reaccionó."
+],
+"Mostra quem reagiu à mensagem do Global que você respondeu, com o emoji e o perfil de cada pessoa, no Fluxer e no Discord. No Discord, funciona só escrito, não como /.": [
+"Shows who reacted to the Global message you replied to, with the emoji and each person's profile, on Fluxer and Discord. On Discord it only works typed, not as /.",
+"Muestra quién reaccionó al mensaje de Global que respondiste, con el emoji y el perfil de cada persona, en Fluxer y en Discord. En Discord solo funciona escrito, no como /."
+],
+"Palavra opcional, não muda o resultado.": [
+"Optional word, it does not change the result.",
+"Palabra opcional, no cambia el resultado."
+],
+"Responda a mensagem do Global com o comando.": [
+"Reply to the Global message with the command.",
+"Responde al mensaje de Global con el comando."
+],
+"Mesmo resultado, com a palavra ver.": [
+"Same result, with the word ver.",
+"Mismo resultado, con la palabra ver."
+],
 "Ver até o 10º lugar": [
 "See up to 10th place",
 "Ver hasta el 10.º lugar"
