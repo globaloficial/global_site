@@ -12,7 +12,7 @@ const PARTNERS = [
     description: "Lar do Hory é uma comunidade que busca ser um ambiente acolhedor para desenvolvedores e pessoas que tem interesse em assuntos envolvendo tecnologia no geral.",
     invite: "https://fluxer.gg/pYcwvdjJ",
     icon: "assets/partners/hory.png",
-    banner: "assets/partners/lar-de-hory.png",
+    banner: "assets/partners/lar-de-hory-banner.png",
     accent: "#ffffff"
   },
    {
