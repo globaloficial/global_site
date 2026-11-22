@@ -20,6 +20,7 @@ const PARTNERS = [
     description: "Uma comunidade para todos que odeiam acordar cedo (ou a escola, lol) tenha a liberdade de se expressar!",
     invite: "https://fluxer.gg/5Qclag12",
     icon: "assets/partners/queremosacordartarde.webm.mp4",
+    banner: "assets/partners/queremosacordartarde-banner.webp",
     accent: "#721e58"
   },
          {
