@@ -7,11 +7,11 @@ const PARTNERS = [
     accent: "#36a124"
   },
   {
-    name: "Gateway",
-    description: "Gateway é uma comunidade que busca ser um ambiente acolhedor para desenvolvedores e pessoas que tem interesse em assuntos envolvendo tecnologia no geral.",
+    name: "Lar do Hory",
+    description: "Lar do Hory é uma comunidade que busca ser um ambiente acolhedor para desenvolvedores e pessoas que tem interesse em assuntos envolvendo tecnologia no geral.",
     invite: "https://fluxer.gg/pYcwvdjJ",
-    icon: "assets/partners/gateway.png",
-    accent: "#f8d510"
+    icon: "assets/partners/hory.png",
+    accent: "#fffff"
   },
    {
     name: "Queremos acordar tarde!",
