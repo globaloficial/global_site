@@ -4,6 +4,7 @@ const PARTNERS = [
     description: "O Família BR é o maior servidor brasileiro do Fluxer, projetado para funcionar como um porto seguro online onde você pode conversar, fazer amizades e interagir diariamente.",
     invite: "https://fluxer.gg/V73Gi4ia",
     icon: "assets/partners/familiabr.gif",
+    banner: "assets/partners/familia-br-banner.png",
     accent: "#36a124"
   },
   {
@@ -11,6 +12,7 @@ const PARTNERS = [
     description: "Lar do Hory é uma comunidade que busca ser um ambiente acolhedor para desenvolvedores e pessoas que tem interesse em assuntos envolvendo tecnologia no geral.",
     invite: "https://fluxer.gg/pYcwvdjJ",
     icon: "assets/partners/hory.png",
+    banner: "assets/partners/lar-de-hory.png",
     accent: "#ffffff"
   },
    {
@@ -21,6 +23,21 @@ const PARTNERS = [
     accent: "#721e58"
   },
          {
+    name: "Ace",
+    description: "Seu bot multifuncional, um companheiro amigável para a sua comunidade.",
+    invite: "https://fluxer.gg/MDovFpRt",
+    icon: "assets/partners/ace.gif",
+    accent: "#648de5"
+  },
+         {
+    name: "Otobank",
+    description: "Um servidor sem tópico especifico, conheça pessoas de diferentes lugares e costumes, bem ativo e receptivo aos novos membros.",
+    invite: "https://fluxer.gg/rKDXsqIh",
+    icon: "assets/partners/otobank-icon.png",
+    banner: "assets/partners/otobank-banner.png",
+    accent: "#013e7f"
+  },
+         {
     name: "Aliança Racionalista Nacional - ARN",
     description: "Conheça o primeiro servidor brasileiro de debates no Fluxer e QG do nosso movimento!",
     invite: "https://fluxer.gg/M1fsAYTA",
@@ -28,11 +45,4 @@ const PARTNERS = [
     accent: "#ffffff",
     button: "#000000"
   },
-  {
-    name: "Ace",
-    description: "Seu bot multifuncional, um companheiro amigável para a sua comunidade.",
-    invite: "https://fluxer.gg/MDovFpRt",
-    icon: "assets/partners/ace.gif",
-    accent: "#648de5"
-  }
 ];
