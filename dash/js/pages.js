@@ -89,7 +89,7 @@ function serverLink(item) {
 
 async function pageServers(view, token, team) {
   const title = team ? "Todos os servidores" : "Seus servidores";
-  const desc = team ? "Todos os servidores onde o Global está, nas duas plataformas." : "Servidores onde o Global está e você tem Administrador ou Gerenciar Canais.";
+  const desc = team ? "Todos os servidores onde o Global está, nas três plataformas." : "Servidores onde o Global está e você tem Administrador ou Gerenciar Canais.";
 
   mount(view, pageHead(title, desc), el("p", { class: "muted" }, "Carregando…"));
 
@@ -504,7 +504,7 @@ function channelSelect(canais, label) {
 async function pageBridges(view, token) {
   const { plataforma, id } = state.server.servidor;
   const base = `/dash/servidores/${plataforma}/${id}/pontes`;
-  const head = pageHead("Pontes", "Ligue canais de servidores amigos, do Fluxer ou do Discord, sem passar pelo chat global.");
+  const head = pageHead("Pontes", "Ligue canais de servidores amigos, do Fluxer, do Discord ou do Stoat, sem passar pelo chat global.");
 
   mount(view, head, el("p", { class: "muted" }, "Carregando…"));
 

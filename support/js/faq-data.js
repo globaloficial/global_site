@@ -4,11 +4,11 @@ const FAQ_GROUPS = [
     items: [
       {
         question: "O que é o Global?",
-        answer: "O Global é um bot que conecta servidores do Fluxer e do Discord em um chat global. O que alguém escreve no canal conectado de um servidor aparece nos canais conectados dos outros."
+        answer: "O Global é um bot que conecta servidores do Fluxer, do Discord e do Stoat em um chat global. O que alguém escreve no canal conectado de um servidor aparece nos canais conectados dos outros."
       },
       {
         question: "Como conecto o meu servidor?",
-        answer: "Adicione o bot ao servidor, vá até o canal que vai receber o chat global e use <code>g.conectar</code> no Fluxer ou <code>/conectar</code> no Discord. Quem usa o comando precisa da permissão Gerenciar Canais."
+        answer: "Adicione o bot ao servidor, vá até o canal que vai receber o chat global e use <code>g.conectar</code> no Fluxer e no Stoat, ou <code>/conectar</code> no Discord. Quem usa o comando precisa da permissão Gerenciar Canais."
       },
       {
         question: "Que permissões o bot precisa?",
@@ -75,7 +75,7 @@ const FAQ_GROUPS = [
       },
       {
         question: "Onde vejo todos os comandos?",
-        answer: "Na <a href=\"https://globalbot.site/comandos\">página de comandos</a>, separada por Fluxer e Discord, ou usando <code>g.ajuda</code> no próprio servidor."
+        answer: "Na <a href=\"https://globalbot.site/comandos\">página de comandos</a>, separada por Fluxer, Discord e Stoat, ou usando <code>g.ajuda</code> no próprio servidor."
       }
     ]
   }

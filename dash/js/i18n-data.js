@@ -39,9 +39,9 @@ window.I18N_DATA = {
 "Global — Chat worldwide",
 "Global — Conversa en todo el mundo"
 ],
-"Global é o bot open-source que conecta comunidades do Fluxer e do Discord em um único chat interconectado.": [
-"Global is the open-source bot that connects Fluxer and Discord communities in a single interconnected chat.",
-"Global es el bot de código abierto que conecta comunidades de Fluxer y Discord en un único chat interconectado."
+"Global é o bot open-source que conecta comunidades do Fluxer, do Discord e do Stoat em um único chat interconectado.": [
+"Global is the open-source bot that connects Fluxer, Discord and Stoat communities in a single interconnected chat.",
+"Global es el bot de código abierto que conecta comunidades de Fluxer, Discord y Stoat en un único chat interconectado."
 ],
 "Principal": [
 "Main",
@@ -95,9 +95,9 @@ window.I18N_DATA = {
 "Add",
 "Añadir"
 ],
-"Comunidades do Fluxer e do Discord já conversam por aqui": [
-"Fluxer and Discord communities are already chatting here",
-"Comunidades de Fluxer y Discord ya conversan por aquí"
+"Comunidades do Fluxer, do Discord e do Stoat já conversam por aqui": [
+"Fluxer, Discord and Stoat communities are already chatting here",
+"Comunidades de Fluxer, Discord y Stoat ya conversan por aquí"
 ],
 "Pronto para levar a sua <em>comunidade</em> ao mundo todo?": [
 "Ready to take your <em>community</em> worldwide?",
@@ -135,9 +135,9 @@ window.I18N_DATA = {
 "Custom bridges",
 "Puentes personalizados"
 ],
-"Crie um código, chame servidores amigos e ligue os canais de vocês, entre Fluxer e Discord.": [
-"Create a code, invite friendly servers and link your channels, across Fluxer and Discord.",
-"Crea un código, invita a servidores amigos y une sus canales, entre Fluxer y Discord."
+"Crie um código, chame servidores amigos e ligue os canais de vocês, entre Fluxer, Discord e Stoat.": [
+"Create a code, invite friendly servers and link your channels, across Fluxer, Discord and Stoat.",
+"Crea un código, invita a servidores amigos y une sus canales, entre Fluxer, Discord y Stoat."
 ],
 "Painel web": [
 "Web dashboard",
@@ -163,13 +163,13 @@ window.I18N_DATA = {
 "Profanity and link filters, 18+ content blocking and a pause whenever you need it.",
 "Filtros de palabrotas y de enlaces, bloqueo de contenido +18 y pausa cuando la necesites."
 ],
-"Fluxer e Discord": [
-"Fluxer and Discord",
-"Fluxer y Discord"
+"Fluxer, Discord e Stoat": [
+"Fluxer, Discord and Stoat",
+"Fluxer, Discord y Stoat"
 ],
-"O mesmo bot, os mesmos comandos e o mesmo chat nas duas plataformas, sem ninguém ficar de fora.": [
-"The same bot, the same commands and the same chat on both platforms, so nobody is left out.",
-"El mismo bot, los mismos comandos y el mismo chat en las dos plataformas, sin dejar a nadie fuera."
+"O mesmo bot, os mesmos comandos e o mesmo chat nas três plataformas, sem ninguém ficar de fora.": [
+"The same bot, the same commands and the same chat on all three platforms, so nobody is left out.",
+"El mismo bot, los mismos comandos y el mismo chat en las tres plataformas, sin dejar a nadie fuera."
 ],
 "Mensagens hoje": [
 "Messages today",
@@ -183,9 +183,9 @@ window.I18N_DATA = {
 "Active users",
 "Usuarios activos"
 ],
-"Plataformas: Fluxer e Discord": [
-"Platforms: Fluxer and Discord",
-"Plataformas: Fluxer y Discord"
+"Plataformas: Fluxer, Discord e Stoat": [
+"Platforms: Fluxer, Discord and Stoat",
+"Plataformas: Fluxer, Discord y Stoat"
 ],
 "Mas por que usar o <em>Global?</em>": [
 "But why use <em>Global?</em>",
@@ -227,9 +227,9 @@ window.I18N_DATA = {
 "Busy channels all day, with real conversation",
 "Canales activos todo el día, con conversación de verdad"
 ],
-"Amizades novas entre servidores do Fluxer e do Discord": [
-"New friendships across Fluxer and Discord servers",
-"Nuevas amistades entre servidores de Fluxer y Discord"
+"Amizades novas entre servidores do Fluxer, do Discord e do Stoat": [
+"New friendships across Fluxer, Discord and Stoat servers",
+"Nuevas amistades entre servidores de Fluxer, Discord y Stoat"
 ],
 "Mais engajamento: os membros voltam para conversar": [
 "More engagement: members keep coming back to chat",
@@ -271,15 +271,15 @@ window.I18N_DATA = {
 "What is Global?",
 "¿Qué es Global?"
 ],
-"O Global é um bot que conecta servidores do Fluxer e do Discord em um chat global. O que alguém escreve no canal conectado de um servidor aparece nos canais conectados dos outros.": [
-"Global is a bot that connects Fluxer and Discord servers in one global chat. What someone writes in a server's connected channel shows up in the other servers' connected channels.",
-"Global es un bot que conecta servidores de Fluxer y Discord en un chat global. Lo que alguien escribe en el canal conectado de un servidor aparece en los canales conectados de los demás."
+"O Global é um bot que conecta servidores do Fluxer, do Discord e do Stoat em um chat global. O que alguém escreve no canal conectado de um servidor aparece nos canais conectados dos outros.": [
+"Global is a bot that connects Fluxer, Discord and Stoat servers in one global chat. What someone writes in a server's connected channel shows up in the other servers' connected channels.",
+"Global es un bot que conecta servidores de Fluxer, Discord y Stoat en un chat global. Lo que alguien escribe en el canal conectado de un servidor aparece en los canales conectados de los demás."
 ],
 "Como conecto o meu servidor?": [
 "How do I connect my server?",
 "¿Cómo conecto mi servidor?"
 ],
-"Adicione o bot ao servidor, vá até o canal que vai receber o chat global e use <code>g.conectar</code> no Fluxer ou <code>/conectar</code> no Discord. Quem usa o comando precisa da permissão Gerenciar Canais. Também dá para conectar pelo <a href=\"\">painel</a>.": [
+"Adicione o bot ao servidor, vá até o canal que vai receber o chat global e use <code>g.conectar</code> no Fluxer e no Stoat, ou <code>/conectar</code> no Discord. Quem usa o comando precisa da permissão Gerenciar Canais. Também dá para conectar pelo <a href=\"\">painel</a>.": [
 "Add the bot to your server, go to the channel that will receive the global chat and use <code>g.conectar</code> on Fluxer or <code>/conectar</code> on Discord. Whoever runs the command needs the Manage Channels permission. You can also connect from the <a href=\"\">dashboard</a>.",
 "Añade el bot al servidor, ve al canal que recibirá el chat global y usa <code>g.conectar</code> en Fluxer o <code>/conectar</code> en Discord. Quien use el comando necesita el permiso Gestionar Canales. También puedes conectar desde el <a href=\"\">panel</a>."
 ],
@@ -543,7 +543,7 @@ window.I18N_DATA = {
 "Add word",
 "Agregar palabra"
 ],
-"Adicione o bot ao servidor, vá até o canal que vai receber o chat global e use <code>g.conectar</code> no Fluxer ou <code>/conectar</code> no Discord. Quem usa o comando precisa da permissão Gerenciar Canais.": [
+"Adicione o bot ao servidor, vá até o canal que vai receber o chat global e use <code>g.conectar</code> no Fluxer e no Stoat, ou <code>/conectar</code> no Discord. Quem usa o comando precisa da permissão Gerenciar Canais.": [
 "Add the bot to your server, go to the channel that will receive the global chat and use <code>g.conectar</code> on Fluxer or <code>/conectar</code> on Discord. Whoever runs the command needs the Manage Channels permission.",
 "Agrega el bot a tu servidor, ve al canal que recibirá el chat global y usa <code>g.conectar</code> en Fluxer o <code>/conectar</code> en Discord. Quien use el comando necesita el permiso Gestionar Canales."
 ],
@@ -595,8 +595,8 @@ window.I18N_DATA = {
 "Changes made through the dashboard show up in this log.",
 "Los cambios hechos desde el panel aparecen en este registro."
 ],
-"As pontes são conexões privadas entre canais escolhidos por quem as cria, separadas do chat global. Quem tem o código da ponte pode entrar nela, e as mensagens de um canal da ponte são retransmitidas para os outros canais da mesma ponte, no Fluxer ou no Discord. Essas mensagens passam pelos mesmos filtros e pela mesma verificação de mídia do chat global e seguem as mesmas regras de retenção da tabela acima.": [
-"Bridges are private connections between channels chosen by whoever creates them, separate from the global chat. Anyone with the bridge code can join it, and messages from a bridge channel are relayed to the other channels of the same bridge, on Fluxer or Discord. These messages go through the same filters and the same media check as the global chat and follow the same retention rules as the table above.",
+"As pontes são conexões privadas entre canais escolhidos por quem as cria, separadas do chat global. Quem tem o código da ponte pode entrar nela, e as mensagens de um canal da ponte são retransmitidas para os outros canais da mesma ponte, no Fluxer, no Discord ou no Stoat. Essas mensagens passam pelos mesmos filtros e pela mesma verificação de mídia do chat global e seguem as mesmas regras de retenção da tabela acima.": [
+"Bridges are private connections between channels chosen by whoever creates them, separate from the global chat. Anyone with the bridge code can join it, and messages from a bridge channel are relayed to the other channels of the same bridge, on Fluxer, Discord or Stoat. These messages go through the same filters and the same media check as the global chat and follow the same retention rules as the table above.",
 "Los puentes son conexiones privadas entre canales elegidos por quien los crea, separadas del chat global. Quien tenga el código del puente puede unirse a él, y los mensajes de un canal del puente se retransmiten a los otros canales del mismo puente, en Fluxer o en Discord. Estos mensajes pasan por los mismos filtros y la misma verificación de multimedia del chat global y siguen las mismas reglas de retención de la tabla anterior."
 ],
 "Assunto": [
@@ -675,16 +675,16 @@ window.I18N_DATA = {
 "Each message appears inside a card.",
 "Cada mensaje aparece dentro de una tarjeta."
 ],
-"Cada plataforma tem as próprias regras e a própria política de privacidade, que continuam valendo para quem usa o Fluxer ou o Discord. Esta política trata apenas do que o Global faz com os dados que recebe. Nos comandos, o prefixo <code>g.</code> do Fluxer corresponde aos comandos slash (<code>/</code>) do Discord.": [
-"Each platform has its own rules and its own privacy policy, which still apply to anyone using Fluxer or Discord. This policy covers only what Global does with the data it receives. In commands, Fluxer's <code>g.</code> prefix corresponds to Discord's slash commands (<code>/</code>).",
-"Cada plataforma tiene sus propias reglas y su propia política de privacidad, que siguen vigentes para quienes usan Fluxer o Discord. Esta política trata solo lo que Global hace con los datos que recibe. En los comandos, el prefijo <code>g.</code> de Fluxer corresponde a los comandos slash (<code>/</code>) de Discord."
+"Cada plataforma tem as próprias regras e a própria política de privacidade, que continuam valendo para quem usa o Fluxer ou o Discord. Esta política trata apenas do que o Global faz com os dados que recebe. Nos comandos, o prefixo <code>g.</code> do Fluxer e do Stoat corresponde aos comandos slash (<code>/</code>) do Discord.": [
+"Each platform has its own rules and its own privacy policy, which still apply to anyone using Fluxer, Discord or Stoat. This policy covers only what Global does with the data it receives. In commands, Fluxer's <code>g.</code> prefix corresponds to Discord's slash commands (<code>/</code>).",
+"Cada plataforma tiene sus propias reglas y su propia política de privacidad, que siguen vigentes para quienes usan Fluxer, Discord o Stoat. Esta política trata solo lo que Global hace con los datos que recibe. En los comandos, el prefijo <code>g.</code> de Fluxer corresponde a los comandos slash (<code>/</code>) de Discord."
 ],
 "Canais +18 não podem ser conectados, conforme a Política de Privacidade.": [
 "18+ channels can't be connected, per the Privacy Policy.",
 "Los canales +18 no se pueden conectar, según la Política de Privacidad."
 ],
-"Canais e servidores marcados como 18+ no Fluxer ou no Discord não podem ser conectados ao chat global, e as mensagens enviadas deles não são retransmitidas.": [
-"Channels and servers marked 18+ on Fluxer or Discord can't be connected to the global chat, and messages sent from them aren't relayed.",
+"Canais e servidores marcados como 18+ no Fluxer, no Discord ou no Stoat não podem ser conectados ao chat global, e as mensagens enviadas deles não são retransmitidas.": [
+"Channels and servers marked 18+ on Fluxer, Discord or Stoat can't be connected to the global chat, and messages sent from them aren't relayed.",
 "Los canales y servidores marcados como 18+ en Fluxer o en Discord no se pueden conectar al chat global, y los mensajes enviados desde ellos no se retransmiten."
 ],
 "Canais e servidores marcados como 18+ não podem ser conectados ao chat global. Verifique também se você tem a permissão Gerenciar Canais.": [
@@ -727,8 +727,8 @@ window.I18N_DATA = {
 "With the NSFW verification service described above.",
 "Con el servicio de verificación NSFW descrito arriba."
 ],
-"Com os outros servidores conectados, no Fluxer ou no Discord: apenas as mensagens do chat global, com nome, avatar e nome/ícone do servidor de origem, como o próprio chat já exige.": [
-"With the other connected servers, on Fluxer or Discord: only the global chat messages, with name, avatar and the origin server's name/icon, as the chat itself requires.",
+"Com os outros servidores conectados, no Fluxer, no Discord ou no Stoat: apenas as mensagens do chat global, com nome, avatar e nome/ícone do servidor de origem, como o próprio chat já exige.": [
+"With the other connected servers, on Fluxer, Discord or Stoat: only the global chat messages, with name, avatar and the origin server's name/icon, as the chat itself requires.",
 "Con los otros servidores conectados, en Fluxer o en Discord: solo los mensajes del chat global, con nombre, avatar y nombre/ícono del servidor de origen, como lo exige el propio chat."
 ],
 "Com quem compartilhamos": [
@@ -803,9 +803,9 @@ window.I18N_DATA = {
 "Connection paused",
 "Conexión pausada"
 ],
-"Configuração do servidor: ID do servidor, plataforma (Fluxer ou Discord), ID do canal conectado, pausa, filtros, cor, ícone, modo de envio, dados do webhook e identificadores do painel de configuração": [
-"Server configuration: server ID, platform (Fluxer or Discord), connected channel ID, pause, filters, color, icon, send mode, webhook data and configuration dashboard identifiers",
-"Configuración del servidor: ID del servidor, plataforma (Fluxer o Discord), ID del canal conectado, pausa, filtros, color, ícono, modo de envío, datos del webhook e identificadores del panel de configuración"
+"Configuração do servidor: ID do servidor, plataforma (Fluxer, Discord ou Stoat), ID do canal conectado, pausa, filtros, cor, ícone, modo de envio, dados do webhook e identificadores do painel de configuração": [
+"Server configuration: server ID, platform (Fluxer, Discord or Stoat), connected channel ID, pause, filters, color, icon, send mode, webhook data and configuration dashboard identifiers",
+"Configuración del servidor: ID del servidor, plataforma (Fluxer, Discord o Stoat), ID del canal conectado, pausa, filtros, color, ícono, modo de envío, datos del webhook e identificadores del panel de configuración"
 ],
 "Confira, nesta ordem: se o canal está conectado (<code>g.config</code> mostra o estado), se o chat não está pausado (use <code>g.retomar</code>), se o canal não é 18+, se o bot tem permissão de enviar mensagens no canal e se ele está online (<code>g.ping</code>).": [
 "Check, in this order: whether the channel is connected (<code>g.config</code> shows the status), whether the chat isn't paused (use <code>g.retomar</code>), whether the channel isn't 18+, whether the bot has permission to send messages in the channel, and whether it's online (<code>g.ping</code>).",
@@ -1243,8 +1243,8 @@ window.I18N_DATA = {
 "Turns the filter on or off. By default, both are allowed.",
 "Activa o desactiva el filtro. Por defecto, ambos están permitidos."
 ],
-"Ligue canais de servidores amigos, do Fluxer ou do Discord, sem passar pelo chat global.": [
-"Link channels from friendly servers, on Fluxer or Discord, without going through the global chat.",
+"Ligue canais de servidores amigos, do Fluxer, do Discord ou do Stoat, sem passar pelo chat global.": [
+"Link channels from friendly servers, on Fluxer, Discord or Stoat, without going through the global chat.",
 "Conecta canales de servidores amigos, de Fluxer o de Discord, sin pasar por el chat global."
 ],
 "Lista as pontes do servidor.": [
@@ -1363,9 +1363,9 @@ window.I18N_DATA = {
 "Media considered inappropriate is blocked and not relayed.",
 "El contenido multimedia considerado inapropiado se bloquea y no se retransmite."
 ],
-"Na <a href=\"\">página de comandos</a>, separada por Fluxer e Discord, ou usando <code>g.ajuda</code> no próprio servidor.": [
-"On the <a href=\"\">commands page</a>, split by Fluxer and Discord, or by using <code>g.ajuda</code> on the server itself.",
-"En la <a href=\"\">página de comandos</a>, separada por Fluxer y Discord, o usando <code>g.ajuda</code> en el propio servidor."
+"Na <a href=\"\">página de comandos</a>, separada por Fluxer, Discord e Stoat, ou usando <code>g.ajuda</code> no próprio servidor.": [
+"On the <a href=\"\">commands page</a>, split by Fluxer, Discord and Stoat, or by using <code>g.ajuda</code> on the server itself.",
+"En la <a href=\"\">página de comandos</a>, separada por Fluxer, Discord y Stoat, o usando <code>g.ajuda</code> en el propio servidor."
 ],
 "Nada por aqui ainda": [
 "Nothing here yet",
@@ -1495,19 +1495,19 @@ window.I18N_DATA = {
 "Global's numbers in real time and the ranking of the most active servers and members.",
 "Los números de Global en tiempo real y el ranking de servidores y miembros más activos."
 ],
-"O Global funciona nas duas plataformas, e os dados são tratados do mesmo jeito em ambas. No Discord, o bot recebe os mesmos tipos de dado descritos abaixo (IDs de usuário, servidor e canal, nome, avatar e o conteúdo das mensagens do canal conectado) e usa a permissão de ler o conteúdo das mensagens apenas nos canais conectados.": [
-"Global works on both platforms, and data is handled the same way on both. On Discord, the bot receives the same types of data described below (user, server and channel IDs, name, avatar and the content of messages in the connected channel) and uses the permission to read message content only in connected channels.",
-"Global funciona en las dos plataformas, y los datos se tratan de la misma manera en ambas. En Discord, el bot recibe los mismos tipos de datos descritos abajo (IDs de usuario, servidor y canal, nombre, avatar y el contenido de los mensajes del canal conectado) y usa el permiso de leer el contenido de los mensajes solo en los canales conectados."
+"O Global funciona nas três plataformas, e os dados são tratados do mesmo jeito em todas. No Discord e no Stoat, o bot recebe os mesmos tipos de dado descritos abaixo (IDs de usuário, servidor e canal, nome, avatar e o conteúdo das mensagens do canal conectado) e usa a permissão de ler o conteúdo das mensagens apenas nos canais conectados.": [
+"Global works on all three platforms, and data is handled the same way on both. On Discord, the bot receives the same types of data described below (user, server and channel IDs, name, avatar and the content of messages in the connected channel) and uses the permission to read message content only in connected channels.",
+"Global funciona en las tres plataformas, y los datos se tratan de la misma manera en ambas. En Discord, el bot recibe los mismos tipos de datos descritos abajo (IDs de usuario, servidor y canal, nombre, avatar y el contenido de los mensajes del canal conectado) y usa el permiso de leer el contenido de los mensajes solo en los canales conectados."
 ],
-"O Global é um bot do <a href=\"\" target=\"_blank\" rel=\"noopener noreferrer\">Fluxer</a> criado para o público brasileiro, que também funciona no Discord. Ele conecta comunidades em um chat global: o que alguém escreve no canal conectado de um servidor é retransmitido para os canais conectados dos outros servidores, sejam eles do Fluxer ou do Discord.": [
-"Global is a <a href=\"\" target=\"_blank\" rel=\"noopener noreferrer\">Fluxer</a> bot built for the Brazilian audience, which also works on Discord. It connects communities in a global chat: what someone writes in a server's connected channel is relayed to the connected channels of the other servers, whether they are on Fluxer or Discord.",
+"O Global é um bot do <a href=\"\" target=\"_blank\" rel=\"noopener noreferrer\">Fluxer</a> criado para o público brasileiro, que também funciona no Discord e no Stoat. Ele conecta comunidades em um chat global: o que alguém escreve no canal conectado de um servidor é retransmitido para os canais conectados dos outros servidores, sejam eles do Fluxer, do Discord ou do Stoat.": [
+"Global is a <a href=\"\" target=\"_blank\" rel=\"noopener noreferrer\">Fluxer</a> bot built for the Brazilian audience, which also works on Discord. It connects communities in a global chat: what someone writes in a server's connected channel is relayed to the connected channels of the other servers, whether they are on Fluxer, Discord or Stoat.",
 "Global es un bot de <a href=\"\" target=\"_blank\" rel=\"noopener noreferrer\">Fluxer</a> creado para el público brasileño, que también funciona en Discord. Conecta comunidades en un chat global: lo que alguien escribe en el canal conectado de un servidor se retransmite a los canales conectados de los otros servidores, ya sean de Fluxer o de Discord."
 ],
 "O banco de dados do bot fica em um servidor controlado pelo operador.": [
 "The bot's database is kept on a server controlled by the operator.",
 "La base de datos del bot está en un servidor controlado por el operador."
 ],
-"O bot lê os comandos (prefixo <code>g.</code> no Fluxer ou <code>/</code> no Discord) e as mensagens dos canais conectados. Ele não lê mensagens privadas e não processa as mensagens dos outros canais além de verificar se são comandos.": [
+"O bot lê os comandos (prefixo <code>g.</code> no Fluxer e no Stoat, ou <code>/</code> no Discord) e as mensagens dos canais conectados. Ele não lê mensagens privadas e não processa as mensagens dos outros canais além de verificar se são comandos.": [
 "The bot reads commands (prefix <code>g.</code> on Fluxer or <code>/</code> on Discord) and messages in connected channels. It does not read private messages and does not process messages in other channels beyond checking whether they are commands.",
 "El bot lee los comandos (prefijo <code>g.</code> en Fluxer o <code>/</code> en Discord) y los mensajes de los canales conectados. No lee mensajes privados y no procesa los mensajes de los otros canales más allá de verificar si son comandos."
 ],
@@ -1963,17 +1963,17 @@ window.I18N_DATA = {
 "All conversations started by users. Open one to reply or change its status.",
 "Todas las conversaciones iniciadas por los usuarios. Abre una para responder o cambiar el estado."
 ],
-"Todos os comandos do Global para Fluxer e Discord, com variáveis e exemplos.": [
-"All of Global's commands for Fluxer and Discord, with variables and examples.",
-"Todos los comandos de Global para Fluxer y Discord, con variables y ejemplos."
+"Todos os comandos do Global para Fluxer, Discord e Stoat, com variáveis e exemplos.": [
+"All of Global's commands for Fluxer, Discord and Stoat, with variables and examples.",
+"Todos los comandos de Global para Fluxer, Discord y Stoat, con variables y ejemplos."
 ],
 "Todos os servidores": [
 "All servers",
 "Todos los servidores"
 ],
-"Todos os servidores onde o Global está, nas duas plataformas.": [
-"All servers where Global is present, on both platforms.",
-"Todos los servidores donde está Global, en las dos plataformas."
+"Todos os servidores onde o Global está, nas três plataformas.": [
+"All servers where Global is present, on all three platforms.",
+"Todos los servidores donde está Global, en las tres plataformas."
 ],
 "Troca o modo de mensagens para webhook.": [
 "Switches the message mode to webhook.",

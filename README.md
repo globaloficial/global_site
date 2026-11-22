@@ -4,7 +4,7 @@
 
 # Global
 
-O site do chat que liga o Fluxer e o Discord.
+O site do chat que liga o Fluxer, o Discord e o Stoat.
 
 [![Site](https://img.shields.io/badge/site-globalbot.site-0330ef?style=flat-square&labelColor=0B0B0B)](https://globalbot.site)
 [![Bot](https://img.shields.io/badge/bot-globaloficial%2Fglobal-0330ef?style=flat-square&labelColor=0B0B0B&logo=github)](https://github.com/globaloficial/global)
@@ -12,7 +12,7 @@ O site do chat que liga o Fluxer e o Discord.
 
 <br>
 
-<img src="assets/readme/chat.png" alt="Mensagens do Fluxer e do Discord chegando no Global" width="640">
+<img src="assets/readme/chat.png" alt="Mensagens do Fluxer, do Discord e do Stoat chegando no Global" width="640">
 
 </div>
 
