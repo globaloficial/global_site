@@ -369,13 +369,7 @@ h1 em,h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-sp
 
   <section class="section psec" id="parceiros">
     <div class="wrap">
-      <div class="pgrid">
-        <article class="card pcard" data-tilt data-reveal="tilt" style="--acc:#36a124;--d:0ms"><div class="pban"></div><div class="pbody"><div class="pico"><img src="assets/partners/familiabr.gif" alt="" width="68" height="68" loading="lazy"></div><h3 class="pname">Família BR</h3><p>O Família BR é o maior servidor brasileiro do Fluxer, projetado para funcionar como um porto seguro online onde você pode conversar, fazer amizades e interagir diariamente.</p><a class="btn btn-line" href="https://fluxer.gg/V73Gi4ia" target="_blank" rel="noopener noreferrer">Entrar no servidor <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></article>
-        <article class="card pcard" data-tilt data-reveal="tilt" style="--acc:#f8d510;--d:90ms"><div class="pban"></div><div class="pbody"><div class="pico"><img src="assets/partners/hory.png" alt="" width="68" height="68" loading="lazy"></div><h3 class="pname">Lar do Hory</h3><p>Lar do Hory é uma comunidade que busca ser um ambiente acolhedor para desenvolvedores e pessoas que tem interesse em assuntos envolvendo tecnologia no geral.</p><a class="btn btn-line" href="https://fluxer.gg/pYcwvdjJ" target="_blank" rel="noopener noreferrer">Entrar no servidor <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></article>
-        <article class="card pcard" data-tilt data-reveal="tilt" style="--acc:#b3358f;--d:180ms"><div class="pban"></div><div class="pbody"><div class="pico"><video src="assets/partners/queremosacordartarde.webm.mp4" autoplay loop muted playsinline></video></div><h3 class="pname">Queremos acordar tarde!</h3><p>Uma comunidade para todos que odeiam acordar cedo (ou a escola, lol) tenha a liberdade de se expressar!</p><a class="btn btn-line" href="https://fluxer.gg/5Qclag12" target="_blank" rel="noopener noreferrer">Entrar no servidor <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></article>
-        <article class="card pcard" data-tilt data-reveal="tilt" style="--acc:#d9d9e0;--d:0ms"><div class="pban"></div><div class="pbody"><div class="pico"><img src="assets/partners/arn.png" alt="" width="68" height="68" loading="lazy"></div><h3 class="pname">Aliança Racionalista Nacional - ARN</h3><p>Conheça o primeiro servidor brasileiro de debates no Fluxer e QG do nosso movimento!</p><a class="btn btn-line" href="https://fluxer.gg/M1fsAYTA" target="_blank" rel="noopener noreferrer">Entrar no servidor <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></article>
-        <article class="card pcard" data-tilt data-reveal="tilt" style="--acc:#648de5;--d:90ms"><div class="pban"></div><div class="pbody"><div class="pico"><img src="assets/partners/ace.gif" alt="" width="68" height="68" loading="lazy"></div><h3 class="pname">Ace</h3><p>Seu bot multifuncional, um companheiro amigável para a sua comunidade.</p><a class="btn btn-line" href="https://fluxer.gg/MDovFpRt" target="_blank" rel="noopener noreferrer">Entrar no servidor <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></article>
-        <article class="card pcard join" data-tilt data-reveal="tilt" style="--d:180ms"><div class="pban"></div><div class="pbody"><div class="pico"><b>+</b></div><h3>Quer ser parceiro?</h3><p>Entre no servidor de suporte e fale com a gente para colocar a sua comunidade aqui.</p><a class="btn btn-primary" href="https://fluxer.gg/hDYAW1OU" target="_blank" rel="noopener noreferrer">Falar com a gente <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></article>
+      <div class="pgrid" id="pgrid">
       </div>
     </div>
   </section>
@@ -411,6 +405,50 @@ h1 em,h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-sp
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="js/i18n-data.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/partners-data.js"></script>
+<script>
+(function () {
+  var JOIN = {
+    name: "Quer ser parceiro?",
+    description: "Entre no servidor de suporte e fale com a gente para colocar a sua comunidade aqui.",
+    invite: "https://fluxer.gg/hDYAW1OU",
+    label: "Falar com a gente"
+  };
+  var ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+
+  function esc(value) {
+    return String(value).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function iconHtml(partner) {
+    if (!partner.icon) return "<b>+</b>";
+    if (/\.(mp4|webm)$/i.test(partner.icon)) return '<video src="' + esc(partner.icon) + '" autoplay loop muted playsinline></video>';
+    return '<img src="' + esc(partner.icon) + '" alt="" width="68" height="68" loading="lazy">';
+  }
+
+  function card(partner, index, isJoin) {
+    var el = document.createElement("article");
+    el.className = "card pcard" + (isJoin ? " join" : "");
+    el.setAttribute("data-tilt", "");
+    el.setAttribute("data-reveal", "tilt");
+    el.style.setProperty("--d", (index % 3) * 90 + "ms");
+    if (!isJoin && /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(partner.accent || "")) el.style.setProperty("--acc", partner.accent);
+    el.innerHTML =
+      '<div class="pban"></div><div class="pbody"><div class="pico">' + iconHtml(isJoin ? {} : partner) + "</div>" +
+      '<h3 class="pname">' + esc(partner.name) + "</h3><p>" + esc(partner.description) + "</p>" +
+      '<a class="btn ' + (isJoin ? "btn-primary" : "btn-line") + '" href="' + esc(partner.invite) + '" target="_blank" rel="noopener noreferrer">' +
+      esc(partner.label || "Entrar no servidor") + " " + ARROW + "</a></div>";
+    return el;
+  }
+
+  var grid = document.getElementById("pgrid");
+  PARTNERS.concat([JOIN]).forEach(function (partner, i, all) {
+    grid.appendChild(card(partner, i, i === all.length - 1));
+  });
+})();
+</script>
 <script>
 (function () {
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
