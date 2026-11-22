@@ -280,7 +280,7 @@ h1 em,h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-sp
 .pcard{--acc:var(--brand-2);display:flex;flex-direction:column;padding:0;min-height:300px}
 .pcard::before{background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--acc) 32%,transparent),transparent 58%)}
 .pcard:hover{border-color:color-mix(in srgb,var(--acc) 55%,transparent)}
-.pban{height:78px;background:linear-gradient(135deg,color-mix(in srgb,var(--acc) 55%,#000),color-mix(in srgb,var(--acc) 12%,transparent));border-bottom:1px solid var(--line);transition:filter .4s ease}
+.pban{height:110px;background:linear-gradient(135deg,color-mix(in srgb,var(--acc) 55%,#000),color-mix(in srgb,var(--acc) 12%,transparent));background-size:cover;background-position:center;border-bottom:1px solid var(--line);transition:filter .4s ease}
 .pcard:hover .pban{filter:saturate(1.4) brightness(1.15)}
 .pbody{position:relative;display:flex;flex-direction:column;flex:1;padding:0 24px 24px}
 .pico{width:68px;height:68px;margin-top:-34px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#0e0e12;border:3px solid #0e0e12;box-shadow:0 0 0 1px color-mix(in srgb,var(--acc) 60%,transparent),0 10px 30px -10px var(--acc);transition:transform .5s var(--ease)}
@@ -435,8 +435,9 @@ h1 em,h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-sp
     el.setAttribute("data-reveal", "tilt");
     el.style.setProperty("--d", (index % 3) * 90 + "ms");
     if (!isJoin && /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(partner.accent || "")) el.style.setProperty("--acc", partner.accent);
+    var banner = !isJoin && partner.banner ? ' style="background-image:linear-gradient(180deg,transparent 55%,rgba(14,14,18,.55)),url(\'' + esc(partner.banner) + '\')"' : "";
     el.innerHTML =
-      '<div class="pban"></div><div class="pbody"><div class="pico">' + iconHtml(isJoin ? {} : partner) + "</div>" +
+      '<div class="pban"' + banner + '></div><div class="pbody"><div class="pico">' + iconHtml(isJoin ? {} : partner) + "</div>" +
       '<h3 class="pname">' + esc(partner.name) + "</h3><p>" + esc(partner.description) + "</p>" +
       '<a class="btn ' + (isJoin ? "btn-primary" : "btn-line") + '" href="' + esc(partner.invite) + '" target="_blank" rel="noopener noreferrer">' +
       esc(partner.label || "Entrar no servidor") + " " + ARROW + "</a></div>";
