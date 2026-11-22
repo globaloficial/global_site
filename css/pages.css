@@ -48,7 +48,7 @@
 .snippet:hover{border-color:rgba(142,166,255,.55);transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(3,48,239,.8)}
 .snippet:active{transform:scale(.98)}
 .snippet__text{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;color:var(--ink);min-width:0;overflow-wrap:anywhere}
-.snippet--fluxer .snippet__text{gap:0}
+.snippet--fluxer .snippet__text,.snippet--stoat .snippet__text{gap:0}
 .snippet__text i{font-style:normal;color:var(--soft)}
 .chip{padding:3px 9px;border-radius:7px;font-size:12.5px;font-weight:600}
 .chip--command{background:rgba(3,48,239,.28);color:var(--pale)}

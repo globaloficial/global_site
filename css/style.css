@@ -2240,6 +2240,6 @@ h2,
   }
 }
 
-.snippet--fluxer .snippet__text {
+.snippet--fluxer .snippet__text, .snippet--stoat .snippet__text {
   display: block;
 }

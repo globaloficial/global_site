@@ -38,6 +38,7 @@ const COMMAND_GROUPS = [
       {
         name: "atualizar",
         aliases: ["refresh", "tentar"],
+        platforms: ["fluxer", "discord"],
         permission: PERMISSION,
         description: "Tenta criar o webhook de novo neste canal, sem esperar a pausa de 1 hora. Se funcionar, as mensagens voltam na hora. Funciona na Conexão Global e na Conexão Privada, no Fluxer e no Discord, e também como /atualizar.",
         variables: [],
@@ -51,13 +52,15 @@ const COMMAND_GROUPS = [
         variables: [
           { name: "modo", values: "embed | webhook", text: "Como as mensagens chegam ao canal. O webhook deixa a conversa mais natural e exige a permissão Gerenciar Webhooks." },
           { name: "servidor", values: "mostrar | ocultar", text: "Mostra ou oculta o nome do servidor nas mensagens enviadas daqui." },
-          { name: "perfil", values: "mostrar | ocultar", text: "Mostra ou oculta o link do perfil nas mensagens enviadas daqui." }
+          { name: "perfil", values: "mostrar | ocultar", text: "Mostra ou oculta o link do perfil nas mensagens enviadas daqui." },
+          { name: "recebidas", values: "mostrar | ocultar", text: "Mostra ou oculta o nome do servidor e o link do perfil nas mensagens que chegam no seu canal, para deixar cada mensagem mais limpa." }
         ],
         examples: [
           { args: "", note: "Mostra o estado atual." },
           { args: "modo webhook", note: "Troca o modo de mensagens para webhook." },
           { args: "servidor ocultar", note: "Esconde o nome do servidor." },
-          { args: "perfil mostrar", note: "Exibe o link do perfil." }
+          { args: "perfil mostrar", note: "Exibe o link do perfil." },
+          { args: "recebidas ocultar", note: "Esconde a info dos outros servidores nas mensagens que chegam aqui." }
         ]
       },
       {
@@ -105,7 +108,7 @@ const COMMAND_GROUPS = [
       {
         name: "verreacao",
         aliases: ["verreação", "reacao", "reação", "inforeacao", "inforeação"],
-        description: "Mostra quem reagiu à mensagem do Global que você respondeu, com o emoji e o perfil de cada pessoa, no Fluxer e no Discord. No Discord, funciona só escrito, não como /.",
+        description: "Mostra quem reagiu à mensagem do Global que você respondeu, com o emoji e o perfil de cada pessoa, no Fluxer, no Discord e no Stoat. No Discord, funciona só escrito, não como /.",
         variables: [
           { name: "ver", values: "ver", text: "Palavra opcional, não muda o resultado.", optional: true }
         ],
@@ -142,7 +145,7 @@ const COMMAND_GROUPS = [
       {
         name: "report",
         aliases: ["denunciar"],
-        platforms: ["fluxer"],
+        platforms: ["fluxer", "stoat"],
         description: "Denuncia uma mensagem do chat global. Responda à mensagem com o comando, e a denúncia é revisada por uma pessoa. Há um intervalo de 30 segundos entre usos.",
         variables: [
           { name: "motivo", values: "texto livre, até 300 caracteres", text: "Por que a mensagem está sendo denunciada.", optional: true }
@@ -183,5 +186,10 @@ const PLATFORMS = {
     label: "Discord",
     prefix: "/",
     note: "No Discord, os comandos são slash. Todos têm o campo opcional argumentos, onde você escreve as variáveis. O report não existe como slash, use a versão do Fluxer."
+  },
+  stoat: {
+    label: "Stoat",
+    prefix: "g.",
+    note: "No Stoat, os comandos começam com o prefixo g. e as variáveis vêm logo depois do nome. Os painéis do config e do automod funcionam por reação, e o atualizar não existe por lá."
   }
 };

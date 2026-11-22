@@ -7,6 +7,7 @@ const FIELD_LABELS = {
   filtrarLinks: "Filtro de links",
   ocultarServidor: "Ocultar nome do servidor",
   ocultarPerfil: "Ocultar link do perfil",
+  ocultarInfoRecebida: "Ocultar info dos outros servidores",
   mostrarIcone: "Ícone do servidor (embed)",
   modoEnvio: "Modo de envio",
   cor: "Cor das mensagens"
@@ -283,6 +284,12 @@ function pageMessages(view) {
         description: "Remove o link “Ver perfil” das mensagens.",
         checked: config.ocultarPerfil,
         onChange: (value) => saveServer({ ocultarPerfil: value })
+      }),
+      switchRow({
+        title: "Ocultar info dos outros servidores",
+        description: "Remove o nome do servidor e o “Ver perfil” das mensagens que chegam aqui, deixando cada mensagem mais limpa.",
+        checked: config.ocultarInfoRecebida,
+        onChange: (value) => saveServer({ ocultarInfoRecebida: value })
       }),
       switchRow({
         title: "Mostrar ícone do servidor",

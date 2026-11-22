@@ -2230,5 +2230,21 @@ window.I18N_DATA = {
 "Últimas alterações": [
 "Latest changes",
 "Últimos cambios"
+],
+"Mostra quem reagiu à mensagem do Global que você respondeu, com o emoji e o perfil de cada pessoa, no Fluxer, no Discord e no Stoat. No Discord, funciona só escrito, não como /.": [
+"Shows who reacted to the Global message you replied to, with the emoji and each person's profile, on Fluxer, Discord and Stoat. On Discord it only works typed, not as /.",
+"Muestra quién reaccionó al mensaje de Global que respondiste, con el emoji y el perfil de cada persona, en Fluxer, Discord y Stoat. En Discord solo funciona escrito, no como /."
+],
+"Mostra ou oculta o nome do servidor e o link do perfil nas mensagens que chegam no seu canal, para deixar cada mensagem mais limpa.": [
+"Shows or hides the server name and profile link on messages arriving in your channel, to keep each message cleaner.",
+"Muestra u oculta el nombre del servidor y el enlace del perfil en los mensajes que llegan a tu canal, para dejar cada mensaje más limpio."
+],
+"Esconde a info dos outros servidores nas mensagens que chegam aqui.": [
+"Hides the other servers' info on messages arriving here.",
+"Oculta la info de los otros servidores en los mensajes que llegan aquí."
+],
+"No Stoat, os comandos começam com o prefixo g. e as variáveis vêm logo depois do nome. Os painéis do config e do automod funcionam por reação, e o atualizar não existe por lá.": [
+"On Stoat, commands start with the g. prefix and the variables come right after the name. The config and automod panels work through reactions, and refresh does not exist there.",
+"En Stoat, los comandos empiezan con el prefijo g. y las variables van justo después del nombre. Los paneles de config y automod funcionan por reacciones, y actualizar no existe allí."
 ]
 };

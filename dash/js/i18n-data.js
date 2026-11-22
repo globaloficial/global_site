@@ -2206,5 +2206,13 @@ window.I18N_DATA = {
 "Últimas alterações": [
 "Latest changes",
 "Últimos cambios"
+],
+"Ocultar info dos outros servidores": [
+"Hide other servers' info",
+"Ocultar info de los otros servidores"
+],
+"Remove o nome do servidor e o “Ver perfil” das mensagens que chegam aqui, deixando cada mensagem mais limpa.": [
+"Removes the server name and “View profile” from messages arriving here, keeping each message cleaner.",
+"Quita el nombre del servidor y “Ver perfil” de los mensajes que llegan aquí, dejando cada mensaje más limpio."
 ]
 };

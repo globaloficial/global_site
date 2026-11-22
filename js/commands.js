@@ -1,6 +1,8 @@
 const ACTIVE_PLATFORM_KEY = "global-commands-platform";
 
-const platformOf = (command) => command.platforms ?? ["fluxer", "discord"];
+const platformOf = (command) => command.platforms ?? ["fluxer", "discord", "stoat"];
+
+const isTyped = (platform) => PLATFORMS[platform].prefix !== "/";
 
 function createSnippet(command, example, platform) {
   const button = document.createElement("button");
@@ -8,10 +10,10 @@ function createSnippet(command, example, platform) {
 
   button.type = "button";
   button.className = `snippet snippet--${platform}`;
-  button.dataset.copy = platform === "fluxer" ? `${PLATFORMS.fluxer.prefix}${typed}` : `/${command.name}`;
+  button.dataset.copy = isTyped(platform) ? `${PLATFORMS[platform].prefix}${typed}` : `/${command.name}`;
 
-  if (platform === "fluxer") {
-    button.innerHTML = `<span class="snippet__text"><i>${PLATFORMS.fluxer.prefix}</i>${escapeHtml(typed)}</span>`;
+  if (isTyped(platform)) {
+    button.innerHTML = `<span class="snippet__text"><i>${PLATFORMS[platform].prefix}</i>${escapeHtml(typed)}</span>`;
   } else {
     const option = example.args
       ? `<span class="chip chip--option">argumentos</span><span class="snippet__value">${escapeHtml(example.args)}</span>`
@@ -49,7 +51,7 @@ function createVariables(command) {
 
 function createCommand(command, platform) {
   const article = document.createElement("article");
-  const aliases = platform === "fluxer" ? (command.aliases ?? []) : [];
+  const aliases = isTyped(platform) ? (command.aliases ?? []) : [];
   const prefix = PLATFORMS[platform].prefix;
 
   article.className = "command";
