@@ -5,7 +5,7 @@ const prefersReducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matc
 const isCompact = () => matchMedia("(max-width: 960px)").matches;
 
 const LINKS = {
-  invite: "https://web.fluxer.app/oauth2/authorize?client_id=1562253521942745089&scope=bot&permissions=22527189434367169",
+  invite: "https://web.fluxer.app/oauth2/authorize?client_id=1562253521942745089&scope=bot&permissions=4503600164629568",
   support: "https://fluxer.gg/hDYAW1OU",
   github: "https://github.com/Global-APP/global",
   issues: "https://github.com/Global-APP/global/issues"

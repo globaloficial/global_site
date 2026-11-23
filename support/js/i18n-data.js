@@ -1,4 +1,136 @@
 window.I18N_DATA = {
+"Onde você quer adicionar o Global?": [
+"Where do you want to add Global?",
+"¿Dónde quieres añadir Global?"
+],
+"Escolha a plataforma do seu servidor.": [
+"Choose your server's platform.",
+"Elige la plataforma de tu servidor."
+],
+"Conecte o seu servidor ao chat global e converse em tempo real com comunidades do Fluxer, do Discord e do Stoat.": [
+"Connect your server to the global chat and talk in real time with communities from Fluxer, Discord and Stoat.",
+"Conecta tu servidor al chat global y conversa en tiempo real con comunidades de Fluxer, Discord y Stoat."
+],
+"O Global nasceu no Fluxer. Para adicionar o bot, você precisa da permissão Gerenciar Servidor.": [
+"Global was born on Fluxer. To add the bot, you need the Manage Server permission.",
+"Global nació en Fluxer. Para añadir el bot, necesitas el permiso Gestionar Servidor."
+],
+"No Discord, os comandos também existem como slash. Você precisa de Gerenciar Servidor para adicionar o bot e de Gerenciar Canais para conectar.": [
+"On Discord, commands are also available as slash commands. You need Manage Server to add the bot and Manage Channels to connect.",
+"En Discord, los comandos también existen como slash. Necesitas Gestionar Servidor para añadir el bot y Gestionar Canales para conectar."
+],
+"No Stoat, o convite abre a página do bot, onde você escolhe em qual servidor adicionar.": [
+"On Stoat, the invite opens the bot's page, where you choose which server to add it to.",
+"En Stoat, la invitación abre la página del bot, donde eliges a qué servidor añadirlo."
+],
+"Permissões necessárias": [
+"Required permissions",
+"Permisos necesarios"
+],
+"Limites": [
+"Limits",
+"Límites"
+],
+"Como conectar": [
+"How to connect",
+"Cómo conectar"
+],
+"Ver canais": [
+"View channels",
+"Ver canales"
+],
+"Enviar mensagens": [
+"Send messages",
+"Enviar mensajes"
+],
+"Gerenciar mensagens": [
+"Manage messages",
+"Gestionar mensajes"
+],
+"Incorporar links": [
+"Embed links",
+"Insertar enlaces"
+],
+"Anexar arquivos": [
+"Attach files",
+"Adjuntar archivos"
+],
+"Ver histórico de mensagens": [
+"Read message history",
+"Ver historial de mensajes"
+],
+"Adicionar reações": [
+"Add reactions",
+"Añadir reacciones"
+],
+"Usar emojis externos": [
+"Use external emojis",
+"Usar emojis externos"
+],
+"Gerenciar webhooks": [
+"Manage webhooks",
+"Gestionar webhooks"
+],
+"Inserir embeds": [
+"Embed links",
+"Insertar embeds"
+],
+"Enviar arquivos": [
+"Upload files",
+"Subir archivos"
+],
+"Reagir": [
+"React",
+"Reaccionar"
+],
+"Masquerade": [
+"Masquerade",
+"Masquerade"
+],
+"Até 10 servidores por ponte privada": [
+"Up to 10 servers per private bridge",
+"Hasta 10 servidores por puente privado"
+],
+"Um canal não participa do chat global e de uma ponte ao mesmo tempo": [
+"A channel can't be in the global chat and in a bridge at the same time",
+"Un canal no puede estar en el chat global y en un puente al mismo tiempo"
+],
+"Links, convites, spam e conteúdo NSFW são filtrados automaticamente": [
+"Links, invites, spam and NSFW content are filtered automatically",
+"Los enlaces, invitaciones, spam y contenido NSFW se filtran automáticamente"
+],
+"O envio passa por uma fila com limite por plataforma, então picos podem demorar alguns segundos": [
+"Delivery goes through a queue with a per-platform limit, so spikes may take a few seconds",
+"El envío pasa por una cola con límite por plataforma, así que los picos pueden tardar unos segundos"
+],
+"Adicione o bot ao seu servidor": [
+"Add the bot to your server",
+"Añade el bot a tu servidor"
+],
+"Libere as permissões acima no canal escolhido": [
+"Grant the permissions above in the chosen channel",
+"Concede los permisos de arriba en el canal elegido"
+],
+"Envie o comando abaixo nesse canal": [
+"Send the command below in that channel",
+"Envía el comando de abajo en ese canal"
+],
+"Adicionar ao Fluxer": [
+"Add to Fluxer",
+"Añadir a Fluxer"
+],
+"Adicionar ao Discord": [
+"Add to Discord",
+"Añadir a Discord"
+],
+"Adicionar ao Stoat": [
+"Add to Stoat",
+"Añadir a Stoat"
+],
+"Voltar": [
+"Back",
+"Volver"
+],
 "Ver até o 10º lugar": [
 "See up to 10th place",
 "Ver hasta el 10.º lugar"
