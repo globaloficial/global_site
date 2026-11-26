@@ -1,30 +1,40 @@
 <div align="center">
 
-<a href="https://globalbot.site"><img src="assets/global.png" alt="Global" width="120" height="120"></a>
+<img src="assets/readme/hero.png" alt="O site do Global no notebook, no computador, no celular e no tablet" width="860">
 
-# Global
-
-O site do chat que liga o Fluxer, o Discord e o Stoat.
+<br>
+<br>
 
 [![Site](https://img.shields.io/badge/site-globalbot.site-0330ef?style=flat-square&labelColor=0B0B0B)](https://globalbot.site)
 [![Bot](https://img.shields.io/badge/bot-globaloficial%2Fglobal-0330ef?style=flat-square&labelColor=0B0B0B&logo=github)](https://github.com/globaloficial/global)
 [![Vercel](https://img.shields.io/badge/Vercel-hospedagem-0330ef?style=flat-square&labelColor=0B0B0B&logo=vercel&logoColor=white)](https://vercel.com)
 
+</div>
+
+---
+
+<div align="center">
+
+<picture><source media="(prefers-color-scheme: light)" srcset="assets/readme/t-sobre-light.png"><img src="assets/readme/t-sobre.png" alt="Sobre o site" height="60"></picture>
+
 <br>
 
-<img src="assets/readme/chat.png" alt="Mensagens do Fluxer, do Discord e do Stoat chegando no Global" width="640">
+Este é o site do Global, o chat que liga o Fluxer, o Discord e o Stoat.<br>
+Tem a página inicial, os parceiros, as estatísticas, os comandos, a documentação, o suporte e o painel de configuração.
+
+<br>
+
+<sub>Este repositório é só o site. O código do bot fica em <a href="https://github.com/globaloficial/global">globaloficial/global</a>.</sub>
 
 </div>
 
-<br>
-
-> Este repositório é só o site. O código do bot fica em [globaloficial/global](https://github.com/globaloficial/global).
-
-<br>
-
-<h2 align="center">O que tem aqui</h2>
+---
 
 <div align="center">
+
+<picture><source media="(prefers-color-scheme: light)" srcset="assets/readme/t-paginas-light.png"><img src="assets/readme/t-paginas.png" alt="O que tem aqui" height="60"></picture>
+
+<br>
 
 | Página | Para que serve |
 | --- | --- |
@@ -38,28 +48,30 @@ O site do chat que liga o Fluxer, o Discord e o Stoat.
 
 </div>
 
-<br>
-
-<h2 align="center">Como a mensagem chega</h2>
+---
 
 <div align="center">
-<img src="assets/readme/fluxo.png" alt="O caminho de uma mensagem pelo Global" width="760">
-</div>
+
+<picture><source media="(prefers-color-scheme: light)" srcset="assets/readme/t-estatisticas-light.png"><img src="assets/readme/t-estatisticas.png" alt="Estatísticas" height="60"></picture>
 
 <br>
 
-<h2 align="center">Estatísticas</h2>
-
-<p align="center">
 A página de estatísticas lê os números de <code>api.globalbot.site/stats</code>,<br>
 que é servida pelo próprio bot.
-</p>
+
+</div>
+
+---
+
+<div align="center">
+
+<picture><source media="(prefers-color-scheme: light)" srcset="assets/readme/t-local-light.png"><img src="assets/readme/t-local.png" alt="Rodando localmente" height="60"></picture>
 
 <br>
 
-<h2 align="center">Rodando localmente</h2>
+O site é HTML, CSS e JavaScript puro, sem etapa de build. Basta servir a pasta.
 
-<p align="center">O site é HTML, CSS e JavaScript puro, sem etapa de build. Basta servir a pasta:</p>
+</div>
 
 ```sh
 git clone https://github.com/globaloficial/global_site
@@ -67,45 +79,58 @@ cd global_site
 npx serve .
 ```
 
+---
+
+<div align="center">
+
+<picture><source media="(prefers-color-scheme: light)" srcset="assets/readme/t-parceiros-light.png"><img src="assets/readme/t-parceiros.png" alt="Parceiros" height="60"></picture>
+
 <br>
 
-<h2 align="center">Parceiros</h2>
-
-<p align="center">
 Os parceiros ficam em <code>js/partners-data.js</code> e as imagens em <code>assets/partners</code>.<br>
 Para incluir um, adicione o item na lista e coloque a imagem na pasta.
-</p>
 
-<br>
+</div>
 
-<h2 align="center">Estrutura</h2>
+---
+
+<div align="center">
+
+<picture><source media="(prefers-color-scheme: light)" srcset="assets/readme/t-estrutura-light.png"><img src="assets/readme/t-estrutura.png" alt="Estrutura" height="60"></picture>
+
+</div>
 
 ```
 global_site/
 ├── index.html
 ├── parceiros.html
 ├── estatisticas.html
+├── comandos.html
 ├── vercel.json
 ├── css/
 ├── js/
+├── dash/
 ├── docs/
+├── support/
 └── assets/
 ```
 
-<br>
-
-<h2 align="center">Cores</h2>
+---
 
 <div align="center">
 
-| Uso | Cor |
-| --- | --- |
-| Oficial | ![#0330ef](https://img.shields.io/badge/-%230330ef-0330ef?style=flat-square) |
-| Fundo | ![#0B0B0B](https://img.shields.io/badge/-%230B0B0B-0B0B0B?style=flat-square) |
-| Cartões | ![#0F0F0F](https://img.shields.io/badge/-%230F0F0F-0F0F0F?style=flat-square) |
-
-</div>
+<picture><source media="(prefers-color-scheme: light)" srcset="assets/readme/t-adicionar-light.png"><img src="assets/readme/t-adicionar.png" alt="Adicione ao seu servidor" height="60"></picture>
 
 <br>
 
-<p align="center">Criado por xMqR · Apoiado financeiramente por Joao.</p>
+<a href="https://web.fluxer.app/oauth2/authorize?client_id=1562253521942745089&scope=bot&permissions=4503600164629568"><picture><source media="(prefers-color-scheme: light)" srcset="assets/readme/c-fluxer-light.png"><img src="assets/readme/c-fluxer.png" alt="Adicionar o Global ao Fluxer" width="280"></picture></a>&nbsp;&nbsp;
+<a href="https://discord.com/oauth2/authorize?client_id=1570965038087413971&permissions=2252764571102209&integration_type=0&scope=applications.commands+bot"><picture><source media="(prefers-color-scheme: light)" srcset="assets/readme/c-discord-light.png"><img src="assets/readme/c-discord.png" alt="Adicionar o Global ao Discord" width="280"></picture></a>&nbsp;&nbsp;
+<a href="https://stoat.chat/bot/01M7ZPBRQA2YZXZMYHFF1D65P6"><picture><source media="(prefers-color-scheme: light)" srcset="assets/readme/c-stoat-light.png"><img src="assets/readme/c-stoat.png" alt="Adicionar o Global ao Stoat" width="280"></picture></a>
+
+<br>
+<br>
+
+[![Criado por](https://img.shields.io/badge/criado%20por-xMqR-0330ef?style=flat-square&labelColor=0B0B0B)](https://github.com/xMqRs)
+[![Apoio](https://img.shields.io/badge/apoio-Joao-0330ef?style=flat-square&labelColor=0B0B0B)](https://github.com/xMqRs)
+
+</div>
